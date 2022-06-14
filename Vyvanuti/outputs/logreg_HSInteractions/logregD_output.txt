@@ -1,0 +1,40 @@
+
+Call:
+glm(formula = Hosp15 ~ Immunity + AgeGr + Sex, family = binomial(link = "logit"), 
+    data = mtabD)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.1899  -0.2122  -0.1865  -0.1120   3.5659  
+
+Coefficients:
+                       Estimate Std. Error z value Pr(>|z|)    
+(Intercept)            -2.75663    0.03675 -75.013  < 2e-16 ***
+Immunityboost1_alone   -1.31051    0.08134 -16.111  < 2e-16 ***
+Immunityboost2+_alone  -0.87744    0.21516  -4.078 4.54e-05 ***
+Immunityfull1_alone    -0.19216    0.12349  -1.556  0.11969    
+Immunityfull2+_alone   -1.02610    0.03925 -26.144  < 2e-16 ***
+Immunityfull2+_inf1   -13.32330  240.44289  -0.055  0.95581    
+Immunityinf1_alone    -10.90172  103.69660  -0.105  0.91627    
+Immunityinf2+_alone    -1.65738    0.28755  -5.764 8.22e-09 ***
+Immunityinf2+_boost1   -2.70379    1.02677  -2.633  0.00846 ** 
+Immunityinf2+_boost2+  -0.21862    1.23629  -0.177  0.85964    
+Immunityinf2+_full1    -0.97483    1.08552  -0.898  0.36917    
+Immunityinf2+_full2+   -1.68486    0.36738  -4.586 4.51e-06 ***
+Immunitypart1_alone     0.05888    0.13577   0.434  0.66453    
+AgeGr0-24              -2.28911    0.08923 -25.653  < 2e-16 ***
+AgeGr25-39             -1.05509    0.06578 -16.039  < 2e-16 ***
+AgeGr65+                2.72704    0.03942  69.174  < 2e-16 ***
+SexZ                   -0.23089    0.03459  -6.675 2.48e-11 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 35736  on 89061  degrees of freedom
+Residual deviance: 25159  on 89045  degrees of freedom
+  (334 observations deleted due to missingness)
+AIC: 25193
+
+Number of Fisher Scoring iterations: 13
+

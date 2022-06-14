@@ -1,0 +1,35 @@
+
+Call:
+glm(formula = ICU15 ~ VaccStatus + InfPrior + AgeGr + Sex, family = binomial(link = "logit"), 
+    data = mtabD)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.5348  -0.1409  -0.0713  -0.0406   4.2337  
+
+Coefficients:
+                  Estimate Std. Error z value Pr(>|z|)    
+(Intercept)       -4.02957    0.07153 -56.334  < 2e-16 ***
+VaccStatusboost1  -1.36586    0.18081  -7.554 4.21e-14 ***
+VaccStatusboost2  -1.15665    0.51105  -2.263  0.02362 *  
+VaccStatusfull1   -0.85219    0.32359  -2.634  0.00845 ** 
+VaccStatusfull2   -1.28408    0.08595 -14.941  < 2e-16 ***
+VaccStatuspart1   -0.47253    0.31205  -1.514  0.12995    
+InfPriorinf1     -10.30678  155.53346  -0.066  0.94717    
+InfPriorinf2+     -1.64275    0.58129  -2.826  0.00471 ** 
+AgeGr0-24         -3.07057    0.25836 -11.885  < 2e-16 ***
+AgeGr25-39        -1.73415    0.18055  -9.605  < 2e-16 ***
+AgeGr65+           2.15717    0.07783  27.715  < 2e-16 ***
+SexZ              -0.57762    0.07164  -8.063 7.45e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 9627.9  on 89061  degrees of freedom
+Residual deviance: 7537.5  on 89050  degrees of freedom
+  (334 observations deleted due to missingness)
+AIC: 7561.5
+
+Number of Fisher Scoring iterations: 14
+

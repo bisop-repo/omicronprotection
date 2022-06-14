@@ -1,0 +1,19 @@
+#!/bin/bash
+#Initialization
+WORKING_DIRECTORY=$(echo $PWD)
+echo 'Working directory is: '$WORKING_DIRECTORY
+
+#MASTER parameters used across all models
+INPUT_FILE='data/data06.csv' #File to be converted in Convertool
+MODEL_DATE_MAX='2021-11-20' #Upper boundary of the modeling horizon
+
+#Model estimation in batch
+./cox/cox_batch --inputfile $INPUT_FILE --modelname 'I0_plus' --ctooltype 'I' --modelformula 'IP' --modeldate $MODEL_DATE_MAX --modelage '0 650';
+./cox/cox_batch --inputfile $INPUT_FILE --modelname 'Imarch_delta' --ctooltype 'N' --modelformula 'IEJ' --modeldate $MODEL_DATE_MAX --modelage '70 80';
+./cox/cox_batch --inputfile $INPUT_FILE --modelname 'Iapril_delta' --ctooltype 'N' --modelformula 'IEJ' --modeldate $MODEL_DATE_MAX --modelage '55 69';
+./cox/cox_batch --inputfile $INPUT_FILE --modelname 'Imay_delta' --ctooltype 'N' --modelformula 'IEJ' --modeldate $MODEL_DATE_MAX --modelage '30 54';
+
+./cox/cox_batch --inputfile $INPUT_FILE --modelname 'R0_plus8W' --ctooltype 'S' --modelformula 'R' --modeldate $MODEL_DATE_MAX --modelage '0 650';
+./cox/cox_batch --inputfile $INPUT_FILE --modelname 'H0_plus' --ctooltype 'H' --modelformula 'H' --modeldate $MODEL_DATE_MAX --modelage '0 650';
+./cox/cox_batch --inputfile $INPUT_FILE --modelname 'D0_plus' --ctooltype 'D' --modelformula 'D' --modeldate $MODEL_DATE_MAX --modelage '0 650';
+echo 'Group done'   

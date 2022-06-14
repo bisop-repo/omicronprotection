@@ -1,0 +1,119 @@
+Call:
+coxph(formula = Surv(T1, T2, VariantHosp) ~ Immunity + AgeGr + 
+    Sex, data = mtab, cluster = Subject)
+
+  n= 16654530, number of events= 1962 
+
+                            coef  exp(coef)   se(coef)  robust se        z
+Immunityboost2-_alone -2.004e+00  1.348e-01  7.507e-02  7.595e-02  -26.389
+Immunityboost2+_alone -1.577e+00  2.065e-01  8.860e-02  8.894e-02  -17.736
+Immunityboost2+_inf6- -1.154e+01  9.781e-06  0.000e+00  0.000e+00     -Inf
+Immunityfull2-_alone  -5.914e-01  5.535e-01  1.275e-01  1.283e-01   -4.609
+Immunityfull2+_alone  -3.428e-01  7.097e-01  5.711e-02  5.771e-02   -5.941
+Immunityfull2+_inf6-  -2.881e+00  5.606e-02  7.083e-01  7.084e-01   -4.067
+Immunityinf6-_alone   -2.056e+00  1.280e-01  3.800e-01  3.810e-01   -5.395
+Immunityinf6-_boost2- -1.176e+01  7.798e-06  1.632e+02  4.516e-02 -260.439
+Immunityinf6-_boost2+ -1.259e+00  2.838e-01  1.001e+00  1.001e+00   -1.258
+Immunityinf6-_full2-  -1.111e+01  1.498e-05  3.169e+02  5.536e-02 -200.652
+Immunityinf6-_full2+  -2.632e+00  7.191e-02  1.001e+00  1.001e+00   -2.629
+Immunityinf6+_alone   -2.579e+00  7.584e-02  3.182e-01  3.183e-01   -8.103
+Immunityinf6+_boost2- -4.059e+00  1.726e-02  5.016e-01  5.013e-01   -8.098
+Immunityinf6+_boost2+ -3.400e+00  3.336e-02  7.085e-01  7.096e-01   -4.792
+Immunityinf6+_full2-  -3.586e+00  2.771e-02  1.001e+00  1.001e+00   -3.583
+Immunityinf6+_full2+  -2.334e+00  9.689e-02  2.457e-01  2.461e-01   -9.486
+Immunitypart_alone    -4.939e-01  6.103e-01  2.452e-01  2.453e-01   -2.014
+AgeGr0-11              2.370e-02  1.024e+00  1.555e-01  1.541e-01    0.154
+AgeGr12-15            -2.278e-01  7.963e-01  2.297e-01  2.300e-01   -0.990
+AgeGr16-17             3.458e-01  1.413e+00  2.589e-01  2.593e-01    1.334
+AgeGr18-24             4.602e-01  1.584e+00  1.738e-01  1.745e-01    2.637
+AgeGr25-29            -6.770e-02  9.345e-01  1.980e-01  1.978e-01   -0.342
+AgeGr30-34             6.236e-02  1.064e+00  1.858e-01  1.856e-01    0.336
+AgeGr35-39             9.961e-02  1.105e+00  1.841e-01  1.840e-01    0.541
+AgeGr45-49             2.811e-01  1.325e+00  1.799e-01  1.804e-01    1.558
+AgeGr50-54             5.941e-01  1.811e+00  1.774e-01  1.777e-01    3.344
+AgeGr55-59             9.656e-01  2.626e+00  1.665e-01  1.668e-01    5.788
+AgeGr60-64             1.085e+00  2.961e+00  1.656e-01  1.657e-01    6.551
+AgeGr65-69             1.709e+00  5.521e+00  1.516e-01  1.520e-01   11.241
+AgeGr70-74             2.077e+00  7.983e+00  1.486e-01  1.493e-01   13.913
+AgeGr75-79             2.835e+00  1.704e+01  1.458e-01  1.476e-01   19.215
+AgeGr80+               3.304e+00  2.723e+01  1.393e-01  1.397e-01   23.650
+SexZ                  -2.867e-01  7.507e-01  4.589e-02  4.696e-02   -6.105
+                      Pr(>|z|)    
+Immunityboost2-_alone  < 2e-16 ***
+Immunityboost2+_alone  < 2e-16 ***
+Immunityboost2+_inf6-  < 2e-16 ***
+Immunityfull2-_alone  4.04e-06 ***
+Immunityfull2+_alone  2.83e-09 ***
+Immunityfull2+_inf6-  4.75e-05 ***
+Immunityinf6-_alone   6.85e-08 ***
+Immunityinf6-_boost2-  < 2e-16 ***
+Immunityinf6-_boost2+ 0.208525    
+Immunityinf6-_full2-   < 2e-16 ***
+Immunityinf6-_full2+  0.008557 ** 
+Immunityinf6+_alone   5.34e-16 ***
+Immunityinf6+_boost2- 5.57e-16 ***
+Immunityinf6+_boost2+ 1.65e-06 ***
+Immunityinf6+_full2-  0.000340 ***
+Immunityinf6+_full2+   < 2e-16 ***
+Immunitypart_alone    0.044051 *  
+AgeGr0-11             0.877723    
+AgeGr12-15            0.321987    
+AgeGr16-17            0.182305    
+AgeGr18-24            0.008364 ** 
+AgeGr25-29            0.732128    
+AgeGr30-34            0.736856    
+AgeGr35-39            0.588340    
+AgeGr45-49            0.119306    
+AgeGr50-54            0.000827 ***
+AgeGr55-59            7.13e-09 ***
+AgeGr60-64            5.70e-11 ***
+AgeGr65-69             < 2e-16 ***
+AgeGr70-74             < 2e-16 ***
+AgeGr75-79             < 2e-16 ***
+AgeGr80+               < 2e-16 ***
+SexZ                  1.03e-09 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+                      exp(coef) exp(-coef) lower .95 upper .95
+Immunityboost2-_alone 1.348e-01  7.421e+00 1.161e-01 1.564e-01
+Immunityboost2+_alone 2.065e-01  4.843e+00 1.735e-01 2.458e-01
+Immunityboost2+_inf6- 9.781e-06  1.022e+05 9.781e-06 9.781e-06
+Immunityfull2-_alone  5.535e-01  1.807e+00 4.305e-01 7.118e-01
+Immunityfull2+_alone  7.097e-01  1.409e+00 6.338e-01 7.947e-01
+Immunityfull2+_inf6-  5.606e-02  1.784e+01 1.399e-02 2.247e-01
+Immunityinf6-_alone   1.280e-01  7.811e+00 6.067e-02 2.701e-01
+Immunityinf6-_boost2- 7.798e-06  1.282e+05 7.138e-06 8.520e-06
+Immunityinf6-_boost2+ 2.838e-01  3.523e+00 3.987e-02 2.020e+00
+Immunityinf6-_full2-  1.498e-05  6.676e+04 1.344e-05 1.670e-05
+Immunityinf6-_full2+  7.191e-02  1.391e+01 1.011e-02 5.117e-01
+Immunityinf6+_alone   7.584e-02  1.318e+01 4.065e-02 1.415e-01
+Immunityinf6+_boost2- 1.726e-02  5.794e+01 6.461e-03 4.610e-02
+Immunityinf6+_boost2+ 3.336e-02  2.998e+01 8.301e-03 1.340e-01
+Immunityinf6+_full2-  2.771e-02  3.608e+01 3.898e-03 1.971e-01
+Immunityinf6+_full2+  9.689e-02  1.032e+01 5.981e-02 1.569e-01
+Immunitypart_alone    6.103e-01  1.639e+00 3.774e-01 9.869e-01
+AgeGr0-11             1.024e+00  9.766e-01 7.571e-01 1.385e+00
+AgeGr12-15            7.963e-01  1.256e+00 5.074e-01 1.250e+00
+AgeGr16-17            1.413e+00  7.076e-01 8.501e-01 2.349e+00
+AgeGr18-24            1.584e+00  6.311e-01 1.125e+00 2.231e+00
+AgeGr25-29            9.345e-01  1.070e+00 6.342e-01 1.377e+00
+AgeGr30-34            1.064e+00  9.395e-01 7.398e-01 1.531e+00
+AgeGr35-39            1.105e+00  9.052e-01 7.702e-01 1.585e+00
+AgeGr45-49            1.325e+00  7.550e-01 9.300e-01 1.886e+00
+AgeGr50-54            1.811e+00  5.521e-01 1.279e+00 2.566e+00
+AgeGr55-59            2.626e+00  3.808e-01 1.894e+00 3.642e+00
+AgeGr60-64            2.961e+00  3.378e-01 2.140e+00 4.097e+00
+AgeGr65-69            5.521e+00  1.811e-01 4.099e+00 7.437e+00
+AgeGr70-74            7.983e+00  1.253e-01 5.958e+00 1.070e+01
+AgeGr75-79            1.704e+01  5.869e-02 1.276e+01 2.275e+01
+AgeGr80+              2.723e+01  3.673e-02 2.070e+01 3.580e+01
+SexZ                  7.507e-01  1.332e+00 6.847e-01 8.231e-01
+
+Concordance= 0.799  (se = 0.005 )
+Likelihood ratio test= 3161  on 33 df,   p=<2e-16
+Wald test            = 151480  on 33 df,   p=<2e-16
+Score (logrank) test = 4380  on 33 df,   p=<2e-16,   Robust = 1695  p=<2e-16
+
+  (Note: the likelihood ratio and score tests assume independence of
+     observations within a cluster, the Wald and robust score tests do not).

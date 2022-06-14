@@ -1,0 +1,21 @@
+ID	Eq
+I	Surv(T1,T2,Infected) ~ InfPrior + VaccStatus + Sex
+IP	Surv(T1,T2,Infected) ~ InfPrior + VaccStatus + Sex + AgeGr
+R	Surv(T1,T2,Infected) ~ InfPrior + Sex
+RP	Surv(T1,T2,Infected) ~ InfPrior + Sex + AgeGr
+H	Surv(T1,T2,Hospitalized) ~ VaccStatus + AgeGr + Sex
+D	Surv(T1,T2,DeadByCov) ~ VaccStatus + AgeGr + Sex
+IE	Surv(T1,T2,Infected) ~ VaccStatus + PDeltaInf + MDeltaInf + ADeltaInf + AgeGr + Sex
+IEJ	Surv(T1,T2,Infected) ~ VaccStatus + PDeltaInf + MDeltaInf + ADeltaInf + JDeltaInf + AgeGr + Sex
+VI	Surv(T1,T2,VariantInf) ~ VaccStatus + InfPrior + AgeGr + Sex
+VII	Surv(T1,T2,VariantInf) ~ Immunity + AgeGr + Sex
+VH	Surv(T1,T2,VariantHosp) ~  VaccStatus + InfPrior + AgeGr + Sex
+VHI	Surv(T1,T2,VariantHosp) ~ Immunity + AgeGr + Sex
+VO	Surv(T1,T2,VariantOxygen) ~ VaccStatus + InfPrior  + AgeGr + Sex
+VU	Surv(T1,T2,VariantICU) ~ VaccStatus + InfPrior  + AgeGr + Sex
+VD	Surv(T1,T2,VariantDeath) ~ VaccStatus + InfPrior  + AgeGr + Sex
+VOI	Surv(T1,T2,VariantOxygen) ~ Immunity + AgeGr + Sex
+VUI	Surv(T1,T2,VariantICU) ~ Immunity + AgeGr + Sex
+VDI	Surv(T1,T2,VariantDeath) ~ Immunity + AgeGr + Sex
+VR	Surv(T1,T2,VariantInf) ~ InfPrior + AgeGr + Sex
+

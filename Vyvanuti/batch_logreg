@@ -1,0 +1,34 @@
+INPUT_FILE=../../../bisop_bi/data/data_20220215.csv #File to be converted in Convertool
+MODEL_DATE_MAX='2022-02-15' #Upper boundary of the modeling horizon
+MODEL_NAME='logreg_test'
+CONVERTOOL_TYPE='c'
+MODEL_AGE_LIM='0 650'
+OUTPUTS_LOCATION='outputs/logreg_test'
+TEMP_DIRECTORY='logreg_temp'
+#rm data/temp/$MODEL_NAME.csv
+mkdir $TEMP_DIRECTORY
+../convertool/bin/convertool $INPUT_FILE data/temp/$MODEL_NAME.csv $MODEL_DATE_MAX $CONVERTOOL_TYPE $MODEL_AGE_LIM > $TEMP_DIRECTORY/convertool_log.txt
+
+
+R < logreg/logreg_estimation.R --vanilla --args data/temp/$MODEL_NAME.csv HI $TEMP_DIRECTORY/convertool_log.txt
+rm -r outputs/logreg_HInteractions
+mv $OUTPUTS_LOCATION outputs/logreg_HInteractions
+
+R < logreg/logreg_estimation.R --vanilla --args data/temp/$MODEL_NAME.csv OI $TEMP_DIRECTORY/convertool_log.txt
+rm -r outputs/logreg_OInteractions
+mv $OUTPUTS_LOCATION outputs/logreg_OInteractions
+
+R < logreg/logreg_estimation.R --vanilla --args data/temp/$MODEL_NAME.csv IPI $TEMP_DIRECTORY/convertool_log.txt
+rm -r outputs/logreg_IPInteractions
+mv $OUTPUTS_LOCATION outputs/logreg_IPInteractions
+
+
+
+
+rm -r  $TEMP_DIRECTORY
+
+git add outputs/*
+git commit -a --message="Run results: Logistic regressions"
+git pull --no-edit
+git push
+exit 0

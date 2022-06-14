@@ -1,0 +1,33 @@
+$user
+[1] "smid"
+
+$computer
+[1] "daman.utia.cas.cz"
+
+$arguments
+[1] "data/temp/OOmicron.csv"              
+[2] "VO"                                  
+[3] "outputs/OOmicron//convertool_log.txt"
+
+$time.start
+[1] "2022-02-17 12:35:29"
+
+$time.end
+[1] "2022-02-17 12:51:21"
+
+$model.spent
+Time difference of 15.86667 mins
+
+$model.concordance
+concordance 
+  0.8948215 
+
+$convertool.vignette
+[1] "version 21"                                                                                
+[2] "Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every"
+[3] "Omikron hospitalizations"                                                                  
+[4] "Mode varianthosp"                                                                          
+[5] "Study period: 2021-12-07 to 2022-02-13"                                                    
+[6] "Age filter: 0-650"                                                                         
+[7] "Writing to data/temp/OOmicron.csv"                                                         
+

@@ -1,0 +1,98 @@
+%% LyX 2.3.4.2 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[landscape]{article}
+\usepackage{float}
+%\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[a4paper]{geometry}
+
+\newcommand{\coxresult}[2]{\section{#2} 
+%\input{../outputs/#1/cox_output.tex}
+\begin{tabular}{ll}
+\begin{minipage}{13.2cm}
+\includegraphics[width=13cm]{../outputs/#1/cox_risks_log.jpg}
+\end{minipage}
+&
+%\subsubsection*{#1 - Ns} 
+\begin{minipage}{7cm}
+\begin{tabular}{lll}
+\input{../data/temp/#1.csv.ns.tex}
+\end{tabular}
+\end{minipage}
+\end{tabular}
+}
+
+\newcommand{\logregresult}[2]{\section{#2} 
+%\input{../outputs/#1/logreg_output.tex}
+\includegraphics[width=15cm]{../outputs/#1/logreg_risks_log.jpg}
+}
+
+
+\newcommand{\logregOresult}[2]{\section{#1} 
+%\input{../outputs/#1/logreg_output.tex}
+\includegraphics[width=15cm]{../outputs/#2/logregO_risks_log.jpg}
+}
+
+\newcommand{\logregDresult}[2]{\subsection*{#1} 
+%\input{../outputs/#1/logreg_output.tex}
+\includegraphics[width=15cm]{../outputs/#2/logregD_risks_log.jpg}
+}
+
+\begin{document}
+
+
+\title{Protection provided by covid-19 vaccines and previous infection against the Omicron variant}
+
+\author{Results of Statistical Estimation}
+
+\maketitle
+
+\newpage
+
+\coxresult{IOmicronInteractions}{Infections -- Omicron}
+
+\coxresult{IDeltaInteractions}{Infections -- Delta}
+
+\coxresult{ROmicron}{Re-infections -- Omicron}
+
+\coxresult{RDelta}{Re-infections -- Delta}
+
+\coxresult{HOmicronInteractions}{Hospitalizations -- Omicron}
+
+\coxresult{HDeltaInteractions}{Hospitalizations -- Delta}
+
+\coxresult{OOmicronInteractions}{Oxygen therapy -- Omicron}
+
+\coxresult{ODeltaInteractions}{Oxygen therapy -- Delta}
+
+\coxresult{UOmicronInteractions}{ICU therapy -- Omicron}
+
+\coxresult{UDeltaInteractions}{ICU therapy -- Delta}
+
+\coxresult{IOmicronDetail}{Infections by Vaccines - Omicron}
+
+\coxresult{IDeltaDetail}{Infections by Vaccines - Delta}
+
+\coxresult{HOmicronDetail}{Hospitalizations by Vaccines - Omicron}
+
+\coxresult{HDeltaDetail}{Hospitalizations by Vaccines - Delta}
+
+\logregresult{logreg_HInteractions}{Hospitalizaton given Infection}
+
+\logregresult{logreg_OInteractions}{Oxygen given Infection}
+
+\logregresult{logreg_IPInteractions}{ICU given Infection}
+
+\logregresult{logreg_HospOInteractions}{Oxagen given Hospitalization}
+
+\logregresult{logreg_HospIPInteractions}{ICU given Hospitalization}
+
+\end{document}
+
+
+
+
+
+
+
+\end{document}

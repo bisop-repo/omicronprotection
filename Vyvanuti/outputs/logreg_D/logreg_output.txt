@@ -1,0 +1,36 @@
+
+Call:
+glm(formula = DeathByCov30 ~ Variant + InfPrior + VaccStatus + 
+    AgeGr + Sex, family = binomial(link = "logit"), data = mtab)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.5916  -0.0510   0.0000   0.0000   4.1439  
+
+Coefficients:
+                   Estimate Std. Error z value Pr(>|z|)    
+(Intercept)        -5.29398    0.11517 -45.966  < 2e-16 ***
+VariantOmikron     -1.94065    0.23265  -8.342  < 2e-16 ***
+InfPriorinf1      -15.38845 1984.64227  -0.008  0.99381    
+InfPriorinf2+      -1.08990    0.50980  -2.138  0.03252 *  
+VaccStatusboost1   -1.67721    0.18379  -9.126  < 2e-16 ***
+VaccStatusboost2   -0.72769    0.37197  -1.956  0.05043 .  
+VaccStatusfull1    -1.03856    0.38938  -2.667  0.00765 ** 
+VaccStatusfull2    -1.01508    0.08021 -12.656  < 2e-16 ***
+VaccStatuspart1    -0.26780    0.29583  -0.905  0.36533    
+AgeGr0-24         -16.52550  222.67571  -0.074  0.94084    
+AgeGr25-39        -16.30232  258.51762  -0.063  0.94972    
+AgeGr65+            3.63988    0.11474  31.723  < 2e-16 ***
+SexZ               -0.33616    0.07245  -4.640 3.49e-06 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 10210.6  on 128873  degrees of freedom
+Residual deviance:  6231.6  on 128861  degrees of freedom
+  (269992 observations deleted due to missingness)
+AIC: 6257.6
+
+Number of Fisher Scoring iterations: 21
+

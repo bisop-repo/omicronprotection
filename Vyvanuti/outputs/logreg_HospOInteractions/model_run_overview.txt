@@ -1,0 +1,28 @@
+$user
+[1] "smid"
+
+$computer
+[1] "daman.utia.cas.cz"
+
+$arguments
+[1] "data/temp/logreg_test.csv"      "OI"                            
+[3] "logreg_temp/convertool_log.txt"
+
+$time.start
+[1] "2022-02-21 22:49:25"
+
+$time.end
+[1] "2022-02-21 22:49:28"
+
+$model.spent
+Time difference of 3 secs
+
+$convertool.vignette
+[1] "version 22"                                                                                
+[2] "Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every"
+[3] "Mode hcomparison"                                                                          
+[4] "Study period: 2021-12-07 to 2022-02-15"                                                    
+[5] "Age filter: 0-650"                                                                         
+[6] "Writing to data/temp/logreg_test.csv"                                                      
+[7] "Input ../../../bisop_bi/data/data_20220215.csv"                                            
+
