@@ -3851,7 +3851,7 @@ void oldockodata2R(string input, string output,
 
 int _main(int argc, char *argv[], bool compare = false)
 {
-    cout << "version 27" << endl;
+    cout << "version 28" << endl;
     cout << "Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every" << endl;
     if(!testrun  && argc < 5)
         throw "at least three arguments must be given";
@@ -3981,6 +3981,7 @@ int _main(int argc, char *argv[], bool compare = false)
                 ppp.fourages = true;
                 ppp.singlepartcov = true;
                 ppp.Inf1_Xtoothers  = true;
+                ppp.groupinteraccions = true;
                 if(argv[4][1] == 'h')
                     mode = ehcomparison;
                 else
