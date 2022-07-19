@@ -9,13 +9,13 @@ $arguments
 [3] "logreg_temp/convertool_log.txt"
 
 $time.start
-[1] "2022-07-19 11:45:51"
+[1] "2022-07-19 14:43:30"
 
 $time.end
-[1] "2022-07-19 11:47:58"
+[1] "2022-07-19 14:45:38"
 
 $model.spent
-Time difference of 2.116667 mins
+Time difference of 2.133333 mins
 
 $convertool.vignette
 [1] "version 24 + letters"                                                                      

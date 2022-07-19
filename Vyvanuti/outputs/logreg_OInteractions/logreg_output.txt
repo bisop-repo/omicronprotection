@@ -5,7 +5,7 @@ glm(formula = Oxygen15 ~ Variant + Immunity + AgeGr + Sex, family = binomial(lin
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
--1.0201  -0.0983  -0.0506  -0.0238   4.3755  
+-1.0201  -0.0995  -0.0506  -0.0238   4.3755  
 
 Coefficients:
                        Estimate Std. Error z value Pr(>|z|)    
@@ -15,9 +15,9 @@ Immunityboost2-_alone  -1.54063    0.07301 -21.101  < 2e-16 ***
 Immunityboost2+_alone  -1.00356    0.10955  -9.161  < 2e-16 ***
 Immunityfull2-_alone   -0.60727    0.13507  -4.496 6.92e-06 ***
 Immunityfull2+_alone   -1.05422    0.04141 -25.456  < 2e-16 ***
-Immunityinf6-_alone   -14.41263  273.55231  -0.053    0.958    
+Immunityinf6-_alone   -14.41262  273.55082  -0.053    0.958    
 Immunityinf6+_alone    -4.67751    1.00111  -4.672 2.98e-06 ***
-Immunityinteractions  -15.76236  125.11553  -0.126    0.900    
+Immunityinteractions  -15.76617  126.14944  -0.125    0.901    
 Immunitypart_alone     -0.24493    0.15823  -1.548    0.122    
 AgeGr0-24              -3.10379    0.14068 -22.063  < 2e-16 ***
 AgeGr25-39             -1.59804    0.09141 -17.482  < 2e-16 ***
@@ -28,9 +28,9 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 
 (Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 40828  on 312467  degrees of freedom
-Residual deviance: 25175  on 312454  degrees of freedom
-  (86971 observations deleted due to missingness)
+    Null deviance: 40822  on 312222  degrees of freedom
+Residual deviance: 25175  on 312209  degrees of freedom
+  (86861 observations deleted due to missingness)
 AIC: 25203
 
 Number of Fisher Scoring iterations: 19

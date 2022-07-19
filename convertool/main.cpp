@@ -1459,6 +1459,7 @@ void ockodata2R(string input, string output,
 
                  string immunity;
                  const string otherstr = "other";
+                 const string groupstr = "infpartorinter";
                  const string alonestr = "alone";
                  const string interstr = "interactions";
 
@@ -1490,7 +1491,7 @@ void ockodata2R(string input, string output,
                          else
                          {
                              if(ppp.groupall)
-                                 immunity = otherstr;
+                                 immunity = groupstr;
                              else
                                  immunity = istring + "_" + alonestr;
                          }
@@ -1532,13 +1533,18 @@ void ockodata2R(string input, string output,
                              break;
                          }
                          if(currentinfstatus == 0)
-                             immunity = vstring + "_" + alonestr;
+                         {
+                             if(ppp.groupall && partial)
+                                 immunity = groupstr;
+                             else
+                                 immunity = vstring + "_" + alonestr;
+                         }
                          else
                          {
-                           if(ppp.groupinteraccions)
+                           if(ppp.groupinteraccions && !partial)
                               immunity = interstr;
-                           else if(ppp.groupall)
-                               immunity = otherstr;
+                           else if(ppp.groupall && !partial)
+                               immunity = groupstr;
                            else
                            {
                              assert(nextvaccptr > 0);
