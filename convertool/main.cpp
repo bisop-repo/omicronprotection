@@ -251,6 +251,7 @@ struct preprocessparams
     bool Inf1_Xtoothers = false;
     
     bool groupinteraccions = false;
+    bool groupall = false;
 
     /// Inputs that should be provided
 
@@ -1487,7 +1488,12 @@ void ockodata2R(string input, string output,
                          if(currentinfstatus == 0)
                              immunity = "_noimmunity";
                          else
-                            immunity = istring + "_" + alonestr;
+                         {
+                             if(ppp.groupall)
+                                 immunity = otherstr;
+                             else
+                                 immunity = istring + "_" + alonestr;
+                         }
                      }
                      else
                      {
@@ -1531,7 +1537,9 @@ void ockodata2R(string input, string output,
                          {
                            if(ppp.groupinteraccions)
                               immunity = interstr;
-                           else 
+                           else if(ppp.groupall)
+                               immunity = otherstr;
+                           else
                            {
                              assert(nextvaccptr > 0);
                              assert(lastinfection);
@@ -3925,11 +3933,14 @@ int _main(int argc, char *argv[], bool compare = false)
                 ppp.fourages = true;
                 ppp.singlepartcov = true;
                 ppp.Inf1_Xtoothers  = true;
-                ppp.groupinteraccions = true;
                 if(argv[4][1] == 'h')
+                {
+                    ppp.groupall = true;
                     mode = ehcomparison;
+                }
                 else
                 {
+                    ppp.groupinteraccions = true;
                     mode = ecomparison;
                 }
             }

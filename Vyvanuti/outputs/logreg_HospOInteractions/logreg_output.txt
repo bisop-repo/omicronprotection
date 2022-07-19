@@ -8,29 +8,27 @@ Deviance Residuals:
 -1.7549  -1.0599   0.6947   0.9460   2.4421  
 
 Coefficients:
-                       Estimate Std. Error z value Pr(>|z|)    
-(Intercept)             0.80492    0.06352  12.673  < 2e-16 ***
-VariantOmikron         -0.81803    0.05962 -13.722  < 2e-16 ***
-Immunityboost2-_alone  -0.76347    0.10192  -7.491 6.85e-14 ***
-Immunityboost2+_alone  -0.78852    0.14316  -5.508 3.63e-08 ***
-Immunityfull2-_alone   -0.93039    0.17022  -5.466 4.61e-08 ***
-Immunityfull2+_alone   -0.57760    0.06225  -9.279  < 2e-16 ***
-Immunityinf6+_alone    11.90304  196.96771   0.060  0.95181    
-Immunityinteractions  -10.17822  196.96771  -0.052  0.95879    
-Immunitypart_alone     -0.60933    0.20846  -2.923  0.00347 ** 
-AgeGr0-24              -2.10634    0.15785 -13.344  < 2e-16 ***
-AgeGr25-39             -1.14191    0.11663  -9.791  < 2e-16 ***
-AgeGr65+                0.49368    0.06396   7.719 1.18e-14 ***
-SexZ                   -0.23282    0.05361  -4.343 1.41e-05 ***
+                      Estimate Std. Error z value Pr(>|z|)    
+(Intercept)            0.80492    0.06352  12.673  < 2e-16 ***
+VariantOmikron        -0.81803    0.05962 -13.722  < 2e-16 ***
+Immunityboost2-_alone -0.76347    0.10192  -7.491 6.85e-14 ***
+Immunityboost2+_alone -0.78852    0.14316  -5.508 3.63e-08 ***
+Immunityfull2-_alone  -0.93039    0.17022  -5.466 4.61e-08 ***
+Immunityfull2+_alone  -0.57760    0.06225  -9.279  < 2e-16 ***
+Immunitypart_alone    -0.60933    0.20846  -2.923  0.00347 ** 
+AgeGr0-24             -2.10634    0.15785 -13.344  < 2e-16 ***
+AgeGr25-39            -1.14191    0.11663  -9.791  < 2e-16 ***
+AgeGr65+               0.49368    0.06396   7.719 1.18e-14 ***
+SexZ                  -0.23282    0.05361  -4.343 1.41e-05 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 9273.2  on 6755  degrees of freedom
+    Null deviance: 9270.4  on 6753  degrees of freedom
 Residual deviance: 8188.1  on 6743  degrees of freedom
-  (1711 observations deleted due to missingness)
-AIC: 8214.1
+  (1581 observations deleted due to missingness)
+AIC: 8210.1
 
-Number of Fisher Scoring iterations: 10
+Number of Fisher Scoring iterations: 4
 
