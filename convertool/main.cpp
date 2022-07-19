@@ -3946,7 +3946,7 @@ int _main(int argc, char *argv[], bool compare = false)
                 }
                 else
                 {
-                    ppp.groupinteraccions = true;
+                    ppp.groupall = true;
                     mode = ecomparison;
                 }
             }
