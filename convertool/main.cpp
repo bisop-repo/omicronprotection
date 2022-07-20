@@ -1541,9 +1541,9 @@ void ockodata2R(string input, string output,
                          }
                          else
                          {
-                           if(ppp.groupinteraccions && !partial)
+                           if(ppp.groupinteraccions)
                               immunity = interstr;
-                           else if(ppp.groupall && !partial)
+                           else if(ppp.groupall && !partial && !(ppp.Inf1_Xtoothers && currentinfstatus == 2))
                                immunity = groupstr;
                            else
                            {
