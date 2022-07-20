@@ -1,6 +1,6 @@
 ## SMID, Martin, et al. Protection by vaccines and previous infection against the Omicron variant of SARS-CoV-2. The Journal of Infectious Diseases, 2022;, jiac161, https://doi.org/10.1093/infdis/jiac161
 
-This repo contains a software code used for delivering the aformentioned article. 
+This branch contains modifications of the original repo made for the sake of the reply to the "Letter of Concern" by Tomas furst. The change consists in modifiyng the preporcessor (main.cpp) to group the rare-event categories in the logreg analyses. The modified analyses themselves can be run by batch_logreg and batch_logreghosp.
 
  
 ### Preparation 
