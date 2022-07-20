@@ -1543,8 +1543,22 @@ void ockodata2R(string input, string output,
                          {
                            if(ppp.groupinteraccions)
                               immunity = interstr;
-                           else if(ppp.groupall && !partial && !(ppp.Inf1_Xtoothers && currentinfstatus == 2))
-                               immunity = groupstr;
+                           else if(ppp.groupall && !partial)
+                           {
+                                bool other = false;
+                                if(lastvaccstatuschangedate < lastinfection->t)
+                                 {
+                                     if(iold)
+                                        other = true;
+                                 }
+                                 else
+                                 {
+                                     if(ppp.Inf1_Xtoothers && currentinfstatus == 2)
+			                 other = true;
+                                 }                                 
+                               immunity = other ? otherstr : groupstr;
+                               
+                           }
                            else
                            {
                              assert(nextvaccptr > 0);
