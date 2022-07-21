@@ -1,4 +1,4 @@
-INPUT_FILE=../../../bisop_bi/data/data_20220215.csv #File to be converted in Convertool
+INPUT_FILE=data/data_20220215.csv #File to be converted in Convertool
 MODEL_DATE_MAX='2022-02-15' #Upper boundary of the modeling horizon
 MODEL_NAME='logreg_test'
 CONVERTOOL_TYPE='c'

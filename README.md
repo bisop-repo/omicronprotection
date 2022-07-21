@@ -13,11 +13,18 @@ mkdir temp
 cd ..
 cd convertool
 git clone https://github.com/cyberklezmer/orpp
-rm -r bin (only if bin exists)
 mkdir bin
 cd bin
 cmake .. 
+make
+cd ..
+cd ..
+cd convertool27
+mkdir bin
+cmake ..
 make 
+cd ..
+cd ..
 ```
 
 
@@ -30,8 +37,14 @@ cd Vyvanuti
 ```
 The input data have to be present at 
 ```
-../../../bisop_bi/data/data.csv'
+repository root/data/data_20220215.csv
 ```
-relatively from **Vyvanuti**. This path may be changed in the above batches. The source data file is avalable upon approval of Institute of Health information and Statistics of the Czech Republic (https://www.uzis.cz/). 
+The source data (version as of comes from 15 Feb 2022) is avalable upon approval of Institute of Health information and Statistics of the Czech Republic (https://www.uzis.cz/). 
 
 Typically each batch takes several hours. R as well as some of its packages are required (see the respective R scripts for the definite list). All resulting files for each model run can be found in **Vyvanuti/outputs/ANALYSISNAME**. 
+
+### Commit history
+
+"Project repo, ready for publication" - the version committed at the time of publication (Feb, 2022)
+
+"Adjust for different preprocessor version" - committed in July, 2022, to perfectly replicate the graphs from Suppl. Mat. 2 (this material has been produced using two different versions of the preprecessor, which the initial commit did not take into account)
