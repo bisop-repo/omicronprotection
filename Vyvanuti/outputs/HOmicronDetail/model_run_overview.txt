@@ -10,13 +10,13 @@ $arguments
 [3] "outputs/HOmicronDetail//convertool_log.txt"
 
 $time.start
-[1] "2022-02-23 01:28:01"
+[1] "2022-07-21 18:23:49"
 
 $time.end
-[1] "2022-02-23 01:46:59"
+[1] "2022-07-21 18:42:35"
 
 $model.spent
-Time difference of 18.96667 mins
+Time difference of 18.76667 mins
 
 $model.concordance
 concordance 
