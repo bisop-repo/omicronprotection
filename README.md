@@ -43,6 +43,8 @@ The source data (version as of comes from 15 Feb 2022) is avalable upon approval
 
 Typically each batch takes several hours. R as well as some of its packages are required (see the respective R scripts for the definite list). All resulting files for each model run can be found in **Vyvanuti/outputs/ANALYSISNAME**. 
 
+To create the Supplementary Material 2 (save the text preamble), compile **Vyvanuti/report/report.tex**
+
 ### Commit history
 
 "Project repo, ready for publication" - the version committed at the time of publication (Feb, 2022)

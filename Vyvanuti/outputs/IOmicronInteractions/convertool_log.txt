@@ -5,7 +5,7 @@ Mode variantinf
 Study period: 2021-12-07 to 2022-02-13
 Age filter: 0-650
 Writing to data/temp/IOmicronInteractions.csv
-Input ../../../bisop_bi/data/data_20220215.csv
+Input data/data_20220215.csv
 Importing from input, total8390834 records.
 Processing records from input, excluding inconsistend records:
 Wrong ordering of shots 
@@ -771,7 +771,7 @@ Generating 59 men of age 99
 More of gender 1 ( 351) treated then exist of age 100 (248
 Generating -103 men of age 100
 Summary:
-8390834 records in ../../../bisop_bi/data/data_20220215.csv
+8390834 records in data/data_20220215.csv
 out of which:
 8282065 records were used for the analysis
 488 records is inconsistent
