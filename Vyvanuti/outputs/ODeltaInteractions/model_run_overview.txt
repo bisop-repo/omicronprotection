@@ -10,13 +10,13 @@ $arguments
 [3] "outputs/ODeltaInteractions//convertool_log.txt"
 
 $time.start
-[1] "2022-02-23 12:23:09"
+[1] "2022-07-21 20:55:13"
 
 $time.end
-[1] "2022-02-23 12:38:46"
+[1] "2022-07-21 21:11:14"
 
 $model.spent
-Time difference of 15.61667 mins
+Time difference of 16.01667 mins
 
 $model.concordance
 concordance 
