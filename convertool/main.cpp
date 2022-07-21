@@ -250,9 +250,6 @@ struct preprocessparams
     /// no events occured for the fresh immunity)
     bool Inf1_Xtoothers = false;
 
-    bool groupinteraccions = false;
-
-
     /// Inputs that should be provided
 
     /// start of the sutedy (time 0)
@@ -563,7 +560,6 @@ void ockodata2R(string input, string output,
             "full2+_inf6-",
             "boost2+_inf6-",
             "other",
-            "interactions",
             "rare"};
 
     vector<unsigned> startcnts(lbls.size(),0);
@@ -818,14 +814,11 @@ void ockodata2R(string input, string output,
 
 
         for(unsigned j=0; j<hosps.size(); j++)
-if(1)
         {
             bool assigned = false;
 
-            int decisiondate =
-                    j == 0 && hosps.size() == 1
+            int decisiondate = j == 0 && hosps.size() == 1
                                && hosps[j].positivity != maxint
-                    && abs(hosps[j].positivity - hosps[j].date ) < ppp.infectionsgap
                     ? hosps[j].positivity : hosps[j].date;
 
             for(unsigned k=0; k<infections.size(); k++)
@@ -841,26 +834,23 @@ if(1)
                 }
             }
 
-            if(!assigned)
+            if(!assigned &&
+                   (infections.size()==0
+                     || infections[0].t > hosps[j].date + ppp.infectionsgap))
+            // tbd hospitals far later than infection....
             {
-                unsigned k=0;
-                auto iter = infections.begin();
-                for( ;k<infections.size(); k++, iter++)
-                    ;
-                if(k == 0
-                  || (k > 0 && abs(infections[k-1].t - decisiondate) > ppp.infectionsgap))
+                evariant variant = eunknownvariant;
+                if(hosps[j].date + firstdate >= discriminationtdate)
                 {
-                    if(!(k>0 && k< infections.size() && abs(infections[k-1].t - decisiondate) <= ppp.infectionsgap))
-                    { // we insert an infection
-                        infections.insert(iter,
-                           {decisiondate, eunknownvariant,ehospital,
-                            static_cast<int>(j) });
-
-                        numinfections++;
-                        assigned = true;
-                    }
-
+                    if(data(i,kat) == variantlabels[eomicron] )
+                        variant = eomicron;
+                    else if(data(i,kat) == variantlabels[edelta])
+                        variant = edelta;
                 }
+                infections.insert(infections.begin(),{hosps[j].date, variant,ehospital,
+                                                      static_cast<int>(j) });
+                numinfections++;
+                assigned = true;
             }
             if(!assigned)
             {
@@ -873,57 +863,6 @@ if(1)
                 hospitalunassigned++;
             }
         }
-else         // saving old code
-{
-    bool assigned = false;
-
-    int decisiondate =
-            j == 0 && hosps.size() == 1
-                       && hosps[j].positivity != maxint
-                        ? hosps[j].positivity : hosps[j].date;
-
-    for(unsigned k=0; k<infections.size(); k++)
-    {
-        if(abs(infections[k].t-decisiondate) < ppp.infectionsgap)
-        {
-            infections[k].hospindex = j;
-            infections[k].severity = ehospital;
-            hosps[j].variant = infections[k].variant;
-            hosps[j].infdateassigned = infections[k].t;
-            assigned = true;
-            break;
-        }
-    }
-
-    if(!assigned &&
-           (infections.size()==0
-             || infections[0].t > hosps[j].date + ppp.infectionsgap))
-    // tbd hospitals far later than infection....
-    {
-        evariant variant = eunknownvariant;
-        if(hosps[j].date + firstdate >= discriminationtdate)
-        {
-            if(data(i,kat) == variantlabels[eomicron] )
-                variant = eomicron;
-            else if(data(i,kat) == variantlabels[edelta])
-                variant = edelta;
-        }
-        infections.insert(infections.begin(),{hosps[j].date, variant,ehospital,
-                                              static_cast<int>(j) });
-        numinfections++;
-        assigned = true;
-    }
-    if(!assigned)
-    {
-        cout << i << ": date from hosp " << hosps[j].date
-             << " (" << hosps[j].positivity << ")"
-             << " unassigned to infections: ";
-        for(unsigned i=0; i<infections.size(); i++)
-             cout << infections[i].t << " ";
-        cout << endl;
-        hospitalunassigned++;
-    }
-}
 
 
         // vaccines
@@ -1517,12 +1456,12 @@ else         // saving old code
                  string immunity;
                  const string otherstr = "other";
                  const string alonestr = "alone";
-                 const string interstr = "interactions";
 
                  if(currentinfstatus == 1)
                      immunity = otherstr;
                  else
                  {
+
                      bool iold = false;
                      string istring;
                      if(currentinfstatus == 0)
@@ -1585,30 +1524,25 @@ else         // saving old code
                              immunity = vstring + "_" + alonestr;
                          else
                          {
-                             if(ppp.groupinteraccions)
-                                 immunity = interstr;
+                             assert(nextvaccptr > 0);
+                             assert(lastinfection);
+                             if(partial)
+                                 immunity = otherstr;
                              else
                              {
-                                 assert(nextvaccptr > 0);
-                                 assert(lastinfection);
-                                 if(partial)
-                                     immunity = otherstr;
+                                 if(lastvaccstatuschangedate < lastinfection->t)
+                                 {
+                                     if(iold)
+                                        immunity = otherstr;
+                                     else
+                                        immunity = vstring + "_" + istring;
+                                 }
                                  else
                                  {
-                                     if(lastvaccstatuschangedate < lastinfection->t)
-                                     {
-                                         if(iold)
-                                            immunity = otherstr;
-                                         else
-                                            immunity = vstring + "_" + istring;
-                                     }
+                                     if(ppp.Inf1_Xtoothers && currentinfstatus == 2)
+                                         immunity = otherstr;
                                      else
-                                     {
-                                         if(ppp.Inf1_Xtoothers && currentinfstatus == 2)
-                                             immunity = otherstr;
-                                         else
-                                            immunity = istring + "_" + vstring;
-                                     }
+                                        immunity = istring + "_" + vstring;
                                  }
                              }
                          }
@@ -3851,7 +3785,7 @@ void oldockodata2R(string input, string output,
 
 int _main(int argc, char *argv[], bool compare = false)
 {
-    cout << "version 27" << endl;
+    cout << "version 24" << endl;
     cout << "Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every" << endl;
     if(!testrun  && argc < 5)
         throw "at least three arguments must be given";
@@ -4047,9 +3981,7 @@ int _main(int argc, char *argv[], bool compare = false)
                     cout << "infections" << endl;
                     break;
                 case 'o':
-//                    ppp.Inf1_Xtoothers = true;
-                    ppp.groupinteraccions = true;
-//                    ppp.fourages = true;
+                    ppp.Inf1_Xtoothers = true;
                  // break missing intentinally
                 case 'h':
                     ppp.infdateashospdate = true;
@@ -4144,10 +4076,11 @@ int main(int argc, char *argv[])
             return _main(argc,argv);
         else
         {
-            throw "test mode disabled";
-/*            char *as[5] ={"foo",testfilename,"torinternal.csv",
+//            throw "test mode disabled";
+            char *as[5] ={"foo",testfilename,"torinternal.csv",
                           "2022-02-13","hd"};
         return _main(5,as,false);
+/*
 
     //        _main(5,as, true);
 
