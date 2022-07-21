@@ -10,13 +10,13 @@ $arguments
 [3] "outputs/HDeltaInteractions//convertool_log.txt"
 
 $time.start
-[1] "2022-02-23 00:00:02"
+[1] "2022-07-21 20:26:44"
 
 $time.end
-[1] "2022-02-23 00:24:34"
+[1] "2022-07-21 20:52:47"
 
 $model.spent
-Time difference of 24.53333 mins
+Time difference of 26.05 mins
 
 $model.concordance
 concordance 
