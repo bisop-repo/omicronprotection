@@ -10,20 +10,20 @@ $arguments
 [3] "outputs/HDeltaInteractions//convertool_log.txt"
 
 $time.start
-[1] "2022-07-21 20:26:44"
+[1] "2022-07-22 11:04:03"
 
 $time.end
-[1] "2022-07-21 20:52:47"
+[1] "2022-07-22 11:32:11"
 
 $model.spent
-Time difference of 26.05 mins
+Time difference of 28.13333 mins
 
 $model.concordance
 concordance 
-  0.8887215 
+  0.8849991 
 
 $convertool.vignette
-[1] "version 24"                                                                                
+[1] "version 27"                                                                                
 [2] "Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every"
 [3] "Delta hospitalizations"                                                                    
 [4] "Mode varianthosp"                                                                          
