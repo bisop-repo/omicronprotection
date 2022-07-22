@@ -41,7 +41,7 @@ repository root/data/data_20220215.csv
 ```
 The source data (version as of comes from 15 Feb 2022) is avalable upon approval of Institute of Health information and Statistics of the Czech Republic (https://www.uzis.cz/). 
 
-Typically each batch takes several hours. R as well as some of its packages are required (see the respective R scripts for the definite list). All resulting files for each model run can be found in **Vyvanuti/outputs/ANALYSISNAME**. 
+Typically each batch takes several hours and large RAM (more than 16GB) is needed. R as well as some of its packages are required (see the respective R scripts for the definite list). All resulting files for each model run can be found in **Vyvanuti/outputs/ANALYSISNAME**. 
 
 To create the Supplementary Material 2 (save the text preamble), compile **Vyvanuti/report/report.tex**
 

@@ -11,7 +11,7 @@ MODEL_DATE_MAX='2022-02-13' #Upper boundary of the modeling horizon
 
 ./cox/cox_batch --inputfile $INPUT_FILE --modelname 'IDeltaInteractions' --ctooltype 'vd' --modelformula 'VII' --modeldate $MODEL_DATE_MAX --modelage '0 650';
 
-./cox/cox_batch --inputfile $INPUT_FILE --modelname 'HDeltaInteractions' --ctooltype 'hd' --modelformula 'VHI' --modeldate $MODEL_DATE_MAX --modelage '0 650';
+./cox/cox_batch_ct27 --inputfile $INPUT_FILE --modelname 'HDeltaInteractions' --ctooltype 'hd' --modelformula 'VHI' --modeldate $MODEL_DATE_MAX --modelage '0 650';
 
 ./cox/cox_batch_ct27 --inputfile $INPUT_FILE --modelname 'ODeltaInteractions' --ctooltype 'od' --modelformula 'VOI' --modeldate $MODEL_DATE_MAX --modelage '0 650';
 
