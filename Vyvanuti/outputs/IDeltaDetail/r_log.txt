@@ -212,3 +212,108 @@ Type 'q()' to quit R.
 [1] "I can see a convertool log provided."
 [1] "The directory already exists, files will be rewritten."
 [1] "The input file has been loaded, its properties have been saved. Proceeding to Cox model."
+Call:
+coxph(formula = Surv(T1, T2, VariantInf) ~ VaccStatus + InfPrior + 
+    AgeGr + Sex, data = mtab, cluster = Subject)
+
+  n= 18087592, number of events= 89472 
+
+                       coef exp(coef)  se(coef) robust se       z Pr(>|z|)    
+VaccStatusAfull2  -1.038166  0.354103  0.105088  0.105099  -9.878  < 2e-16 ***
+VaccStatusAfull3  -0.595979  0.551023  0.025405  0.025641 -23.243  < 2e-16 ***
+VaccStatusJfull1  -0.908941  0.402951  0.033325  0.033347 -27.257  < 2e-16 ***
+VaccStatusJfull2  -0.851564  0.426747  0.044186  0.044202 -19.265  < 2e-16 ***
+VaccStatusJfull3  -0.761579  0.466929  0.036101  0.036081 -21.108  < 2e-16 ***
+VaccStatusMboost1 -2.550347  0.078055  0.064176  0.064400 -39.601  < 2e-16 ***
+VaccStatusMboost2 -2.408647  0.089937  0.333567  0.333631  -7.219 5.22e-13 ***
+VaccStatusMfull1  -1.219172  0.295475  0.097722  0.097681 -12.481  < 2e-16 ***
+VaccStatusMfull2  -1.393453  0.248217  0.087524  0.087501 -15.925  < 2e-16 ***
+VaccStatusMfull3  -1.116747  0.327343  0.028454  0.028465 -39.233  < 2e-16 ***
+VaccStatusMpart1  -1.123646  0.325092  0.097263  0.097269 -11.552  < 2e-16 ***
+VaccStatusMpart2  -1.107815  0.330280  0.353593  0.353696  -3.132  0.00174 ** 
+VaccStatusPboost1 -2.297140  0.100546  0.023751  0.024112 -95.269  < 2e-16 ***
+VaccStatusPboost2 -1.604490  0.200992  0.061362  0.061554 -26.066  < 2e-16 ***
+VaccStatusPfull1  -1.698239  0.183005  0.035801  0.035849 -47.372  < 2e-16 ***
+VaccStatusPfull2  -1.195618  0.302517  0.017500  0.017671 -67.659  < 2e-16 ***
+VaccStatusPfull3  -0.772430  0.461889  0.008846  0.008846 -87.324  < 2e-16 ***
+VaccStatusPpart1  -1.091894  0.335580  0.032658  0.032720 -33.371  < 2e-16 ***
+VaccStatusPpart2  -0.924327  0.396798  0.112641  0.112656  -8.205 2.31e-16 ***
+InfPriorinf1      -2.951565  0.052258  0.112637  0.112548 -26.225  < 2e-16 ***
+InfPriorinf2      -2.465153  0.084996  0.047950  0.047979 -51.380  < 2e-16 ***
+InfPriorinf3      -1.906621  0.148582  0.027282  0.027304 -69.829  < 2e-16 ***
+InfPriorinf4+     -1.487640  0.225905  0.042263  0.042266 -35.197  < 2e-16 ***
+AgeGr0-11         -0.556053  0.573468  0.013795  0.013655 -40.722  < 2e-16 ***
+AgeGr12-15         0.092781  1.097222  0.017198  0.017174   5.402 6.58e-08 ***
+AgeGr16-17         0.107468  1.113455  0.024689  0.024727   4.346 1.39e-05 ***
+AgeGr18-24        -0.138681  0.870506  0.017171  0.017200  -8.063 7.44e-16 ***
+AgeGr25-29        -0.262019  0.769497  0.017324  0.017293 -15.152  < 2e-16 ***
+AgeGr30-34        -0.089689  0.914216  0.015785  0.015761  -5.690 1.27e-08 ***
+AgeGr35-39         0.041087  1.041943  0.015164  0.015168   2.709  0.00675 ** 
+AgeGr45-49         0.086009  1.089816  0.015146  0.015211   5.655 1.56e-08 ***
+AgeGr50-54        -0.069924  0.932464  0.016911  0.016971  -4.120 3.78e-05 ***
+AgeGr55-59        -0.153410  0.857778  0.017621  0.017664  -8.685  < 2e-16 ***
+AgeGr60-64        -0.476598  0.620892  0.020186  0.020208 -23.585  < 2e-16 ***
+AgeGr65-69        -0.556812  0.573033  0.020979  0.021042 -26.462  < 2e-16 ***
+AgeGr70-74        -0.576705  0.561746  0.023288  0.023413 -24.632  < 2e-16 ***
+AgeGr75-79        -0.411858  0.662418  0.027605  0.028084 -14.665  < 2e-16 ***
+AgeGr80+          -0.424664  0.653989  0.025603  0.025884 -16.406  < 2e-16 ***
+SexZ               0.118168  1.125433  0.006716  0.006742  17.528  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+                  exp(coef) exp(-coef) lower .95 upper .95
+VaccStatusAfull2    0.35410     2.8240   0.28818   0.43510
+VaccStatusAfull3    0.55102     1.8148   0.52402   0.57942
+VaccStatusJfull1    0.40295     2.4817   0.37746   0.43017
+VaccStatusJfull2    0.42675     2.3433   0.39133   0.46537
+VaccStatusJfull3    0.46693     2.1417   0.43505   0.50114
+VaccStatusMboost1   0.07805    12.8116   0.06880   0.08856
+VaccStatusMboost2   0.08994    11.1189   0.04677   0.17295
+VaccStatusMfull1    0.29547     3.3844   0.24399   0.35782
+VaccStatusMfull2    0.24822     4.0287   0.20910   0.29465
+VaccStatusMfull3    0.32734     3.0549   0.30958   0.34612
+VaccStatusMpart1    0.32509     3.0760   0.26866   0.39337
+VaccStatusMpart2    0.33028     3.0277   0.16513   0.66062
+VaccStatusPboost1   0.10055     9.9457   0.09590   0.10541
+VaccStatusPboost2   0.20099     4.9753   0.17815   0.22676
+VaccStatusPfull1    0.18301     5.4643   0.17059   0.19633
+VaccStatusPfull2    0.30252     3.3056   0.29222   0.31318
+VaccStatusPfull3    0.46189     2.1650   0.45395   0.46997
+VaccStatusPpart1    0.33558     2.9799   0.31474   0.35781
+VaccStatusPpart2    0.39680     2.5202   0.31818   0.49484
+InfPriorinf1        0.05226    19.1359   0.04191   0.06516
+InfPriorinf2        0.08500    11.7653   0.07737   0.09338
+InfPriorinf3        0.14858     6.7303   0.14084   0.15675
+InfPriorinf4+       0.22591     4.4266   0.20795   0.24542
+AgeGr0-11           0.57347     1.7438   0.55832   0.58902
+AgeGr12-15          1.09722     0.9114   1.06090   1.13478
+AgeGr16-17          1.11345     0.8981   1.06078   1.16875
+AgeGr18-24          0.87051     1.1488   0.84165   0.90035
+AgeGr25-29          0.76950     1.2996   0.74385   0.79602
+AgeGr30-34          0.91422     1.0938   0.88641   0.94290
+AgeGr35-39          1.04194     0.9597   1.01142   1.07338
+AgeGr45-49          1.08982     0.9176   1.05781   1.12279
+AgeGr50-54          0.93246     1.0724   0.90196   0.96400
+AgeGr55-59          0.85778     1.1658   0.82859   0.88800
+AgeGr60-64          0.62089     1.6106   0.59678   0.64598
+AgeGr65-69          0.57303     1.7451   0.54988   0.59716
+AgeGr70-74          0.56175     1.7802   0.53655   0.58812
+AgeGr75-79          0.66242     1.5096   0.62694   0.69990
+AgeGr80+            0.65399     1.5291   0.62164   0.68802
+SexZ                1.12543     0.8885   1.11066   1.14040
+
+Concordance= 0.718  (se = 0.001 )
+Likelihood ratio test= 57415  on 39 df,   p=<2e-16
+Wald test            = 39746  on 39 df,   p=<2e-16
+Score (logrank) test = 49355  on 39 df,   p=<2e-16,   Robust = 56900  p=<2e-16
+
+  (Note: the likelihood ratio and score tests assume independence of
+     observations within a cluster, the Wald and robust score tests do not).
+[1] "Model charts have been generated."
+[1] "Model output has been saved (TXT)."
+[1] "Model output has been saved (TeX)."
+[1] "The procedure is finished in following time:"
+Time difference of 19.65 mins
+[1] "Workspace image and log have been saved."
+[1] "https://www.youtube.com/watch?v=g3ENX3aHlqU"
+> 
