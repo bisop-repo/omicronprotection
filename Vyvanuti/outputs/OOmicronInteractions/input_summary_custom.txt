@@ -22,23 +22,23 @@ $`Median stats for Immunity at T1 == 0`
 
 $`Median stats for VaccStatus at the respective T`
    VaccStatus   N age_median LastVaccTime_median InfPriorTime_median
-1:      full3 555       69.0              -151.0                  NA
-2:     boost1 267       73.0                 6.0                  NA
-3:      full2  64       61.5               -51.5                  NA
-4:     boost2 182       82.0               -28.0                  NA
-5:    _novacc 893       58.0                  NA                  NA
-6:      full1  70       60.0                14.0                  NA
-7:      part1  17       48.0                17.0                  NA
+1:     boost1 107         76                 8.0                  NA
+2:      full3 224         75              -158.5                  NA
+3:      full2  23         75               -47.0                  NA
+4:     boost2  79         82               -27.0                  NA
+5:    _novacc 330         73                  NA                  NA
+6:      full1  21         69                17.0                  NA
+7:      part1   3         63                16.0                  NA
 
 $`Median stats for Immunity at the respective T`
         Immunity   N age_median LastVaccTime_median InfPriorTime_median
-1:  full2+_alone 569         70                -147                  NA
-2: boost2-_alone 255         74                   6                  NA
-3:  interactions  71         60                 -97                -343
-4: boost2+_alone 175         82                 -28                  NA
-5:   _noimmunity 833         59                  NA                  NA
-6:  full2-_alone  68         61                  14                  NA
-7:    part_alone  17         48                  17                  NA
-8:   inf6+_alone  45         37                  NA                -345
-9:   inf6-_alone  15         44                  NA                 -28
+1: boost2-_alone 104         77                   8                  NA
+2:  full2+_alone 237         76                -154                  NA
+3: boost2+_alone  77         82                 -27                  NA
+4:   _noimmunity 321         73                  NA                  NA
+5:  interactions  15         65                 -74                -354
+6:  full2-_alone  21         69                  17                  NA
+7:    part_alone   3         63                  16                  NA
+8:   inf6+_alone   6         51                  NA                -308
+9:   inf6-_alone   3         72                  NA                 -19
 
