@@ -4066,7 +4066,7 @@ int _main(int argc, char *argv[], bool compare = false)
 //                    ppp.Inf1_Xtoothers = true;
                     ppp.groupinteraccions = true;
                     ppp.eventiso = argv[4][0]=='o';
-                    ppp.eventiso = argv[4][0]=='u';
+                    ppp.eventisu = argv[4][0]=='u';
 //                    ppp.fourages = true;
                  // break missing intentinally
                 case 'h':
