@@ -212,3 +212,149 @@ Type 'q()' to quit R.
 [1] "I can see a convertool log provided."
 [1] "The directory already exists, files will be rewritten."
 [1] "The input file has been loaded, its properties have been saved. Proceeding to Cox model."
+Call:
+coxph(formula = Surv(T1, T2, VariantOxygen) ~ VaccStatus + InfPrior + 
+    AgeGr + Sex, data = mtab, cluster = Subject)
+
+  n= 16688504, number of events= 765 
+   (45 observations deleted due to missingness)
+
+                        coef  exp(coef)   se(coef)  robust se        z Pr(>|z|)
+VaccStatusAfull2   7.949e-01  2.214e+00  1.002e+00  1.002e+00    0.793  0.42754
+VaccStatusAfull3  -1.876e-01  8.290e-01  1.476e-01  1.474e-01   -1.273  0.20317
+VaccStatusJfull1  -6.440e-01  5.252e-01  5.039e-01  5.061e-01   -1.272  0.20322
+VaccStatusJfull2  -6.358e-01  5.295e-01  5.037e-01  5.044e-01   -1.261  0.20748
+VaccStatusJfull3  -6.104e-01  5.431e-01  3.071e-01  3.072e-01   -1.987  0.04691
+VaccStatusMboost1 -2.133e+00  1.185e-01  2.374e-01  2.376e-01   -8.976  < 2e-16
+VaccStatusMboost2 -1.703e+00  1.821e-01  3.398e-01  3.418e-01   -4.982 6.28e-07
+VaccStatusMfull1  -7.799e-01  4.585e-01  7.095e-01  7.099e-01   -1.099  0.27195
+VaccStatusMfull2   2.483e-02  1.025e+00  7.095e-01  7.087e-01    0.035  0.97205
+VaccStatusMfull3  -4.281e-01  6.517e-01  2.166e-01  2.162e-01   -1.980  0.04772
+VaccStatusMpart1  -1.872e+01  7.419e-09  7.946e+03  6.242e-02 -299.902  < 2e-16
+VaccStatusMpart2  -1.867e+01  7.794e-09  2.666e+04  1.046e-01 -178.507  < 2e-16
+VaccStatusPboost1 -2.327e+00  9.756e-02  1.240e-01  1.253e-01  -18.570  < 2e-16
+VaccStatusPboost2 -1.897e+00  1.500e-01  1.380e-01  1.386e-01  -13.689  < 2e-16
+VaccStatusPfull1  -7.662e-01  4.648e-01  2.495e-01  2.506e-01   -3.058  0.00223
+VaccStatusPfull2   6.964e-03  1.007e+00  2.844e-01  2.866e-01    0.024  0.98062
+VaccStatusPfull3  -4.797e-01  6.190e-01  1.065e-01  1.074e-01   -4.465 8.02e-06
+VaccStatusPpart1  -1.046e+00  3.512e-01  5.802e-01  5.803e-01   -1.803  0.07135
+VaccStatusPpart2  -1.847e+01  9.494e-09  1.154e+04  6.944e-02 -266.021  < 2e-16
+InfPriorinf1      -1.792e+01  1.651e-08  1.373e+03  4.641e-02 -386.063  < 2e-16
+InfPriorinf2      -1.812e+01  1.350e-08  2.155e+03  5.760e-02 -314.578  < 2e-16
+InfPriorinf3      -1.782e+01  1.816e-08  8.490e+02  4.252e-02 -419.233  < 2e-16
+InfPriorinf4+     -1.764e+01  2.190e-08  1.226e+03  3.897e-02 -452.549  < 2e-16
+AgeGr0-11         -5.208e-01  5.941e-01  4.050e-01  4.031e-01   -1.292  0.19641
+AgeGr12-15        -7.302e-01  4.818e-01  6.592e-01  6.608e-01   -1.105  0.26913
+AgeGr16-17        -8.925e-01  4.096e-01  1.049e+00  1.051e+00   -0.849  0.39597
+AgeGr18-24        -1.059e-02  9.895e-01  4.748e-01  4.747e-01   -0.022  0.98220
+AgeGr25-29        -3.187e-01  7.271e-01  5.165e-01  5.166e-01   -0.617  0.53729
+AgeGr30-34         8.928e-02  1.093e+00  4.473e-01  4.471e-01    0.200  0.84173
+AgeGr35-39         9.185e-02  1.096e+00  4.472e-01  4.472e-01    0.205  0.83729
+AgeGr45-49         6.180e-01  1.855e+00  4.084e-01  4.089e-01    1.511  0.13074
+AgeGr50-54         1.159e+00  3.186e+00  3.874e-01  3.879e-01    2.987  0.00282
+AgeGr55-59         1.998e+00  7.373e+00  3.512e-01  3.513e-01    5.687 1.29e-08
+AgeGr60-64         2.008e+00  7.451e+00  3.538e-01  3.533e-01    5.685 1.31e-08
+AgeGr65-69         2.779e+00  1.611e+01  3.358e-01  3.360e-01    8.273  < 2e-16
+AgeGr70-74         3.160e+00  2.356e+01  3.333e-01  3.340e-01    9.460  < 2e-16
+AgeGr75-79         4.014e+00  5.534e+01  3.302e-01  3.320e-01   12.090  < 2e-16
+AgeGr80+           4.562e+00  9.575e+01  3.240e-01  3.245e-01   14.058  < 2e-16
+SexZ              -5.888e-01  5.550e-01  7.377e-02  7.488e-02   -7.863 3.75e-15
+                     
+VaccStatusAfull2     
+VaccStatusAfull3     
+VaccStatusJfull1     
+VaccStatusJfull2     
+VaccStatusJfull3  *  
+VaccStatusMboost1 ***
+VaccStatusMboost2 ***
+VaccStatusMfull1     
+VaccStatusMfull2     
+VaccStatusMfull3  *  
+VaccStatusMpart1  ***
+VaccStatusMpart2  ***
+VaccStatusPboost1 ***
+VaccStatusPboost2 ***
+VaccStatusPfull1  ** 
+VaccStatusPfull2     
+VaccStatusPfull3  ***
+VaccStatusPpart1  .  
+VaccStatusPpart2  ***
+InfPriorinf1      ***
+InfPriorinf2      ***
+InfPriorinf3      ***
+InfPriorinf4+     ***
+AgeGr0-11            
+AgeGr12-15           
+AgeGr16-17           
+AgeGr18-24           
+AgeGr25-29           
+AgeGr30-34           
+AgeGr35-39           
+AgeGr45-49           
+AgeGr50-54        ** 
+AgeGr55-59        ***
+AgeGr60-64        ***
+AgeGr65-69        ***
+AgeGr70-74        ***
+AgeGr75-79        ***
+AgeGr80+          ***
+SexZ              ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+                  exp(coef) exp(-coef) lower .95 upper .95
+VaccStatusAfull2  2.214e+00  4.516e-01 3.108e-01 1.578e+01
+VaccStatusAfull3  8.290e-01  1.206e+00 6.210e-01 1.107e+00
+VaccStatusJfull1  5.252e-01  1.904e+00 1.948e-01 1.416e+00
+VaccStatusJfull2  5.295e-01  1.889e+00 1.970e-01 1.423e+00
+VaccStatusJfull3  5.431e-01  1.841e+00 2.975e-01 9.917e-01
+VaccStatusMboost1 1.185e-01  8.440e+00 7.437e-02 1.888e-01
+VaccStatusMboost2 1.821e-01  5.491e+00 9.320e-02 3.559e-01
+VaccStatusMfull1  4.585e-01  2.181e+00 1.140e-01 1.843e+00
+VaccStatusMfull2  1.025e+00  9.755e-01 2.556e-01 4.112e+00
+VaccStatusMfull3  6.517e-01  1.534e+00 4.266e-01 9.957e-01
+VaccStatusMpart1  7.419e-09  1.348e+08 6.565e-09 8.385e-09
+VaccStatusMpart2  7.794e-09  1.283e+08 6.350e-09 9.568e-09
+VaccStatusPboost1 9.756e-02  1.025e+01 7.632e-02 1.247e-01
+VaccStatusPboost2 1.500e-01  6.665e+00 1.144e-01 1.969e-01
+VaccStatusPfull1  4.648e-01  2.152e+00 2.844e-01 7.595e-01
+VaccStatusPfull2  1.007e+00  9.931e-01 5.742e-01 1.766e+00
+VaccStatusPfull3  6.190e-01  1.616e+00 5.014e-01 7.641e-01
+VaccStatusPpart1  3.512e-01  2.847e+00 1.126e-01 1.095e+00
+VaccStatusPpart2  9.494e-09  1.053e+08 8.286e-09 1.088e-08
+InfPriorinf1      1.651e-08  6.055e+07 1.508e-08 1.809e-08
+InfPriorinf2      1.350e-08  7.408e+07 1.206e-08 1.511e-08
+InfPriorinf3      1.816e-08  5.507e+07 1.671e-08 1.974e-08
+InfPriorinf4+     2.190e-08  4.566e+07 2.029e-08 2.364e-08
+AgeGr0-11         5.941e-01  1.683e+00 2.696e-01 1.309e+00
+AgeGr12-15        4.818e-01  2.076e+00 1.320e-01 1.759e+00
+AgeGr16-17        4.096e-01  2.441e+00 5.217e-02 3.216e+00
+AgeGr18-24        9.895e-01  1.011e+00 3.902e-01 2.509e+00
+AgeGr25-29        7.271e-01  1.375e+00 2.642e-01 2.001e+00
+AgeGr30-34        1.093e+00  9.146e-01 4.552e-01 2.626e+00
+AgeGr35-39        1.096e+00  9.122e-01 4.562e-01 2.634e+00
+AgeGr45-49        1.855e+00  5.390e-01 8.323e-01 4.135e+00
+AgeGr50-54        3.186e+00  3.139e-01 1.490e+00 6.815e+00
+AgeGr55-59        7.373e+00  1.356e-01 3.704e+00 1.468e+01
+AgeGr60-64        7.451e+00  1.342e-01 3.728e+00 1.489e+01
+AgeGr65-69        1.611e+01  6.207e-02 8.340e+00 3.112e+01
+AgeGr70-74        2.356e+01  4.244e-02 1.224e+01 4.534e+01
+AgeGr75-79        5.534e+01  1.807e-02 2.887e+01 1.061e+02
+AgeGr80+          9.575e+01  1.044e-02 5.069e+01 1.809e+02
+SexZ              5.550e-01  1.802e+00 4.792e-01 6.427e-01
+
+Concordance= 0.896  (se = 0.006 )
+Likelihood ratio test= 2302  on 39 df,   p=<2e-16
+Wald test            = 248682  on 39 df,   p=<2e-16
+Score (logrank) test = 3479  on 39 df,   p=<2e-16,   Robust = 764.8  p=<2e-16
+
+  (Note: the likelihood ratio and score tests assume independence of
+     observations within a cluster, the Wald and robust score tests do not).
+[1] "Model charts have been generated."
+[1] "Model output has been saved (TXT)."
+[1] "Model output has been saved (TeX)."
+[1] "The procedure is finished in following time:"
+Time difference of 22.76667 mins
+[1] "Workspace image and log have been saved."
+[1] "https://www.youtube.com/watch?v=g3ENX3aHlqU"
+> 
