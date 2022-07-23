@@ -21,24 +21,24 @@ $`Median stats for Immunity at T1 == 0`
 9:   inf6-_alone   25507         25                  NA                 -86
 
 $`Median stats for VaccStatus at the respective T`
-   VaccStatus   N age_median LastVaccTime_median InfPriorTime_median
-1:      full3 555       69.0              -151.0                  NA
-2:     boost1 267       73.0                 6.0                  NA
-3:      full2  64       61.5               -51.5                  NA
-4:     boost2 182       82.0               -28.0                  NA
-5:    _novacc 893       58.0                  NA                  NA
-6:      full1  70       60.0                14.0                  NA
-7:      part1  17       48.0                17.0                  NA
+   VaccStatus  N age_median LastVaccTime_median InfPriorTime_median
+1:      full3 60       68.0              -145.0                  NA
+2:     boost2 34       78.5               -34.0                  NA
+3:     boost1 39       68.0                 9.0                  NA
+4:      part1  4       74.0                16.5                  NA
+5:      full1  6       65.0                10.5                  NA
+6:      full2  2       63.0               -45.0                  NA
+7:    _novacc 98       65.0                  NA                  NA
 
 $`Median stats for Immunity at the respective T`
-        Immunity   N age_median LastVaccTime_median InfPriorTime_median
-1:  full2+_alone 569         70                -147                  NA
-2: boost2-_alone 255         74                   6                  NA
-3:  interactions  71         60                 -97                -343
-4: boost2+_alone 175         82                 -28                  NA
-5:   _noimmunity 833         59                  NA                  NA
-6:  full2-_alone  68         61                  14                  NA
-7:    part_alone  17         48                  17                  NA
-8:   inf6+_alone  45         37                  NA                -345
-9:   inf6-_alone  15         44                  NA                 -28
+        Immunity  N age_median LastVaccTime_median InfPriorTime_median
+1:  full2+_alone 59       68.0              -146.0                  NA
+2: boost2+_alone 33       79.0               -34.0                  NA
+3: boost2-_alone 38       68.5                 9.0                  NA
+4:    part_alone  4       74.0                16.5                  NA
+5:  interactions  5       58.0               -30.0                -291
+6:  full2-_alone  6       65.0                10.5                  NA
+7:   _noimmunity 92       65.0                  NA                  NA
+8:   inf6+_alone  5       42.0                  NA                -345
+9:   inf6-_alone  1       69.0                  NA                 -21
 

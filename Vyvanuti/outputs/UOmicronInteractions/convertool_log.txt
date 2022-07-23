@@ -1,4 +1,4 @@
-version 27
+version 27 erratum
 Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every
 Omikron hospitalizations
 Mode varianthosp
