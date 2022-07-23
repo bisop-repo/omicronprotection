@@ -1,0 +1,33 @@
+$user
+[1] "smid"
+
+$computer
+[1] "daman.utia.cas.cz"
+
+$arguments
+[1] "data/temp/HDeltaDetail.csv"              
+[2] "VH"                                      
+[3] "outputs/HDeltaDetail//convertool_log.txt"
+
+$time.start
+[1] "2022-07-23 18:39:49"
+
+$time.end
+[1] "2022-07-23 19:12:23"
+
+$model.spent
+Time difference of 32.56667 mins
+
+$model.concordance
+concordance 
+  0.8900616 
+
+$convertool.vignette
+[1] "version 24"                                                                                
+[2] "Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every"
+[3] "Delta hospitalizations"                                                                    
+[4] "Mode varianthosp"                                                                          
+[5] "Study period: 2021-12-07 to 2022-02-13"                                                    
+[6] "Age filter: 0-650"                                                                         
+[7] "Writing to data/temp/HDeltaDetail.csv"                                                     
+
