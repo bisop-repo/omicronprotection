@@ -5,29 +5,29 @@ $computer
 [1] "daman.utia.cas.cz"
 
 $arguments
-[1] "data/temp/IDeltaDetail.csv"              
-[2] "VI"                                      
-[3] "outputs/IDeltaDetail//convertool_log.txt"
+[1] "data/temp/HOmicronDetail.csv"              
+[2] "VH"                                        
+[3] "outputs/HOmicronDetail//convertool_log.txt"
 
 $time.start
-[1] "2022-07-21 21:44:31"
+[1] "2022-07-23 18:07:25"
 
 $time.end
-[1] "2022-07-21 22:04:46"
+[1] "2022-07-23 18:25:51"
 
 $model.spent
-Time difference of 20.25 mins
+Time difference of 18.43333 mins
 
 $model.concordance
 concordance 
-  0.7175832 
+  0.7998948 
 
 $convertool.vignette
 [1] "version 24"                                                                                
 [2] "Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every"
-[3] "Delta infections"                                                                          
-[4] "Mode variantinf"                                                                           
+[3] "Omikron hospitalizations"                                                                  
+[4] "Mode varianthosp"                                                                          
 [5] "Study period: 2021-12-07 to 2022-02-13"                                                    
 [6] "Age filter: 0-650"                                                                         
-[7] "Writing to data/temp/IDeltaDetail.csv"                                                     
+[7] "Writing to data/temp/HOmicronDetail.csv"                                                   
 
