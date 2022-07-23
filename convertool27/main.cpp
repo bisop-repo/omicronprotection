@@ -252,6 +252,8 @@ struct preprocessparams
 
     bool groupinteraccions = false;
 
+    bool eventiso = false;
+    bool eventisu = false;
 
     /// Inputs that should be provided
 
@@ -1636,6 +1638,8 @@ else         // saving old code
                     || (ppp.excludeotherimmunity && immunity == otherstr);
 
                  bool dooutput = false;
+                 bool uevent = false;
+                 bool oevent = false;
 
                  ostringstream os;
 
@@ -1716,7 +1720,8 @@ else         // saving old code
                          string hospstr = "";
                          string oxygenstr = "";
                          string icustr = "";
-
+                         
+ 
                          if(mode==ehospitals || mode==evarianthosp)
                          {
                              hospstr = "0";
@@ -1736,6 +1741,7 @@ else         // saving old code
                                          break;
                                      case hosprecord::eyes:
                                          oxygenstr = "1";
+                                         oevent = true;
                                      break;
                                      case hosprecord::eno:
                                          oxygenstr = "0";
@@ -1749,6 +1755,7 @@ else         // saving old code
                                          break;
                                      case hosprecord::eyes:
                                          icustr = "1";
+                                         uevent = true;
                                      break;
                                      case hosprecord::eno:
                                          icustr = "0";
@@ -1835,7 +1842,15 @@ else         // saving old code
                         addto(lbls,startcnts,immunity);
                 }
 
-                if(event && dooutput)
+		 bool recordevent = false;
+		 if(ppp.eventiso)
+		    recordevent = oevent;
+		 else if(ppp.eventisu)
+		    recordevent = uevent;
+		 else
+		    recordevent = event;  	
+
+                if(recordevent && dooutput)
                 {
                     oe << os.str();
 
@@ -3851,7 +3866,7 @@ void oldockodata2R(string input, string output,
 
 int _main(int argc, char *argv[], bool compare = false)
 {
-    cout << "version 27" << endl;
+    cout << "version 27 erratum" << endl;
     cout << "Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every" << endl;
     if(!testrun  && argc < 5)
         throw "at least three arguments must be given";
@@ -4047,8 +4062,11 @@ int _main(int argc, char *argv[], bool compare = false)
                     cout << "infections" << endl;
                     break;
                 case 'o':
+                case 'u':
 //                    ppp.Inf1_Xtoothers = true;
                     ppp.groupinteraccions = true;
+                    ppp.eventiso = argv[4][0]=='o';
+                    ppp.eventiso = argv[4][0]=='u';
 //                    ppp.fourages = true;
                  // break missing intentinally
                 case 'h':

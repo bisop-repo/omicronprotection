@@ -249,6 +249,9 @@ struct preprocessparams
     /// if true then Immunity = "others" everywhere "InfPrior=Inf1" (this is because for some rare events,
     /// no events occured for the fresh immunity)
     bool Inf1_Xtoothers = false;
+    
+    bool groupinteraccions = false;
+    bool groupall = false;
 
     /// Inputs that should be provided
 
@@ -560,6 +563,7 @@ void ockodata2R(string input, string output,
             "full2+_inf6-",
             "boost2+_inf6-",
             "other",
+            "interactions",
             "rare"};
 
     vector<unsigned> startcnts(lbls.size(),0);
@@ -1455,7 +1459,10 @@ void ockodata2R(string input, string output,
 
                  string immunity;
                  const string otherstr = "other";
+                 const string groupstr = "infpartorinter";
                  const string alonestr = "alone";
+                 const string interstr = "interactions";
+
 
                  if(currentinfstatus == 1)
                      immunity = otherstr;
@@ -1482,7 +1489,12 @@ void ockodata2R(string input, string output,
                          if(currentinfstatus == 0)
                              immunity = "_noimmunity";
                          else
-                            immunity = istring + "_" + alonestr;
+                         {
+                             if(ppp.groupall)
+                                 immunity = groupstr;
+                             else
+                                 immunity = istring + "_" + alonestr;
+                         }
                      }
                      else
                      {
@@ -1521,9 +1533,18 @@ void ockodata2R(string input, string output,
                              break;
                          }
                          if(currentinfstatus == 0)
-                             immunity = vstring + "_" + alonestr;
+                         {
+                             if(ppp.groupall && partial)
+                                 immunity = groupstr;
+                             else
+                                 immunity = vstring + "_" + alonestr;
+                         }
                          else
                          {
+                           if(ppp.groupinteraccions)
+                              immunity = interstr;
+                           else
+                           {
                              assert(nextvaccptr > 0);
                              assert(lastinfection);
                              if(partial)
@@ -1535,16 +1556,18 @@ void ockodata2R(string input, string output,
                                      if(iold)
                                         immunity = otherstr;
                                      else
-                                        immunity = vstring + "_" + istring;
+                                        immunity = ppp.groupall ? groupstr : vstring + "_" + istring;
+                                     
                                  }
                                  else
                                  {
                                      if(ppp.Inf1_Xtoothers && currentinfstatus == 2)
                                          immunity = otherstr;
                                      else
-                                        immunity = istring + "_" + vstring;
-                                 }
+                                        immunity = ppp.groupall ? groupstr : istring + "_" + vstring;
+                                 }                                 
                              }
+                           }  
                          }
                      }
                  }
@@ -3785,7 +3808,7 @@ void oldockodata2R(string input, string output,
 
 int _main(int argc, char *argv[], bool compare = false)
 {
-    cout << "version 24" << endl;
+    cout << "version 24 + erratum" << endl;
     cout << "Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every" << endl;
     if(!testrun  && argc < 5)
         throw "at least three arguments must be given";
@@ -3916,9 +3939,15 @@ int _main(int argc, char *argv[], bool compare = false)
                 ppp.singlepartcov = true;
                 ppp.Inf1_Xtoothers  = true;
                 if(argv[4][1] == 'h')
+                {
+                    ppp.groupall = true;
                     mode = ehcomparison;
+                }
                 else
+                {
+                    ppp.groupall = true;
                     mode = ecomparison;
+                }
             }
             else
             {
@@ -3982,6 +4011,7 @@ int _main(int argc, char *argv[], bool compare = false)
                     break;
                 case 'o':
                     ppp.Inf1_Xtoothers = true;
+                    ppp.groupinteraccions = true;
                  // break missing intentinally
                 case 'h':
                     ppp.infdateashospdate = true;

@@ -10,20 +10,20 @@ $arguments
 [3] "outputs/OOmicronInteractions//convertool_log.txt"
 
 $time.start
-[1] "2022-07-21 17:24:33"
+[1] "2022-07-23 14:37:14"
 
 $time.end
-[1] "2022-07-21 17:33:48"
+[1] "2022-07-23 14:46:14"
 
 $model.spent
-Time difference of 9.25 mins
+Time difference of 9 mins
 
 $model.concordance
 concordance 
   0.8783644 
 
 $convertool.vignette
-[1] "version 27"                                                                                
+[1] "version 27 erratum"                                                                        
 [2] "Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every"
 [3] "Omikron hospitalizations"                                                                  
 [4] "Mode varianthosp"                                                                          
