@@ -1,0 +1,33 @@
+$user
+[1] "smid"
+
+$computer
+[1] "daman.utia.cas.cz"
+
+$arguments
+[1] "data/temp/UDeltaInteractions.csv"              
+[2] "VUI"                                           
+[3] "outputs/UDeltaInteractions//convertool_log.txt"
+
+$time.start
+[1] "2022-07-23 17:46:39"
+
+$time.end
+[1] "2022-07-23 18:00:50"
+
+$model.spent
+Time difference of 14.18333 mins
+
+$model.concordance
+concordance 
+  0.9113135 
+
+$convertool.vignette
+[1] "version 27 erratum"                                                                        
+[2] "Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every"
+[3] "Delta hospitalizations"                                                                    
+[4] "Mode varianthosp"                                                                          
+[5] "Study period: 2021-12-07 to 2022-02-13"                                                    
+[6] "Age filter: 0-650"                                                                         
+[7] "Writing to data/temp/UDeltaInteractions.csv"                                               
+
