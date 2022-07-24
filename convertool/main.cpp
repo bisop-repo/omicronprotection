@@ -1459,7 +1459,7 @@ void ockodata2R(string input, string output,
 
                  string immunity;
                  const string otherstr = "other";
-                 const string groupstr = "infpartorinter";
+                 const string groupstr = "rareeventcategories";
                  const string alonestr = "alone";
                  const string interstr = "interactions";
 
