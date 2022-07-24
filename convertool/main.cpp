@@ -3940,7 +3940,6 @@ int _main(int argc, char *argv[], bool compare = false)
                 ppp.Inf1_Xtoothers  = true;
                 if(argv[4][1] == 'h')
                 {
-                    ppp.groupall = true;
                     mode = ehcomparison;
                 }
                 else
