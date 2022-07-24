@@ -10,9 +10,7 @@ mkdir $TEMP_DIRECTORY
 ../convertool/bin/convertool $INPUT_FILE data/temp/$MODEL_NAME.csv $MODEL_DATE_MAX $CONVERTOOL_TYPE $MODEL_AGE_LIM > $TEMP_DIRECTORY/convertool_log.txt
 
 
-R < logreg/logreg_estimation.R --vanilla --args data/temp/$MODEL_NAME.csv HI $TEMP_DIRECTORY/convertool_log.txt
-rm -r outputs/logreg_HInteractions
-mv $OUTPUTS_LOCATION outputs/logreg_HInteractions
+
 
 R < logreg/logreg_estimation.R --vanilla --args data/temp/$MODEL_NAME.csv OI $TEMP_DIRECTORY/convertool_log.txt
 rm -r outputs/logreg_OInteractions
@@ -22,8 +20,13 @@ R < logreg/logreg_estimation.R --vanilla --args data/temp/$MODEL_NAME.csv IPI $T
 rm -r outputs/logreg_IPInteractions
 mv $OUTPUTS_LOCATION outputs/logreg_IPInteractions
 
+CONVERTOOL_TYPE='cH'
+../convertool/bin/convertool $INPUT_FILE data/temp/$MODEL_NAME.csv $MODEL_DATE_MAX $CONVERTOOL_TYPE $MODEL_AGE_LIM > $TEMP_DIRECTORY/convertool_log.txt
 
 
+R < logreg/logreg_estimation.R --vanilla --args data/temp/$MODEL_NAME.csv HI $TEMP_DIRECTORY/convertool_log.txt
+rm -r outputs/logreg_HInteractions
+mv $OUTPUTS_LOCATION outputs/logreg_HInteractions
 
 rm -r  $TEMP_DIRECTORY
 

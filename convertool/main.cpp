@@ -3944,7 +3944,8 @@ int _main(int argc, char *argv[], bool compare = false)
                 }
                 else
                 {
-                    ppp.groupall = true;
+                    if(argv[4][1] != 'H')
+	                    ppp.groupall = true;
                     mode = ecomparison;
                 }
             }
