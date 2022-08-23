@@ -9,13 +9,13 @@ $arguments
 [3] "outputs/RDelta//convertool_log.txt"
 
 $time.start
-[1] "2022-08-23 11:23:59"
+[1] "2022-08-23 11:40:08"
 
 $time.end
-[1] "2022-08-23 11:26:57"
+[1] "2022-08-23 11:43:07"
 
 $model.spent
-Time difference of 2.966667 mins
+Time difference of 2.983333 mins
 
 $model.concordance
 concordance 
