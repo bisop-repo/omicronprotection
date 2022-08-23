@@ -1,7 +1,7 @@
-version 24
+version 24 + erratum
 Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every
 Delta reinfections
-Mode variantinf
+Mode variantreinf
 Study period: 2021-12-07 to 2022-02-13
 Age filter: 0-650
 Writing to data/temp/RDelta.csv
@@ -9,14 +9,10 @@ Input data/data_20220215.csv
 Importing from input, total8390834 records.
 Processing records from input, excluding inconsistend records:
 Wrong ordering of shots 
-Sec dose of Janssen!
 Wrong ordering of infections
-Sec dose of Janssen!
-Sec dose of Janssen!
 Wrong ordering of shots 
 Wrong ordering of shots 
 Wrong ordering of shots 
-Sec dose of Janssen!
 Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of infections
@@ -31,7 +27,6 @@ Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of shots 
-Sec dose of Janssen!
 418477: date from hosp -396 (-410) unassigned to infections: -686 
 Wrong ordering of shots 
 Wrong ordering of infections
@@ -40,17 +35,14 @@ Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of shots 
-Sec dose of Janssen!
 Wrong ordering of shots 
 Wrong ordering of infections
 580499: date from hosp -334 (-334) unassigned to infections: -699 
 Wrong ordering of shots 
-Sec dose of Janssen!
 Wrong ordering of shots 
 Wrong ordering of shots 
 Wrong ordering of shots 
 Wrong ordering of shots 
-Sec dose of Janssen!
 Wrong ordering of shots 
 Wrong ordering of infections
 Wrong ordering of infections
@@ -59,9 +51,6 @@ Wrong ordering of infections
 838057: date from hosp 56 (56) unassigned to infections: -404 
 Wrong ordering of shots 
 Wrong ordering of shots 
-Sec dose of Janssen!
-Sec dose of Janssen!
-Sec dose of Janssen!
 902194: date from hosp 56 (56) unassigned to infections: -407 
 Wrong ordering of infections
 Wrong ordering of infections
@@ -78,41 +67,31 @@ Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of shots 
 Wrong ordering of shots 
-Sec dose of Janssen!
-Sec dose of Janssen!
 Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of shots 
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
-Sec dose of Janssen!
-Sec dose of Janssen!
 Wrong ordering of shots 
-Sec dose of Janssen!
 1307715: date from hosp -406 (-406) unassigned to infections: -487 
 1311909: date from hosp -334 (-337) unassigned to infections: -704 
 Wrong ordering of shots 
 Wrong ordering of shots 
 Wrong ordering of infections
-Sec dose of Janssen!
 1406132: date from hosp -323 (-334) unassigned to infections: -700 
 Wrong ordering of shots 
 Wrong ordering of shots 
 Wrong ordering of shots 
-Sec dose of Janssen!
 Wrong ordering of shots 
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of shots 
-Sec dose of Janssen!
 Wrong ordering of shots 
 Wrong ordering of infections
 Wrong ordering of infections
-Sec dose of Janssen!
 Wrong ordering of infections
 Wrong ordering of shots 
-Sec dose of Janssen!
 Wrong ordering of shots 
 Wrong ordering of shots 
 Wrong ordering of infections
@@ -126,16 +105,12 @@ Wrong ordering of shots
 Wrong ordering of shots 
 Wrong ordering of shots 
 Wrong ordering of infections
-Sec dose of Janssen!
 Wrong ordering of shots 
 Wrong ordering of shots 
 Wrong ordering of infections
 Wrong ordering of infections
-Sec dose of Janssen!
-Sec dose of Janssen!
 Wrong ordering of shots 
 Wrong ordering of shots 
-Sec dose of Janssen!
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
@@ -146,7 +121,6 @@ Wrong ordering of shots
 2191241: date from hosp 17 (-303) unassigned to infections: -369 16 
 2213371: date from hosp 12 (2147483647) unassigned to infections: -357 
 2216557: date from hosp 20 (19) unassigned to infections: -194 
-Sec dose of Janssen!
 Wrong ordering of shots 
 Wrong ordering of shots 
 2298184: date from hosp -346 (-347) unassigned to infections: -407 
@@ -158,33 +132,23 @@ Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of infections
 Wrong ordering of shots 
-Sec dose of Janssen!
-Wrong ordering of infections
-Sec dose of Janssen!
-Sec dose of Janssen!
 Wrong ordering of infections
 Wrong ordering of infections
-Sec dose of Janssen!
-Sec dose of Janssen!
+Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of shots 
-Sec dose of Janssen!
 2526867: date from hosp -343 (-344) unassigned to infections: -700 
 Wrong ordering of shots 
 Wrong ordering of shots 
-Sec dose of Janssen!
-Sec dose of Janssen!
 Wrong ordering of shots 
 Wrong ordering of infections
 Wrong ordering of infections
-Sec dose of Janssen!
 Wrong ordering of shots 
 Wrong ordering of shots 
 Wrong ordering of shots 
 Wrong ordering of shots 
 Wrong ordering of shots 
 2671700: date from hosp -343 (-346) unassigned to infections: -702 
-Sec dose of Janssen!
 2711196: date from hosp -229 (-350) unassigned to infections: -230 49 
 Wrong ordering of shots 
 Wrong ordering of infections
@@ -195,14 +159,12 @@ Wrong ordering of infections
 Wrong ordering of shots 
 2839632: date from hosp -336 (-336) unassigned to infections: -701 
 Wrong ordering of shots 
-Sec dose of Janssen!
 Wrong ordering of shots 
 Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of infections
 2936155: date from hosp 64 (64) unassigned to infections: -48 
 Wrong ordering of shots 
-Sec dose of Janssen!
 Wrong ordering of shots 
 Wrong ordering of shots 
 Wrong ordering of shots 
@@ -212,7 +174,6 @@ Wrong ordering of infections
 Wrong ordering of shots 
 3097812: date from hosp -343 (-343) unassigned to infections: -700 
 Wrong ordering of shots 
-Sec dose of Janssen!
 Wrong ordering of shots 
 Wrong ordering of infections
 Wrong ordering of infections
@@ -228,18 +189,12 @@ Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of shots 
-Sec dose of Janssen!
-Sec dose of Janssen!
-Wrong ordering of infections
-Wrong ordering of shots 
-Sec dose of Janssen!
 Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of infections
-Sec dose of Janssen!
-Sec dose of Janssen!
+Wrong ordering of shots 
+Wrong ordering of infections
 3462834: date from hosp 56 (56) unassigned to infections: -404 
-Sec dose of Janssen!
 Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of infections
@@ -272,9 +227,7 @@ Wrong ordering of shots
 Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of shots 
-Sec dose of Janssen!
 Wrong ordering of shots 
-Sec dose of Janssen!
 Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of shots 
@@ -282,7 +235,6 @@ Wrong ordering of infections
 4273792: date from hosp -274 (-275) unassigned to infections: -348 
 Wrong ordering of shots 
 Wrong ordering of infections
-Sec dose of Janssen!
 Wrong ordering of infections
 Wrong ordering of shots 
 4380041: date from hosp -433 (-433) unassigned to infections: -514 56 
@@ -291,9 +243,7 @@ Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of infections
-Sec dose of Janssen!
 Wrong ordering of infections
-Sec dose of Janssen!
 4592695: date from hosp -272 (-272) unassigned to infections: -404 
 Wrong ordering of shots 
 Wrong ordering of shots 
@@ -304,12 +254,8 @@ Wrong ordering of infections
 Wrong ordering of infections
 4694143: date from hosp -342 (-342) unassigned to infections: -700 
 Wrong ordering of infections
-Sec dose of Janssen!
-Sec dose of Janssen!
 4743948: date from hosp -343 (-344) unassigned to infections: -700 
-Sec dose of Janssen!
 4765896: date from hosp -349 (-350) unassigned to infections: -411 
-Sec dose of Janssen!
 Wrong ordering of shots 
 Wrong ordering of shots 
 Wrong ordering of infections
@@ -321,7 +267,6 @@ Wrong ordering of shots
 Wrong ordering of infections
 Wrong ordering of infections
 4916233: date from hosp 23 (23) unassigned to infections: -311 
-Sec dose of Janssen!
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of shots 
@@ -340,10 +285,8 @@ Wrong ordering of shots
 Wrong ordering of infections
 5166890: date from hosp -336 (-336) unassigned to infections: -701 
 Wrong ordering of shots 
-Sec dose of Janssen!
 5263787: date from hosp 56 (56) unassigned to infections: -404 
 Wrong ordering of shots 
-Sec dose of Janssen!
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
@@ -364,9 +307,7 @@ Wrong ordering of shots
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of shots 
-Sec dose of Janssen!
 Wrong ordering of infections
-Sec dose of Janssen!
 Wrong ordering of shots 
 Wrong ordering of infections
 Wrong ordering of shots 
@@ -376,7 +317,6 @@ Wrong ordering of shots
 Wrong ordering of shots 
 Wrong ordering of shots 
 Wrong ordering of infections
-Sec dose of Janssen!
 5816174: date from hosp -328 (-337) unassigned to infections: -703 
 Wrong ordering of shots 
 Wrong ordering of infections
@@ -401,18 +341,14 @@ Wrong ordering of shots
 Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of shots 
-Sec dose of Janssen!
 Wrong ordering of shots 
-Sec dose of Janssen!
 Wrong ordering of shots 
 Wrong ordering of shots 
 6313038: date from hosp 64 (64) unassigned to infections: -301 
 Wrong ordering of shots 
 Wrong ordering of shots 
 Wrong ordering of infections
-Sec dose of Janssen!
 Wrong ordering of shots 
-Sec dose of Janssen!
 Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of infections
@@ -422,8 +358,6 @@ Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of shots 
 Wrong ordering of infections
-Sec dose of Janssen!
-Sec dose of Janssen!
 Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of shots 
@@ -439,7 +373,6 @@ Wrong ordering of shots
 Wrong ordering of shots 
 Wrong ordering of shots 
 Wrong ordering of infections
-Sec dose of Janssen!
 Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of shots 
@@ -450,7 +383,6 @@ Wrong ordering of shots
 Wrong ordering of shots 
 Wrong ordering of shots 
 Wrong ordering of shots 
-Sec dose of Janssen!
 Wrong ordering of shots 
 Wrong ordering of shots 
 Wrong ordering of shots 
@@ -774,7 +706,7 @@ Summary:
 8390834 records in data/data_20220215.csv
 out of which:
 8282065 records were used for the analysis
-488 records is inconsistent
+420 records is inconsistent
 54 records is with bad or out of range dates
 481 lacks valid age information 
 9929 lacks valid genderinformation 
@@ -787,43 +719,43 @@ For the analysis:
 2428653 persons added based on demographic structure
 10710718 total sample size
 out of which...
-num censored before study=35468
+num censored before study=6514934
 num events before study=0
-num censored in study=1176319
-num events in estudy=89430
-num survived study=9409501
+num censored in study=874272
+num events in estudy=55220
+num survived study=3266292
 
 Infections: 3526844 reinfections: 169602( raw = 171473)
 Horizon 68
 Covariate stats
 cov,num,average
 _novacc,2428653,36.9605
-Ppart1,281989,34.9159
-Mpart1,25855,45.0968
-Apart1,8,321.75
+Ppart1,281989,0
+Mpart1,25855,0
+Apart1,8,0
 Ppart2,0,-nan
 Mpart2,0,-nan
 Apart2,0,-nan
-Pfull1,396969,55.5285
-Mfull1,36241,51.6232
-Afull1,32,419.188
-Jfull1,36387,201.292
-Pfull2,236572,128.886
-Mfull2,20839,83.7111
-Afull2,528,1000.86
-Jfull2,142712,39.8316
-Pfull3,1135769,138.315
-Mfull3,48100,284.488
-Afull3,41616,266.908
-Jfull3,95994,78.8516
+Pfull1,0,-nan
+Mfull1,0,-nan
+Afull1,0,-nan
+Jfull1,36387,0
+Pfull2,0,-nan
+Mfull2,0,-nan
+Afull2,0,-nan
+Jfull2,0,-nan
+Pfull3,0,-nan
+Mfull3,0,-nan
+Afull3,0,-nan
+Jfull3,0,-nan
 Pfull4,0,-nan
 Mfull4,0,-nan
 Afull4,0,-nan
 Jfull4,0,-nan
-Pboost1,2533002,49.5869
-Mboost1,407040,50.1866
-Pboost2,1088069,20.2167
-Mboost2,163219,16.1561
+Pboost1,0,-nan
+Mboost1,0,-nan
+Pboost2,0,-nan
+Mboost2,0,-nan
 
 t,u,d,o
 0,0,0,0
