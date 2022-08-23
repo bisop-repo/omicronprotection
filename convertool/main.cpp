@@ -193,7 +193,7 @@ struct preprocessparams
     int infectionsgap = 60;
 
     /// number of the last postinf covariate (0 = not infected, 1 - first ...)
-int maxinfstatus = 6;
+    int maxinfstatus = 6;
 
     /// duration of 1st  postinf covariate
     int firstcovreinfduration = 13*7;
