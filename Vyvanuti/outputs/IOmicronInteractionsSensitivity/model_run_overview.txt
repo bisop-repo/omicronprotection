@@ -1,0 +1,33 @@
+$user
+[1] "smid"
+
+$computer
+[1] "daman.utia.cas.cz"
+
+$arguments
+[1] "data/temp/IOmicronInteractionsSensitivity.csv"              
+[2] "VII"                                                        
+[3] "outputs/IOmicronInteractionsSensitivity//convertool_log.txt"
+
+$time.start
+[1] "2022-08-25 19:13:52"
+
+$time.end
+[1] "2022-08-25 19:35:09"
+
+$model.spent
+Time difference of 21.28333 mins
+
+$model.concordance
+concordance 
+  0.6882973 
+
+$convertool.vignette
+[1] "version 24"                                                                                
+[2] "Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every"
+[3] "Omikron infections"                                                                        
+[4] "Mode variantinf"                                                                           
+[5] "Study period: 2021-12-07 to 2022-02-13"                                                    
+[6] "Age filter: 0-650"                                                                         
+[7] "Writing to data/temp/IOmicronInteractionsSensitivity.csv"                                  
+
