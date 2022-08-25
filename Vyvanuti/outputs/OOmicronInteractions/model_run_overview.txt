@@ -10,13 +10,13 @@ $arguments
 [3] "outputs/OOmicronInteractions//convertool_log.txt"
 
 $time.start
-[1] "2022-08-25 12:10:33"
+[1] "2022-08-25 18:34:08"
 
 $time.end
-[1] "2022-08-25 12:20:01"
+[1] "2022-08-25 18:43:44"
 
 $model.spent
-Time difference of 9.466667 mins
+Time difference of 9.6 mins
 
 $model.concordance
 concordance 
