@@ -5,17 +5,17 @@ $computer
 [1] "daman.utia.cas.cz"
 
 $arguments
-[1] "data/temp/logreg_test.csv"      "OI"                            
+[1] "data/temp/logreg_test.csv"      "IPI"                           
 [3] "logreg_temp/convertool_log.txt"
 
 $time.start
-[1] "2022-08-27 00:17:11"
+[1] "2022-08-27 00:17:15"
 
 $time.end
-[1] "2022-08-27 00:17:14"
+[1] "2022-08-27 00:17:19"
 
 $model.spent
-Time difference of 3 secs
+Time difference of 4 secs
 
 $convertool.vignette
 [1] "version 24 + w added"                                                                      
