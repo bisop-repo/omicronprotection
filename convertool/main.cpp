@@ -3785,7 +3785,7 @@ void oldockodata2R(string input, string output,
 
 int _main(int argc, char *argv[], bool compare = false)
 {
-    cout << "version 24" << endl;
+    cout << "version 24 + w added" << endl;
     cout << "Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every" << endl;
     if(!testrun  && argc < 5)
         throw "at least three arguments must be given";
@@ -3967,6 +3967,8 @@ int _main(int argc, char *argv[], bool compare = false)
                         cout << variantlabels[ppp.variant] << " reinfections" << endl;
                     }
                     break;
+                case 'w':
+                    ppp.excludeotherimmunity = false;
                 case 'v':
                     if(novariant)
                         throw "missing variant";
