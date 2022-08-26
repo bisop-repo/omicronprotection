@@ -3967,8 +3967,6 @@ int _main(int argc, char *argv[], bool compare = false)
                         cout << variantlabels[ppp.variant] << " reinfections" << endl;
                     }
                     break;
-                case 'w': 
-                    ppp.excludeotherimmunity = true;
                 case 'v':
                     if(novariant)
                         throw "missing variant";

@@ -9,16 +9,16 @@ $arguments
 [3] "logreg_temp/convertool_log.txt"
 
 $time.start
-[1] "2022-07-24 19:27:25"
+[1] "2022-08-26 11:57:14"
 
 $time.end
-[1] "2022-07-24 19:30:52"
+[1] "2022-08-26 12:00:42"
 
 $model.spent
-Time difference of 3.45 mins
+Time difference of 3.466667 mins
 
 $convertool.vignette
-[1] "version 24 + erratum"                                                                      
+[1] "version 24"                                                                                
 [2] "Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every"
 [3] "Mode comparison"                                                                           
 [4] "Study period: 2021-12-07 to 2022-02-15"                                                    
