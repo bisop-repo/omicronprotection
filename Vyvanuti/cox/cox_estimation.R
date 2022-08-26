@@ -100,7 +100,8 @@ print(args)
   
 #2.4 Cox model estimation
   f.input = as.formula(f.input)
-  cox = eval(bquote(coxph(.(f.input),data=mtab,cluster=Subject)))
+#  cox = eval(bquote(coxph(.(f.input),data=mtab,cluster=Subject)))
+  cox = eval(bquote(coxph(.(f.input),data=mtab,robust=FALSE)))
   cox.summary = summary(cox) 
   print(cox.summary) # returns output to the console
 

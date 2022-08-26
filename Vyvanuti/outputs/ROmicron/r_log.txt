@@ -44,7 +44,7 @@ Type 'q()' to quit R.
 >   ptime = gsub(":","-",ptime)
 >   
 >   print(paste("Hello ",user," of ",computer,", it is ",time.start,".",sep=""))
-[1] "Hello smid of daman.utia.cas.cz, it is 2022-08-25 18:57:07."
+[1] "Hello smid of daman.utia.cas.cz, it is 2022-08-26 14:39:36."
 > 
 > #1.4 Checking the provided arguments. The following if-else goes through the whole script and stops if requested args are not provided.
 >   if(length(args) > 1){
@@ -123,7 +123,8 @@ Type 'q()' to quit R.
 +   
 + #2.4 Cox model estimation
 +   f.input = as.formula(f.input)
-+   cox = eval(bquote(coxph(.(f.input),data=mtab,cluster=Subject)))
++ #  cox = eval(bquote(coxph(.(f.input),data=mtab,cluster=Subject)))
++   cox = eval(bquote(coxph(.(f.input),data=mtab,robust=FALSE)))
 +   cox.summary = summary(cox) 
 +   print(cox.summary) # returns output to the console
 + 
@@ -214,68 +215,66 @@ Type 'q()' to quit R.
 [1] "The input file has been loaded, its properties have been saved. Proceeding to Cox model."
 Call:
 coxph(formula = Surv(T1, T2, VariantInf) ~ InfPrior + AgeGr + 
-    Sex, data = mtab, cluster = Subject)
+    Sex, data = mtab, robust = FALSE)
 
-  n= 4512803, number of events= 138221 
+  n= 18045537, number of events= 306148 
 
-                   coef exp(coef)  se(coef) robust se       z Pr(>|z|)    
-InfPriorinf1  -1.192545  0.303448  0.014734  0.014819 -80.476  < 2e-16 ***
-InfPriorinf2  -0.462306  0.629830  0.023109  0.023128 -19.989  < 2e-16 ***
-InfPriorinf3  -0.186299  0.830025  0.009930  0.009957 -18.710  < 2e-16 ***
-InfPriorinf4+  0.089374  1.093490  0.013253  0.013317   6.711 1.93e-11 ***
-AgeGr0-11     -0.497452  0.608078  0.010972  0.010968 -45.355  < 2e-16 ***
-AgeGr12-15     0.772235  2.164598  0.012224  0.012236  63.110  < 2e-16 ***
-AgeGr16-17     0.946608  2.576954  0.016686  0.016722  56.609  < 2e-16 ***
-AgeGr18-24     0.499124  1.647277  0.013288  0.013326  37.454  < 2e-16 ***
-AgeGr25-29    -0.037180  0.963502  0.013918  0.013922  -2.671  0.00757 ** 
-AgeGr30-34     0.086887  1.090773  0.013212  0.013209   6.578 4.78e-11 ***
-AgeGr35-39     0.077462  1.080542  0.013318  0.013313   5.819 5.94e-09 ***
-AgeGr45-49     0.323935  1.382558  0.013613  0.013625  23.776  < 2e-16 ***
-AgeGr50-54     0.095708  1.100437  0.015497  0.015492   6.178 6.50e-10 ***
-AgeGr55-59    -0.163596  0.849085  0.017084  0.017066  -9.586  < 2e-16 ***
-AgeGr60-64    -0.810971  0.444426  0.021857  0.021847 -37.121  < 2e-16 ***
-AgeGr65-69    -1.129841  0.323085  0.027265  0.027240 -41.477  < 2e-16 ***
-AgeGr70-74    -1.293642  0.274270  0.033786  0.033755 -38.325  < 2e-16 ***
-AgeGr75-79    -0.944736  0.388782  0.042911  0.042860 -22.042  < 2e-16 ***
-AgeGr80+      -1.401850  0.246141  0.039332  0.039300 -35.670  < 2e-16 ***
-SexZ           0.093271  1.097759  0.005388  0.005397  17.283  < 2e-16 ***
+                   coef exp(coef)  se(coef)        z Pr(>|z|)    
+InfPriorinf1  -1.158049  0.314098  0.013501  -85.775  < 2e-16 ***
+InfPriorinf2  -0.655838  0.519007  0.018712  -35.050  < 2e-16 ***
+InfPriorinf3  -0.417026  0.659004  0.006969  -59.842  < 2e-16 ***
+InfPriorinf4+ -0.183050  0.832727  0.008542  -21.428  < 2e-16 ***
+AgeGr0-11     -0.409916  0.663706  0.007846  -52.247  < 2e-16 ***
+AgeGr12-15     0.554608  1.741259  0.008428   65.808  < 2e-16 ***
+AgeGr16-17     0.754903  2.127405  0.010324   73.120  < 2e-16 ***
+AgeGr18-24     0.315149  1.370463  0.007887   39.960  < 2e-16 ***
+AgeGr25-29     0.008073  1.008106  0.008672    0.931   0.3518    
+AgeGr30-34     0.043167  1.044112  0.008253    5.230 1.69e-07 ***
+AgeGr35-39     0.057049  1.058708  0.008149    7.001 2.54e-12 ***
+AgeGr45-49    -0.013332  0.986757  0.007953   -1.676   0.0937 .  
+AgeGr50-54    -0.253738  0.775895  0.009035  -28.084  < 2e-16 ***
+AgeGr55-59    -0.502334  0.605117  0.009819  -51.162  < 2e-16 ***
+AgeGr60-64    -0.997858  0.368668  0.011885  -83.962  < 2e-16 ***
+AgeGr65-69    -1.501562  0.222782  0.013995 -107.294  < 2e-16 ***
+AgeGr70-74    -1.806288  0.164263  0.016418 -110.016  < 2e-16 ***
+AgeGr75-79    -1.827254  0.160855  0.019619  -93.137  < 2e-16 ***
+AgeGr80+      -1.832997  0.159934  0.019179  -95.572  < 2e-16 ***
+SexZ           0.117134  1.124270  0.003621   32.345  < 2e-16 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
               exp(coef) exp(-coef) lower .95 upper .95
-InfPriorinf1     0.3034     3.2955    0.2948    0.3124
-InfPriorinf2     0.6298     1.5877    0.6019    0.6590
-InfPriorinf3     0.8300     1.2048    0.8140    0.8464
-InfPriorinf4+    1.0935     0.9145    1.0653    1.1224
-AgeGr0-11        0.6081     1.6445    0.5951    0.6213
-AgeGr12-15       2.1646     0.4620    2.1133    2.2171
-AgeGr16-17       2.5770     0.3881    2.4939    2.6628
-AgeGr18-24       1.6473     0.6071    1.6048    1.6909
-AgeGr25-29       0.9635     1.0379    0.9376    0.9902
-AgeGr30-34       1.0908     0.9168    1.0629    1.1194
-AgeGr35-39       1.0805     0.9255    1.0527    1.1091
-AgeGr45-49       1.3826     0.7233    1.3461    1.4200
-AgeGr50-54       1.1004     0.9087    1.0675    1.1344
-AgeGr55-59       0.8491     1.1777    0.8212    0.8780
-AgeGr60-64       0.4444     2.2501    0.4258    0.4639
-AgeGr65-69       0.3231     3.0952    0.3063    0.3408
-AgeGr70-74       0.2743     3.6460    0.2567    0.2930
-AgeGr75-79       0.3888     2.5721    0.3575    0.4229
-AgeGr80+         0.2461     4.0627    0.2279    0.2659
-SexZ             1.0978     0.9109    1.0862    1.1094
+InfPriorinf1     0.3141     3.1837    0.3059    0.3225
+InfPriorinf2     0.5190     1.9268    0.5003    0.5384
+InfPriorinf3     0.6590     1.5174    0.6501    0.6681
+InfPriorinf4+    0.8327     1.2009    0.8189    0.8468
+AgeGr0-11        0.6637     1.5067    0.6536    0.6740
+AgeGr12-15       1.7413     0.5743    1.7127    1.7703
+AgeGr16-17       2.1274     0.4701    2.0848    2.1709
+AgeGr18-24       1.3705     0.7297    1.3494    1.3918
+AgeGr25-29       1.0081     0.9920    0.9911    1.0254
+AgeGr30-34       1.0441     0.9578    1.0274    1.0611
+AgeGr35-39       1.0587     0.9445    1.0419    1.0758
+AgeGr45-49       0.9868     1.0134    0.9715    1.0023
+AgeGr50-54       0.7759     1.2888    0.7623    0.7898
+AgeGr55-59       0.6051     1.6526    0.5936    0.6169
+AgeGr60-64       0.3687     2.7125    0.3602    0.3774
+AgeGr65-69       0.2228     4.4887    0.2168    0.2290
+AgeGr70-74       0.1643     6.0878    0.1591    0.1696
+AgeGr75-79       0.1609     6.2168    0.1548    0.1672
+AgeGr80+         0.1599     6.2526    0.1540    0.1661
+SexZ             1.1243     0.8895    1.1163    1.1323
 
-Concordance= 0.648  (se = 0.001 )
-Likelihood ratio test= 39956  on 20 df,   p=<2e-16
-Wald test            = 36639  on 20 df,   p=<2e-16
-Score (logrank) test = 41342  on 20 df,   p=<2e-16,   Robust = 34813  p=<2e-16
+Concordance= 0.669  (se = 0 )
+Likelihood ratio test= 116594  on 20 df,   p=<2e-16
+Wald test            = 91667  on 20 df,   p=<2e-16
+Score (logrank) test = 109022  on 20 df,   p=<2e-16
 
-  (Note: the likelihood ratio and score tests assume independence of
-     observations within a cluster, the Wald and robust score tests do not).
 [1] "Model charts have been generated."
 [1] "Model output has been saved (TXT)."
 [1] "Model output has been saved (TeX)."
 [1] "The procedure is finished in following time:"
-Time difference of 2.8 mins
+Time difference of 6.25 mins
 [1] "Workspace image and log have been saved."
 [1] "https://www.youtube.com/watch?v=g3ENX3aHlqU"
 > 
