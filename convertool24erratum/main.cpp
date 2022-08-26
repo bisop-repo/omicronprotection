@@ -2207,14 +2207,13 @@ int _main(int argc, char *argv[], bool compare = false)
                 ppp.fourages = true;
                 ppp.singlepartcov = true;
                 ppp.Inf1_Xtoothers  = true;
+                ppp.groupall = true;
                 if(argv[4][1] == 'h')
                 {
                     mode = ehcomparison;
                 }
                 else
                 {
-                    if(argv[4][1] != 'H')
-	                    ppp.groupall = true;
                     mode = ecomparison;
                 }
             }
