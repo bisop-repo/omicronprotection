@@ -20,11 +20,10 @@ make
 cd ..
 cd ..
 cd convertool27
-mkdir bin
-cmake ..
-make 
-cd ..
-cd ..
+.. (do the same as with convertool)
+cd convertool24erratum
+.. (do the same as with convertool)
+
 ```
 
 

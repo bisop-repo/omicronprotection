@@ -1,0 +1,15 @@
+#!/bin/bash
+#Initialization
+WORKING_DIRECTORY=$(echo $PWD)
+echo 'Working directory is: '$WORKING_DIRECTORY
+
+#MASTER parameters used across all models
+INPUT_FILE='data/data_20220215.csv' #File to be converted in Convertool
+MODEL_DATE_MAX='2022-02-13' #Upper boundary of the modeling horizon
+
+#Model estimation in batch
+
+./cox/cox_batch --inputfile $INPUT_FILE --modelname 'IOmicronInteractionsSensitivity' --ctooltype 'wo' --modelformula 'VII' --modeldate $MODEL_DATE_MAX --modelage '0 650';
+
+
+echo 'Group done'
