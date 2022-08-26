@@ -1,6 +1,0 @@
-$`Median stats for VaccStatus at T1 == 0`
-Empty data.table (0 rows and 5 cols): VaccStatus,N,age_median,LastVaccTime_median,InfPriorTime_median
-
-$`Median stats for Immunity at T1 == 0`
-Empty data.table (0 rows and 5 cols): Immunity,N,age_median,LastVaccTime_median,InfPriorTime_median
-
