@@ -5,30 +5,30 @@ glm(formula = ICU15 ~ Variant + Immunity + AgeGr + Sex, family = binomial(link =
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
--0.5370  -0.0566  -0.0355  -0.0185   4.5170  
+-0.8585  -0.6204  -0.5438  -0.4108   2.6432  
 
 Coefficients:
                             Estimate Std. Error z value Pr(>|z|)    
-(Intercept)                 -4.19801    0.06794 -61.794  < 2e-16 ***
-VariantOmikron              -1.45105    0.07713 -18.814  < 2e-16 ***
-Immunityboost2-_alone       -1.19400    0.12430  -9.606  < 2e-16 ***
-Immunityboost2+_alone       -0.40920    0.17223  -2.376  0.01751 *  
-Immunityfull2-_alone        -0.83487    0.26422  -3.160  0.00158 ** 
-Immunityfull2+_alone        -1.11813    0.07518 -14.873  < 2e-16 ***
-Immunityrareeventcategories -1.52661    0.21992  -6.942 3.87e-12 ***
-AgeGr0-24                   -2.42300    0.17032 -14.226  < 2e-16 ***
-AgeGr25-39                  -1.63581    0.15355 -10.653  < 2e-16 ***
-AgeGr65+                     2.33425    0.06978  33.454  < 2e-16 ***
-SexZ                        -0.60311    0.06243  -9.661  < 2e-16 ***
+(Intercept)                 -0.89948    0.07277 -12.360  < 2e-16 ***
+VariantOmikron              -0.48482    0.08234  -5.888 3.91e-09 ***
+Immunityboost2-_alone       -0.19159    0.13463  -1.423  0.15470    
+Immunityboost2+_alone        0.09115    0.18811   0.485  0.62797    
+Immunityfull2-_alone        -0.84753    0.27616  -3.069  0.00215 ** 
+Immunityfull2+_alone        -0.45231    0.08153  -5.548 2.89e-08 ***
+Immunityrareeventcategories -0.47462    0.23352  -2.032  0.04210 *  
+AgeGr0-24                   -0.87038    0.18327  -4.749 2.04e-06 ***
+AgeGr25-39                  -0.76315    0.16480  -4.631 3.64e-06 ***
+AgeGr65+                    -0.19832    0.07693  -2.578  0.00993 ** 
+SexZ                        -0.46740    0.06740  -6.934 4.08e-12 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 14825  on 312151  degrees of freedom
-Residual deviance: 10939  on 312141  degrees of freedom
-  (86705 observations deleted due to missingness)
-AIC: 10961
+    Null deviance: 6088.4  on 6828  degrees of freedom
+Residual deviance: 5893.6  on 6818  degrees of freedom
+  (1633 observations deleted due to missingness)
+AIC: 5915.6
 
-Number of Fisher Scoring iterations: 10
+Number of Fisher Scoring iterations: 5
 
