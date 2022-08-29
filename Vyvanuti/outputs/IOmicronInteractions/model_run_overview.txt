@@ -10,20 +10,20 @@ $arguments
 [3] "outputs/IOmicronInteractions//convertool_log.txt"
 
 $time.start
-[1] "2022-08-29 13:40:48"
+[1] "2022-08-29 17:17:06"
 
 $time.end
-[1] "2022-08-29 13:50:24"
+[1] "2022-08-29 17:27:02"
 
 $model.spent
-Time difference of 9.6 mins
+Time difference of 9.933333 mins
 
 $model.concordance
 concordance 
-  0.6882847 
+  0.6880807 
 
 $convertool.vignette
-[1] "version 24 + erratum"                                                                      
+[1] "version 24 + w added + lastminute"                                                         
 [2] "Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every"
 [3] "Omikron infections"                                                                        
 [4] "Mode variantinf"                                                                           

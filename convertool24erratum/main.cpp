@@ -1547,9 +1547,7 @@ void ockodata2R(string input, string output,
                            {
                              assert(nextvaccptr > 0);
                              assert(lastinfection);
-                             if(partial
-|| (currentinfstatus == 2 && (currentvaccstatus == ePbooster2 || currentvaccstatus == eMbooster2)                             )
-                             )
+                             if(partial)
                                  immunity = otherstr;
                              else
                              {
