@@ -272,6 +272,9 @@ struct preprocessparams
     /// no event took place)
     vector<vaccovariate> excludevaccovs;
 
+   // fir kast nubzte exckzdśuib (of zero event categories)
+    vector<string> postexcludevaccovs;
+
 };
 
 void addto(vector<string>& labels, vector<unsigned>& counts, const string lbl)
@@ -1638,6 +1641,20 @@ else         // saving old code
                     || (ppp.excludeotherimmunity && immunity == otherstr);
 
                  bool dooutput = false;
+                 
+//erratum
+                 bool lastminuteexclude = false;
+                 for(unsigned k=0; k<ppp.postexcludevaccovs.size(); k++)
+                 {
+                    if(ppp.postexcludevaccovs[k]==immunity)
+                    {
+                        lastminuteexclude = true;
+                        break;
+                    }
+                 }
+
+//erratum end
+                 
                  bool uevent = false;
                  bool oevent = false;
 
@@ -1837,7 +1854,8 @@ else         // saving old code
                             os << lastvaccdate;
                     }
 
-                    o << os.str() << endl;
+                    if(!lastminuteexclude) 
+                    	o << os.str() << endl;
                     if(t1nonneg==0)
                         addto(lbls,startcnts,immunity);
                 }
@@ -3925,6 +3943,35 @@ int _main(int argc, char *argv[], bool compare = false)
                cerr << "Unknonn option " << argv[4][0] << endl;
                throw;
         }
+
+//erratum begin
+        for(unsigned i=0; argv[4][i]; i++)
+        {
+            if(argv[4][i]==':')
+            {
+                string c;
+                bool end=false;
+                for(unsigned j=i+1;;j++)
+                {
+                    char l = argv[4][j];
+                    bool end = l==0;
+                    bool next = l==',';
+                    if(end || next)
+                    {
+                        if(c.size() > 0)
+                        {
+                            ppp.postexcludevaccovs.push_back(c);
+                            c="";
+                        }
+                        if(end)
+                            break;
+                    }
+                    else
+                        c += l;
+                }
+            }
+        }
+//erratum end
 
         ppp.lastdatestr = argv[3];
         ockodata2R(argv[1], argv[2],
