@@ -1,0 +1,300 @@
+
+R version 4.1.3 (2022-03-10) -- "One Push-Up"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-redhat-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> #!/usr/bin/env Rscript
+> ##1. Initiating procedure
+> #1.1 Parsing args (use the commented command below for inputing them wihout console run)
+> args = commandArgs(trailingOnly=TRUE) #args = c("data/temp/IOmicron.csv","I","temp.txt")
+> print(args)
+[1] "data/temp/IDeltaInteractions.csv"              
+[2] "VII"                                           
+[3] "outputs/IDeltaInteractions//convertool_log.txt"
+> 
+> #1.2 Loading libraries
+>   library(survival)
+>   library(survminer)
+>   library(ggplot2)
+>   library(data.table)
+>   library(vtable)
+>   library(xtable)
+> 
+> #1.3 Saving various useful data
+>   systeminfo = Sys.info()
+>   user = as.character(systeminfo['login'])
+>   computer = as.character(systeminfo['nodename'])
+>   time.start = as.character(Sys.time())
+>   
+>   ptime = gsub(" ","_",time.start)
+>   ptime = gsub(":","-",ptime)
+>   
+>   print(paste("Hello ",user," of ",computer,", it is ",time.start,".",sep=""))
+[1] "Hello smid of daman.utia.cas.cz, it is 2022-08-29 18:18:07."
+> 
+> #1.4 Checking the provided arguments. The following if-else goes through the whole script and stops if requested args are not provided.
+>   if(length(args) > 1){
++     print("Inputs have been provided.")
++     data.input = args[1]
++     data.input.events = paste(args[1],"events.csv",sep=".")
++     f.input.id = args[2]
++     cox.f = fread("cox/cox_estimation_formulas.txt",stringsAsFactors = FALSE)
++     f.input = noquote(as.character(cox.f[cox.f$ID == f.input.id,2]))
++ 
++     print(paste("I am using file: ",data.input,sep=""))
++     print(paste("...and Cox formula: ",f.input,sep=""))   
++     
++     if(length(args)>2){
++       print("I can see a convertool log provided.")
++       convertool.log.location = args[3]
++       convertool.log = read.delim(convertool.log.location, header = FALSE, sep = "\t", dec = ".")
++       names(convertool.log) = "record"
++       convertool.vignette = convertool.log[1:7,]
++     } else {
++       print("No Convertool log has been provided.")
++       convertool.log = NA
++       convertool.vignette = NA
++     }
++     
++   ##2. Modeling procedure
++     
++   #2.1 Data loading and initial processing
++   mtab = fread(data.input,stringsAsFactors = FALSE)
++   mtab.events = fread(data.input.events,stringsAsFactors = FALSE)
++   file.name = strsplit(data.input,"/")[[1]]
++   file.name = gsub(".csv","",file.name[length(file.name)])
++   
++   mtab[, LastVaccTime := as.integer(LastVaccTime)][LastVaccTime == "_none", LastVaccTime := NULL]
++   mtab[, InfPriorTime := as.integer(InfPriorTime)][InfPriorTime == "_none", InfPriorTime := NULL]
++   
++   mtab.events[, LastVaccTime := as.integer(LastVaccTime)][LastVaccTime == "_none", LastVaccTime := NULL]
++   mtab.events[, InfPriorTime := as.integer(InfPriorTime)][InfPriorTime == "_none", InfPriorTime := NULL]
++   
++   #2.2 Preparing output directory
++   dir.name = file.name
++   dir.name = paste("outputs/",dir.name,sep="")
++   paste("The model files will be stored in: ",dir.name,"/",sep="")
++   if(file.exists(dir.name)){
++     print("The directory already exists, files will be rewritten.")
++     } else {
++     dir.create(dir.name)
++     print("The directory has been created.")
++ }
++  
++ #2.3. Switching to output directory, saving input file's descriptive stats
++   st(mtab,out='csv',file=paste(dir.name,'input_summary.csv',sep="/"))
++ 
++   custom.dq = list()
++   
++   VaccStatus_medians = mtab[mtab$T1 == 0,.(N=.N,age_median=median(Age),LastVaccTime_median=median(LastVaccTime),InfPriorTime_median=median(InfPriorTime)),.(VaccStatus)]
++   custom.dq[["Median stats for VaccStatus at T1 == 0"]] = VaccStatus_medians
++   
++   Immunity_medians = mtab[mtab$T1 == 0,.(N=.N,age_median=median(Age),LastVaccTime_median=median(LastVaccTime),InfPriorTime_median=median(InfPriorTime)),.(Immunity)]
++   custom.dq[["Median stats for Immunity at T1 == 0"]] = Immunity_medians
++   
++   VaccStatus_medians_events = mtab.events[,.(N=.N,age_median=median(Age),LastVaccTime_median=median(LastVaccTime),InfPriorTime_median=median(InfPriorTime)),.(VaccStatus)]
++   custom.dq[["Median stats for VaccStatus at the respective T"]] = VaccStatus_medians_events
++   
++   Immunity_medians_events = mtab.events[,.(N=.N,age_median=median(Age),LastVaccTime_median=median(LastVaccTime),InfPriorTime_median=median(InfPriorTime)),.(Immunity)]
++   custom.dq[["Median stats for Immunity at the respective T"]] = Immunity_medians_events
++   
++   sink(paste(dir.name,"input_summary_custom.txt",sep="/"))
++   print(custom.dq)
++   sink()  
++   gc()
++ 
++   print("The input file has been loaded, its properties have been saved. Proceeding to Cox model.")
++   
++   
++   
++ #2.4 Cox model estimation
++   f.input = as.formula(f.input)
++ #  cox = eval(bquote(coxph(.(f.input),data=mtab,cluster=Subject)))
++   cox = eval(bquote(coxph(.(f.input),data=mtab,robust=FALSE)))
++   cox.summary = summary(cox) 
++   print(cox.summary) # returns output to the console
++ 
++   ##3. Model outputs generation
++   #3.1 Hazard ratio plot
++   ggforest(cox, data = data.frame(mtab))
++   ggsave(paste(dir.name,"cox_risks_log.jpg",sep="/"),units="px",width=3840,height=3840)
++   print("Model charts have been generated.")
++   
++   #3.2 Txt (model summary)
++   sink(paste(dir.name,"cox_output.txt",sep="/"))
++   print(cox.summary)
++   sink()  
++   gc()
++   print("Model output has been saved (TXT).")
++ 
++   #3.2 TeX (params and exp(params))
++   beta <- coef(cox)
++   se   <- sqrt(diag(cox$var))
++   p    <- 1 - pchisq((beta/se)^2, 1)
++   CI   <- round(confint(cox), 3)
++   res <- data.frame(beta, se = se, CI, p)
++   names(res)[3:4] = c("low","high")
++   res$model.betas = paste(round(res$beta,2)," (",round(res$low,2),", ",round(res$high,2),")",sep="")
++   
++   res$hr = exp(res$beta)
++   res$hr.se = exp(res$se)
++   res$hr.low = exp(res$low)
++   res$hr.high = exp(res$high)
++   res$model.hr = paste(round(res$hr,2)," (",round(res$hr.low,2),", ",round(res$hr.high,2),")",sep="")
++   
++   res$eff = 1-res$hr
++   res$eff.high = 1-res$hr.low
++   res$eff.low = 1-res$hr.high
++   res$model.effectiveness = paste(round(res$eff,2)," (",round(res$eff.low,2),", ",round(res$eff.high,2),")",sep="")
++ 
++   modtab = res[,c("model.betas","model.hr","model.effectiveness")]
++   names(modtab) = c("Beta","HR","1-HR")
++   print(xtable(modtab),include.rownames=TRUE,file = paste(dir.name,"cox_output.tex",sep="/"), compress = FALSE)
++   print("Model output has been saved (TeX).")  
++   
++   #4. Closing sequence
++   time.end = as.character(Sys.time())
++   model.spent = difftime(time.end,time.start)
++   print("The procedure is finished in following time:")
++   print(model.spent)
++   
++   #4.1 Saving model run stats
++   run.overview = list()
++   run.overview[["user"]] = user
++   run.overview[["computer"]] = computer
++   run.overview[["arguments"]] = args
++   run.overview[["time.start"]] = time.start
++   run.overview[["time.end"]] = time.end
++   run.overview[["model.spent"]] = model.spent
++   run.overview[["model.concordance"]] = cox$concordance['concordance']
++   run.overview[["convertool.vignette"]] = convertool.vignette
++   
++   res$model.concordance = run.overview[["model.concordance"]]
++   res$model.ctool.version = run.overview[["convertool.vignette"]][1]
++   res$model.age.filter = run.overview[["convertool.vignette"]][4]
++   res$model.input.file = run.overview[["convertool.vignette"]][7]
++   res$model.input.horizon = run.overview[["convertool.vignette"]][5]
++   res$model.mode = f.input.id
++   res$model.calculated.at = time.end
++   
++   write.csv(res,file=paste(dir.name,"model_data.csv",sep="/"),row.names=FALSE)
++ 
++   sink(paste(dir.name,"model_run_overview.txt",sep="/"))
++   print(run.overview)
++   sink()
++ 
++   #4.2 Saving environment image (without the most heavy items)
++   rm(mtab,cox)
++   save(list=ls(), file=paste(dir.name,"environment.Rdata",sep="/"),compress=TRUE,compression_level=9)
++   print("Workspace image and log have been saved.")
++   print("https://www.youtube.com/watch?v=g3ENX3aHlqU")
++   
++   } else {
++     stop("Data input has not been provided, goodbye")
++     print(data.input)
++   }
+[1] "Inputs have been provided."
+[1] "I am using file: data/temp/IDeltaInteractions.csv"
+[1] "...and Cox formula: Surv(T1,T2,VariantInf) ~ Immunity + AgeGr + Sex"
+[1] "I can see a convertool log provided."
+[1] "The directory already exists, files will be rewritten."
+[1] "The input file has been loaded, its properties have been saved. Proceeding to Cox model."
+Call:
+coxph(formula = Surv(T1, T2, VariantInf) ~ Immunity + AgeGr + 
+    Sex, data = mtab, robust = FALSE)
+
+  n= 18029586, number of events= 89396 
+
+                           coef exp(coef)  se(coef)        z Pr(>|z|)    
+Immunityboost2-_alone -2.356993  0.094705  0.022776 -103.487  < 2e-16 ***
+Immunityboost2+_alone -1.690256  0.184472  0.061476  -27.494  < 2e-16 ***
+Immunityfull2-_alone  -1.318279  0.267595  0.024332  -54.180  < 2e-16 ***
+Immunityfull2+_alone  -0.841352  0.431127  0.007965 -105.634  < 2e-16 ***
+Immunityfull2+_inf6-  -3.132294  0.043618  0.408342   -7.671 1.71e-14 ***
+Immunityinf6-_alone   -3.036685  0.047994  0.127130  -23.886  < 2e-16 ***
+Immunityinf6-_boost2- -3.030185  0.048307  1.000037   -3.030  0.00244 ** 
+Immunityinf6-_full2+  -3.406176  0.033168  0.316288  -10.769  < 2e-16 ***
+Immunityinf6+_alone   -1.781108  0.168451  0.025190  -70.707  < 2e-16 ***
+Immunityinf6+_boost2- -4.125730  0.016152  0.136244  -30.282  < 2e-16 ***
+Immunityinf6+_boost2+ -2.823280  0.059411  0.316342   -8.925  < 2e-16 ***
+Immunityinf6+_full2-  -3.709726  0.024484  0.138770  -26.733  < 2e-16 ***
+Immunityinf6+_full2+  -3.182524  0.041481  0.040351  -78.870  < 2e-16 ***
+Immunitypart_alone    -1.070373  0.342880  0.030620  -34.957  < 2e-16 ***
+AgeGr0-11             -0.567838  0.566749  0.013765  -41.252  < 2e-16 ***
+AgeGr12-15             0.028247  1.028650  0.017014    1.660  0.09687 .  
+AgeGr16-17             0.022508  1.022763  0.024506    0.918  0.35838    
+AgeGr18-24            -0.188723  0.828016  0.017093  -11.041  < 2e-16 ***
+AgeGr25-29            -0.290410  0.747957  0.017295  -16.791  < 2e-16 ***
+AgeGr30-34            -0.108842  0.896872  0.015778   -6.898 5.26e-12 ***
+AgeGr35-39             0.030744  1.031222  0.015164    2.027  0.04262 *  
+AgeGr45-49             0.094548  1.099162  0.015146    6.242 4.31e-10 ***
+AgeGr50-54            -0.059643  0.942101  0.016911   -3.527  0.00042 ***
+AgeGr55-59            -0.141541  0.868020  0.017616   -8.035 9.37e-16 ***
+AgeGr60-64            -0.466077  0.627459  0.020167  -23.111  < 2e-16 ***
+AgeGr65-69            -0.537477  0.584221  0.020901  -25.716  < 2e-16 ***
+AgeGr70-74            -0.547507  0.578390  0.023015  -23.789  < 2e-16 ***
+AgeGr75-79            -0.374212  0.687831  0.027163  -13.777  < 2e-16 ***
+AgeGr80+              -0.399015  0.670981  0.025372  -15.727  < 2e-16 ***
+SexZ                   0.116709  1.123792  0.006716   17.377  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+                      exp(coef) exp(-coef) lower .95 upper .95
+Immunityboost2-_alone   0.09470    10.5592  0.090570   0.09903
+Immunityboost2+_alone   0.18447     5.4209  0.163532   0.20809
+Immunityfull2-_alone    0.26760     3.7370  0.255134   0.28067
+Immunityfull2+_alone    0.43113     2.3195  0.424449   0.43791
+Immunityfull2+_inf6-    0.04362    22.9265  0.019592   0.09711
+Immunityinf6-_alone     0.04799    20.8360  0.037409   0.06157
+Immunityinf6-_boost2-   0.04831    20.7011  0.006804   0.34296
+Immunityinf6-_full2+    0.03317    30.1497  0.017844   0.06165
+Immunityinf6+_alone     0.16845     5.9364  0.160337   0.17698
+Immunityinf6+_boost2-   0.01615    61.9130  0.012366   0.02110
+Immunityinf6+_boost2+   0.05941    16.8320  0.031959   0.11044
+Immunityinf6+_full2-    0.02448    40.8426  0.018654   0.03214
+Immunityinf6+_full2+    0.04148    24.1075  0.038327   0.04489
+Immunitypart_alone      0.34288     2.9165  0.322908   0.36409
+AgeGr0-11               0.56675     1.7644  0.551663   0.58225
+AgeGr12-15              1.02865     0.9721  0.994913   1.06353
+AgeGr16-17              1.02276     0.9777  0.974800   1.07309
+AgeGr18-24              0.82802     1.2077  0.800735   0.85623
+AgeGr25-29              0.74796     1.3370  0.723027   0.77375
+AgeGr30-34              0.89687     1.1150  0.869562   0.92504
+AgeGr35-39              1.03122     0.9697  1.001023   1.06233
+AgeGr45-49              1.09916     0.9098  1.067011   1.13228
+AgeGr50-54              0.94210     1.0615  0.911387   0.97385
+AgeGr55-59              0.86802     1.1520  0.838562   0.89851
+AgeGr60-64              0.62746     1.5937  0.603141   0.65276
+AgeGr65-69              0.58422     1.7117  0.560772   0.60865
+AgeGr70-74              0.57839     1.7289  0.552879   0.60508
+AgeGr75-79              0.68783     1.4538  0.652170   0.72544
+AgeGr80+                0.67098     1.4904  0.638430   0.70519
+SexZ                    1.12379     0.8898  1.109096   1.13868
+
+Concordance= 0.715  (se = 0.001 )
+Likelihood ratio test= 56104  on 30 df,   p=<2e-16
+Wald test            = 36943  on 30 df,   p=<2e-16
+Score (logrank) test = 51579  on 30 df,   p=<2e-16
+
+[1] "Model charts have been generated."
+[1] "Model output has been saved (TXT)."
+[1] "Model output has been saved (TeX)."
+[1] "The procedure is finished in following time:"
+Time difference of 9.95 mins
+[1] "Workspace image and log have been saved."
+[1] "https://www.youtube.com/watch?v=g3ENX3aHlqU"
+> 
