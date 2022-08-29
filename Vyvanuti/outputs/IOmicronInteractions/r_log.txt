@@ -44,7 +44,7 @@ Type 'q()' to quit R.
 >   ptime = gsub(":","-",ptime)
 >   
 >   print(paste("Hello ",user," of ",computer,", it is ",time.start,".",sep=""))
-[1] "Hello smid of daman.utia.cas.cz, it is 2022-08-25 17:44:03."
+[1] "Hello smid of daman.utia.cas.cz, it is 2022-08-29 13:40:48."
 > 
 > #1.4 Checking the provided arguments. The following if-else goes through the whole script and stops if requested args are not provided.
 >   if(length(args) > 1){
@@ -123,7 +123,8 @@ Type 'q()' to quit R.
 +   
 + #2.4 Cox model estimation
 +   f.input = as.formula(f.input)
-+   cox = eval(bquote(coxph(.(f.input),data=mtab,cluster=Subject)))
++ #  cox = eval(bquote(coxph(.(f.input),data=mtab,cluster=Subject)))
++   cox = eval(bquote(coxph(.(f.input),data=mtab,robust=FALSE)))
 +   cox.summary = summary(cox) 
 +   print(cox.summary) # returns output to the console
 + 
@@ -214,131 +215,88 @@ Type 'q()' to quit R.
 [1] "The input file has been loaded, its properties have been saved. Proceeding to Cox model."
 Call:
 coxph(formula = Surv(T1, T2, VariantInf) ~ Immunity + AgeGr + 
-    Sex, data = mtab, cluster = Subject)
+    Sex, data = mtab, robust = FALSE)
 
-  n= 18193894, number of events= 306470 
+  n= 18038611, number of events= 306129 
 
-                           coef exp(coef)  se(coef) robust se        z Pr(>|z|)
-Immunityboost2-_alone -0.817045  0.441735  0.006854  0.006882 -118.723  < 2e-16
-Immunityboost2+_alone -0.232082  0.792881  0.011919  0.012159  -19.088  < 2e-16
-Immunityboost2+_inf6- -5.238894  0.005306 41.147548  0.329412  -15.904  < 2e-16
-Immunityfull2-_alone  -0.555862  0.573578  0.009831  0.009867  -56.334  < 2e-16
-Immunityfull2+_alone  -0.093999  0.910284  0.004765  0.004794  -19.608  < 2e-16
-Immunityfull2+_inf6-  -2.233571  0.107145  0.062995  0.062987  -35.461  < 2e-16
-Immunityinf6-_alone   -1.155345  0.314949  0.014676  0.014730  -78.435  < 2e-16
-Immunityinf6-_boost2- -2.536077  0.079176  0.185732  0.185731  -13.655  < 2e-16
-Immunityinf6-_boost2+ -1.722901  0.178547  0.229455  0.229748   -7.499 6.43e-14
-Immunityinf6-_full2-  -1.710179  0.180833  0.166705  0.166622  -10.264  < 2e-16
-Immunityinf6-_full2+  -1.995136  0.135995  0.048921  0.048896  -40.804  < 2e-16
-Immunityinf6+_alone   -0.133807  0.874759  0.007839  0.007859  -17.025  < 2e-16
-Immunityinf6+_boost2- -1.358500  0.257046  0.016402  0.016420  -82.732  < 2e-16
-Immunityinf6+_boost2+ -0.662648  0.515485  0.033103  0.033100  -20.019  < 2e-16
-Immunityinf6+_full2-  -1.463809  0.231353  0.027296  0.027306  -53.607  < 2e-16
-Immunityinf6+_full2+  -0.598846  0.549445  0.008984  0.009002  -66.524  < 2e-16
-Immunityother         -1.563740  0.209352  0.055824  0.055786  -28.031  < 2e-16
-Immunitypart_alone    -0.375695  0.686812  0.019086  0.019145  -19.624  < 2e-16
-AgeGr0-11             -0.657883  0.517947  0.008181  0.008129  -80.933  < 2e-16
-AgeGr12-15             0.419025  1.520478  0.008491  0.008459   49.535  < 2e-16
-AgeGr16-17             0.651982  1.919341  0.010373  0.010409   62.633  < 2e-16
-AgeGr18-24             0.259488  1.296266  0.007925  0.007942   32.671  < 2e-16
-AgeGr25-29            -0.072829  0.929760  0.008687  0.008689   -8.381  < 2e-16
-AgeGr30-34            -0.014801  0.985308  0.008261  0.008257   -1.793  0.07304
-AgeGr35-39             0.021107  1.021331  0.008149  0.008147    2.591  0.00958
-AgeGr45-49             0.058403  1.060143  0.007970  0.007995    7.305 2.77e-13
-AgeGr50-54            -0.165037  0.847862  0.009057  0.009078  -18.180  < 2e-16
-AgeGr55-59            -0.382949  0.681848  0.009856  0.009874  -38.782  < 2e-16
-AgeGr60-64            -0.838359  0.432420  0.011945  0.011943  -70.198  < 2e-16
-AgeGr65-69            -1.273200  0.279934  0.014107  0.014121  -90.165  < 2e-16
-AgeGr70-74            -1.595972  0.202711  0.016652  0.016755  -95.255  < 2e-16
-AgeGr75-79            -1.632138  0.195511  0.020030  0.020234  -80.663  < 2e-16
-AgeGr80+              -1.717090  0.179588  0.019666  0.019861  -86.457  < 2e-16
-SexZ                   0.115609  1.122557  0.003622  0.003631   31.838  < 2e-16
-                         
-Immunityboost2-_alone ***
-Immunityboost2+_alone ***
-Immunityboost2+_inf6- ***
-Immunityfull2-_alone  ***
-Immunityfull2+_alone  ***
-Immunityfull2+_inf6-  ***
-Immunityinf6-_alone   ***
-Immunityinf6-_boost2- ***
-Immunityinf6-_boost2+ ***
-Immunityinf6-_full2-  ***
-Immunityinf6-_full2+  ***
-Immunityinf6+_alone   ***
-Immunityinf6+_boost2- ***
-Immunityinf6+_boost2+ ***
-Immunityinf6+_full2-  ***
-Immunityinf6+_full2+  ***
-Immunityother         ***
-Immunitypart_alone    ***
-AgeGr0-11             ***
-AgeGr12-15            ***
-AgeGr16-17            ***
-AgeGr18-24            ***
-AgeGr25-29            ***
-AgeGr30-34            .  
-AgeGr35-39            ** 
-AgeGr45-49            ***
-AgeGr50-54            ***
-AgeGr55-59            ***
-AgeGr60-64            ***
-AgeGr65-69            ***
-AgeGr70-74            ***
-AgeGr75-79            ***
-AgeGr80+              ***
-SexZ                  ***
+                           coef exp(coef)  se(coef)        z Pr(>|z|)    
+Immunityboost2-_alone -0.816974  0.441766  0.006855 -119.183  < 2e-16 ***
+Immunityboost2+_alone -0.231981  0.792961  0.011919  -19.462  < 2e-16 ***
+Immunityfull2-_alone  -0.555778  0.573626  0.009831  -56.533  < 2e-16 ***
+Immunityfull2+_alone  -0.093909  0.910365  0.004766  -19.706  < 2e-16 ***
+Immunityfull2+_inf6-  -2.233453  0.107158  0.062995  -35.455  < 2e-16 ***
+Immunityinf6-_alone   -1.155302  0.314963  0.014676  -78.721  < 2e-16 ***
+Immunityinf6-_boost2- -2.535956  0.079186  0.185732  -13.654  < 2e-16 ***
+Immunityinf6-_full2-  -1.710083  0.180851  0.166705  -10.258  < 2e-16 ***
+Immunityinf6-_full2+  -1.994993  0.136015  0.048921  -40.780  < 2e-16 ***
+Immunityinf6+_alone   -0.133764  0.874796  0.007839  -17.063  < 2e-16 ***
+Immunityinf6+_boost2- -1.358420  0.257067  0.016402  -82.820  < 2e-16 ***
+Immunityinf6+_boost2+ -0.662519  0.515551  0.033103  -20.014  < 2e-16 ***
+Immunityinf6+_full2-  -1.463715  0.231375  0.027296  -53.624  < 2e-16 ***
+Immunityinf6+_full2+  -0.598750  0.549498  0.008985  -66.642  < 2e-16 ***
+Immunitypart_alone    -0.375666  0.686832  0.019086  -19.683  < 2e-16 ***
+AgeGr0-11             -0.657356  0.518219  0.008185  -80.317  < 2e-16 ***
+AgeGr12-15             0.419460  1.521139  0.008498   49.358  < 2e-16 ***
+AgeGr16-17             0.652550  1.920433  0.010382   62.856  < 2e-16 ***
+AgeGr18-24             0.259156  1.295836  0.007931   32.674  < 2e-16 ***
+AgeGr25-29            -0.072474  0.930090  0.008692   -8.338  < 2e-16 ***
+AgeGr30-34            -0.014461  0.985643  0.008265   -1.750  0.08019 .  
+AgeGr35-39             0.021340  1.021569  0.008154    2.617  0.00886 ** 
+AgeGr45-49             0.058780  1.060542  0.007974    7.372 1.68e-13 ***
+AgeGr50-54            -0.164561  0.848266  0.009060  -18.163  < 2e-16 ***
+AgeGr55-59            -0.382518  0.682141  0.009860  -38.796  < 2e-16 ***
+AgeGr60-64            -0.838179  0.432497  0.011950  -70.142  < 2e-16 ***
+AgeGr65-69            -1.272781  0.280052  0.014110  -90.204  < 2e-16 ***
+AgeGr70-74            -1.596126  0.202680  0.016660  -95.805  < 2e-16 ***
+AgeGr75-79            -1.631909  0.195556  0.020037  -81.444  < 2e-16 ***
+AgeGr80+              -1.716358  0.179720  0.019671  -87.254  < 2e-16 ***
+SexZ                   0.115267  1.122173  0.003624   31.803  < 2e-16 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
                       exp(coef) exp(-coef) lower .95 upper .95
-Immunityboost2-_alone  0.441735     2.2638  0.435817   0.44773
-Immunityboost2+_alone  0.792881     1.2612  0.774210   0.81200
-Immunityboost2+_inf6-  0.005306   188.4615  0.002782   0.01012
-Immunityfull2-_alone   0.573578     1.7434  0.562591   0.58478
-Immunityfull2+_alone   0.910284     1.0986  0.901771   0.91888
-Immunityfull2+_inf6-   0.107145     9.3331  0.094702   0.12122
-Immunityinf6-_alone    0.314949     3.1751  0.305986   0.32417
-Immunityinf6-_boost2-  0.079176    12.6300  0.055018   0.11394
-Immunityinf6-_boost2+  0.178547     5.6008  0.113813   0.28010
-Immunityinf6-_full2-   0.180833     5.5299  0.130452   0.25067
-Immunityinf6-_full2+   0.135995     7.3532  0.123567   0.14967
-Immunityinf6+_alone    0.874759     1.1432  0.861387   0.88834
-Immunityinf6+_boost2-  0.257046     3.8904  0.248905   0.26545
-Immunityinf6+_boost2+  0.515485     1.9399  0.483104   0.55004
-Immunityinf6+_full2-   0.231353     4.3224  0.219297   0.24407
-Immunityinf6+_full2+   0.549445     1.8200  0.539836   0.55923
-Immunityother          0.209352     4.7767  0.187669   0.23354
-Immunitypart_alone     0.686812     1.4560  0.661518   0.71307
-AgeGr0-11              0.517947     1.9307  0.509760   0.52626
-AgeGr12-15             1.520478     0.6577  1.495477   1.54590
-AgeGr16-17             1.919341     0.5210  1.880579   1.95890
-AgeGr18-24             1.296266     0.7714  1.276243   1.31660
-AgeGr25-29             0.929760     1.0755  0.914059   0.94573
-AgeGr30-34             0.985308     1.0149  0.969491   1.00138
-AgeGr35-39             1.021331     0.9791  1.005151   1.03777
-AgeGr45-49             1.060143     0.9433  1.043661   1.07688
-AgeGr50-54             0.847862     1.1794  0.832910   0.86308
-AgeGr55-59             0.681848     1.4666  0.668779   0.69517
-AgeGr60-64             0.432420     2.3126  0.422415   0.44266
-AgeGr65-69             0.279934     3.5723  0.272293   0.28779
-AgeGr70-74             0.202711     4.9331  0.196163   0.20948
-AgeGr75-79             0.195511     5.1148  0.187909   0.20342
-AgeGr80+               0.179588     5.5683  0.172732   0.18672
-SexZ                   1.122557     0.8908  1.114596   1.13057
+Immunityboost2-_alone   0.44177     2.2636   0.43587    0.4477
+Immunityboost2+_alone   0.79296     1.2611   0.77465    0.8117
+Immunityfull2-_alone    0.57363     1.7433   0.56268    0.5848
+Immunityfull2+_alone    0.91037     1.0985   0.90190    0.9189
+Immunityfull2+_inf6-    0.10716     9.3320   0.09471    0.1212
+Immunityinf6-_alone     0.31496     3.1750   0.30603    0.3242
+Immunityinf6-_boost2-   0.07919    12.6285   0.05502    0.1140
+Immunityinf6-_full2-    0.18085     5.5294   0.13044    0.2507
+Immunityinf6-_full2+    0.13601     7.3522   0.12358    0.1497
+Immunityinf6+_alone     0.87480     1.1431   0.86146    0.8883
+Immunityinf6+_boost2-   0.25707     3.8900   0.24893    0.2655
+Immunityinf6+_boost2+   0.51555     1.9397   0.48316    0.5501
+Immunityinf6+_full2-    0.23138     4.3220   0.21932    0.2441
+Immunityinf6+_full2+    0.54950     1.8198   0.53991    0.5593
+Immunitypart_alone      0.68683     1.4560   0.66161    0.7130
+AgeGr0-11               0.51822     1.9297   0.50997    0.5266
+AgeGr12-15              1.52114     0.6574   1.49601    1.5467
+AgeGr16-17              1.92043     0.5207   1.88175    1.9599
+AgeGr18-24              1.29584     0.7717   1.27585    1.3161
+AgeGr25-29              0.93009     1.0752   0.91438    0.9461
+AgeGr30-34              0.98564     1.0146   0.96980    1.0017
+AgeGr35-39              1.02157     0.9789   1.00537    1.0380
+AgeGr45-49              1.06054     0.9429   1.04410    1.0772
+AgeGr50-54              0.84827     1.1789   0.83334    0.8635
+AgeGr55-59              0.68214     1.4660   0.66909    0.6955
+AgeGr60-64              0.43250     2.3122   0.42249    0.4427
+AgeGr65-69              0.28005     3.5708   0.27241    0.2879
+AgeGr70-74              0.20268     4.9339   0.19617    0.2094
+AgeGr75-79              0.19556     5.1136   0.18802    0.2034
+AgeGr80+                0.17972     5.5642   0.17292    0.1868
+SexZ                    1.12217     0.8911   1.11423    1.1302
 
-Concordance= 0.689  (se = 0 )
-Likelihood ratio test= 142776  on 34 df,   p=<2e-16
-Wald test            = 111216  on 34 df,   p=<2e-16
-Score (logrank) test = 132886  on 34 df,   p=<2e-16,   Robust = 141444  p=<2e-16
+Concordance= 0.688  (se = 0 )
+Likelihood ratio test= 142098  on 31 df,   p=<2e-16
+Wald test            = 110649  on 31 df,   p=<2e-16
+Score (logrank) test = 132297  on 31 df,   p=<2e-16
 
-  (Note: the likelihood ratio and score tests assume independence of
-     observations within a cluster, the Wald and robust score tests do not).
 [1] "Model charts have been generated."
 [1] "Model output has been saved (TXT)."
 [1] "Model output has been saved (TeX)."
 [1] "The procedure is finished in following time:"
-Time difference of 20.8 mins
+Time difference of 9.6 mins
 [1] "Workspace image and log have been saved."
 [1] "https://www.youtube.com/watch?v=g3ENX3aHlqU"
 > 
