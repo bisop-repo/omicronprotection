@@ -44,7 +44,7 @@ Type 'q()' to quit R.
 >   ptime = gsub(":","-",ptime)
 >   
 >   print(paste("Hello ",user," of ",computer,", it is ",time.start,".",sep=""))
-[1] "Hello smid of daman.utia.cas.cz, it is 2022-08-29 21:44:14."
+[1] "Hello smid of daman.utia.cas.cz, it is 2022-08-29 22:23:11."
 > 
 > #1.4 Checking the provided arguments. The following if-else goes through the whole script and stops if requested args are not provided.
 >   if(length(args) > 1){
@@ -124,7 +124,7 @@ Type 'q()' to quit R.
 + #2.4 Cox model estimation
 +   f.input = as.formula(f.input)
 + #  cox = eval(bquote(coxph(.(f.input),data=mtab,cluster=Subject)))
-+   cox = eval(bquote(coxph(.(f.input),data=mtab,robust=FALSE,iter.max=40)))
++   cox = eval(bquote(coxph(.(f.input),data=mtab,robust=FALSE,control=coxph.control(iter.max = 100))))
 +   cox.summary = summary(cox) 
 +   print(cox.summary) # returns output to the console
 + 
@@ -215,21 +215,22 @@ Type 'q()' to quit R.
 [1] "The input file has been loaded, its properties have been saved. Proceeding to Cox model."
 Call:
 coxph(formula = Surv(T1, T2, VariantHosp) ~ Immunity + AgeGr + 
-    Sex, data = mtab, robust = FALSE, iter.max = 40)
+    Sex, data = mtab, control = coxph.control(iter.max = 100), 
+    robust = FALSE)
 
   n= 16654171, number of events= 2048 
 
                             coef  exp(coef)   se(coef)       z Pr(>|z|)    
 Immunityboost2-_alone -1.988e+00  1.369e-01  7.500e-02 -26.513  < 2e-16 ***
 Immunityboost2+_alone -1.557e+00  2.109e-01  8.849e-02 -17.590  < 2e-16 ***
-Immunityboost2+_inf6- -1.102e+01  1.645e-05  0.000e+00    -Inf  < 2e-16 ***
+Immunityboost2+_inf6- -1.053e+01  2.682e-05  0.000e+00    -Inf  < 2e-16 ***
 Immunityfull2-_alone  -6.004e-01  5.486e-01  1.274e-01  -4.711 2.46e-06 ***
 Immunityfull2+_alone  -3.457e-01  7.077e-01  5.699e-02  -6.066 1.31e-09 ***
 Immunityfull2+_inf6-  -2.867e+00  5.690e-02  7.083e-01  -4.047 5.19e-05 ***
 Immunityinf6-_alone   -1.310e+00  2.699e-01  2.611e-01  -5.016 5.28e-07 ***
-Immunityinf6-_boost2- -1.127e+01  1.273e-05  1.286e+02  -0.088  0.93015    
+Immunityinf6-_boost2- -1.078e+01  2.076e-05  1.007e+02  -0.107  0.91472    
 Immunityinf6-_boost2+ -1.237e+00  2.903e-01  1.001e+00  -1.236  0.21661    
-Immunityinf6-_full2-  -1.063e+01  2.411e-05  2.468e+02  -0.043  0.96564    
+Immunityinf6-_full2-  -1.014e+01  3.933e-05  1.933e+02  -0.052  0.95814    
 Immunityinf6-_full2+  -2.644e+00  7.105e-02  1.001e+00  -2.642  0.00824 ** 
 Immunityinf6+_alone   -1.079e+00  3.398e-01  1.532e-01  -7.043 1.88e-12 ***
 Immunityinf6+_boost2- -2.948e+00  5.246e-02  2.914e-01 -10.115  < 2e-16 ***
@@ -259,14 +260,14 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
                       exp(coef) exp(-coef)  lower .95  upper .95
 Immunityboost2-_alone 1.369e-01  7.305e+00  1.182e-01  1.586e-01
 Immunityboost2+_alone 2.109e-01  4.742e+00  1.773e-01  2.508e-01
-Immunityboost2+_inf6- 1.645e-05  6.080e+04  1.645e-05  1.645e-05
+Immunityboost2+_inf6- 2.682e-05  3.728e+04  2.682e-05  2.682e-05
 Immunityfull2-_alone  5.486e-01  1.823e+00  4.273e-01  7.042e-01
 Immunityfull2+_alone  7.077e-01  1.413e+00  6.329e-01  7.914e-01
 Immunityfull2+_inf6-  5.690e-02  1.758e+01  1.420e-02  2.280e-01
 Immunityinf6-_alone   2.699e-01  3.705e+00  1.618e-01  4.502e-01
-Immunityinf6-_boost2- 1.273e-05  7.856e+04 4.400e-115 3.682e+104
+Immunityinf6-_boost2- 2.076e-05  4.817e+04  4.061e-91  1.061e+81
 Immunityinf6-_boost2+ 2.903e-01  3.445e+00  4.081e-02  2.065e+00
-Immunityinf6-_full2-  2.411e-05  4.148e+04 1.912e-215 3.041e+205
+Immunityinf6-_full2-  3.933e-05  2.543e+04 1.216e-169 1.272e+160
 Immunityinf6-_full2+  7.105e-02  1.407e+01  9.992e-03  5.052e-01
 Immunityinf6+_alone   3.398e-01  2.943e+00  2.517e-01  4.589e-01
 Immunityinf6+_boost2- 5.246e-02  1.906e+01  2.963e-02  9.287e-02
@@ -300,7 +301,7 @@ Score (logrank) test = 4186  on 33 df,   p=<2e-16
 [1] "Model output has been saved (TXT)."
 [1] "Model output has been saved (TeX)."
 [1] "The procedure is finished in following time:"
-Time difference of 29.33333 mins
+Time difference of 1.048333 hours
 [1] "Workspace image and log have been saved."
 [1] "https://www.youtube.com/watch?v=g3ENX3aHlqU"
 > 
