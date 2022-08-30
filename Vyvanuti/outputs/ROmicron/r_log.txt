@@ -44,7 +44,7 @@ Type 'q()' to quit R.
 >   ptime = gsub(":","-",ptime)
 >   
 >   print(paste("Hello ",user," of ",computer,", it is ",time.start,".",sep=""))
-[1] "Hello smid of daman.utia.cas.cz, it is 2022-08-26 14:39:36."
+[1] "Hello smid of daman.utia.cas.cz, it is 2022-08-30 23:13:31."
 > 
 > #1.4 Checking the provided arguments. The following if-else goes through the whole script and stops if requested args are not provided.
 >   if(length(args) > 1){
@@ -124,7 +124,9 @@ Type 'q()' to quit R.
 + #2.4 Cox model estimation
 +   f.input = as.formula(f.input)
 + #  cox = eval(bquote(coxph(.(f.input),data=mtab,cluster=Subject)))
-+   cox = eval(bquote(coxph(.(f.input),data=mtab,robust=FALSE)))
++ #  cox = eval(bquote(coxph(.(f.input),data=mtab,robust=FALSE,control=coxph.control(iter.max = 100))))
++   cox = eval(bquote(coxph(.(f.input),data=mtab)))
++ 
 +   cox.summary = summary(cox) 
 +   print(cox.summary) # returns output to the console
 + 
@@ -215,7 +217,7 @@ Type 'q()' to quit R.
 [1] "The input file has been loaded, its properties have been saved. Proceeding to Cox model."
 Call:
 coxph(formula = Surv(T1, T2, VariantInf) ~ InfPrior + AgeGr + 
-    Sex, data = mtab, robust = FALSE)
+    Sex, data = mtab)
 
   n= 18045537, number of events= 306148 
 
@@ -274,7 +276,7 @@ Score (logrank) test = 109022  on 20 df,   p=<2e-16
 [1] "Model output has been saved (TXT)."
 [1] "Model output has been saved (TeX)."
 [1] "The procedure is finished in following time:"
-Time difference of 6.25 mins
+Time difference of 5.6 mins
 [1] "Workspace image and log have been saved."
 [1] "https://www.youtube.com/watch?v=g3ENX3aHlqU"
 > 

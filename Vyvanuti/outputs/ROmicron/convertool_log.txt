@@ -1,4 +1,4 @@
-version 24
+version 24 + w added + lastminute
 Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every
 Omikron reinfections
 Mode variantinf

@@ -1,6 +1,6 @@
 Call:
 coxph(formula = Surv(T1, T2, VariantInf) ~ InfPrior + AgeGr + 
-    Sex, data = mtab, robust = FALSE)
+    Sex, data = mtab)
 
   n= 18045537, number of events= 306148 
 
