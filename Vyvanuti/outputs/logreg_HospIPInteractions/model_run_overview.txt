@@ -9,10 +9,10 @@ $arguments
 [3] "logreg_temp/convertool_log.txt"
 
 $time.start
-[1] "2022-08-30 22:04:20"
+[1] "2022-08-30 22:19:38"
 
 $time.end
-[1] "2022-08-30 22:04:22"
+[1] "2022-08-30 22:19:40"
 
 $model.spent
 Time difference of 2 secs
