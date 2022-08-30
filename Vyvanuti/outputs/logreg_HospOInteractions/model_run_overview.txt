@@ -9,20 +9,20 @@ $arguments
 [3] "logreg_temp/convertool_log.txt"
 
 $time.start
-[1] "2022-08-27 00:17:11"
+[1] "2022-08-30 15:02:57"
 
 $time.end
-[1] "2022-08-27 00:17:14"
+[1] "2022-08-30 15:03:00"
 
 $model.spent
 Time difference of 3 secs
 
 $convertool.vignette
-[1] "version 24 + w added"                                                                      
+[1] "version 24 + w added + lastminute"                                                         
 [2] "Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every"
-[3] "Mode hcomparison"                                                                          
-[4] "Study period: 2021-12-07 to 2022-02-15"                                                    
-[5] "Age filter: 0-650"                                                                         
-[6] "Writing to data/temp/logreg_test.csv"                                                      
-[7] "Input data/data_20220215.csv"                                                              
+[3] "Last minute excluding full2+_inf6-"                                                        
+[4] "Last minute excluding inf6+_boost2-"                                                       
+[5] "Last minute excluding inf6+_boost2+"                                                       
+[6] "Last minute excluding inf6+_full2-"                                                        
+[7] "Mode hcomparison"                                                                          
 
