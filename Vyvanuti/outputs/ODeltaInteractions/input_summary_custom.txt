@@ -5,7 +5,7 @@ $`Median stats for VaccStatus at T1 == 0`
 3:      full2 1109159         35                -104                  NA
 4:     boost1  870627         73                 -20                  NA
 5:      part1  190687         38                 -11                  NA
-6:    _novacc 3602737         29                  NA                  NA
+6:    _novacc 3479331         30                  NA                  NA
 7:     boost2    5834         54                 -64                  NA
 
 $`Median stats for Immunity at T1 == 0`
@@ -14,7 +14,7 @@ $`Median stats for Immunity at T1 == 0`
 2:  full2-_alone  215727         38                 -19                  NA
 3: boost2-_alone  782966         73                 -20                  NA
 4:  interactions 1016304         48                -125                -336
-5:   _noimmunity 3101928         28                  NA                  NA
+5:   _noimmunity 2978522         29                  NA                  NA
 6:    part_alone  144288         37                 -11                  NA
 7:   inf6+_alone  500809         34                  NA                -310
 8: boost2+_alone    5313         54                 -64                  NA

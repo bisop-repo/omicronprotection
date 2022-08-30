@@ -1956,38 +1956,50 @@ else         // saving old code
                     cout << "Generating " << n << " " << (m ? "men" : "women") << " of age " << a << endl;
                     arecs[age2groupnum(a)].added += n;
 
+                    string agelabel;
+                    if(ppp.fourages)
+                        agelabel = fourage2group(a);
+                    else
+                         agelabel = age2group(a);
 
-                    for(int j=0; j<n; j++,i++)
+                    bool lastminuteexclude = false;
+                    for(unsigned k=0; k<ppp.postexcludevaccovs.size(); k++)
                     {
-                        o << i << "," << 0 << "," << T << ","
-                                       << "0,"
-                                       << ((mode == ehospitals || mode == ehospitalsreinf) ? "0,0,0," : ",,,")
-                                       << "0,"
-                                       << "0,"
-                                       << "0,"
-                                       << (mode == evarianthosp ? "0,0,0," : ",,,")
-                                       << (mode == evariantdeath ? "0," : ",")
-                                       << "_noinf," << severitylabel(enotsevereorunknown) << ","
-                                       << vcovtexts[eunvacc] << ","
-                                       << "_noimmunity,"
-                                       << a << "," ;
-
-                        string agelabel;
-                        if(ppp.fourages)
-                            agelabel = fourage2group(a);
-                        else
-                             agelabel = age2group(a);
-
-                        o << agelabel << ","
-                                       << (m ? malestr : femalestr);
-                        if(ppp.numericprevevents)
-                           o << ",_none,_none";
-                        o << endl;
-                        added++;
-
-                        numsincovs[eunvacc]++;
-                        numsurvivedstudy++;
+                       if(ppp.postexcludevaccovs[k]==agelabel)
+                       {
+                           lastminuteexclude = true;
+                           break;
+                       }
                     }
+                    if(!lastminuteexclude)
+                        for(int j=0; j<n; j++,i++)
+                        {
+
+
+                            o << i << "," << 0 << "," << T << ","
+                                           << "0,"
+                                           << ((mode == ehospitals || mode == ehospitalsreinf) ? "0,0,0," : ",,,")
+                                           << "0,"
+                                           << "0,"
+                                           << "0,"
+                                           << (mode == evarianthosp ? "0,0,0," : ",,,")
+                                           << (mode == evariantdeath ? "0," : ",")
+                                           << "_noinf," << severitylabel(enotsevereorunknown) << ","
+                                           << vcovtexts[eunvacc] << ","
+                                           << "_noimmunity,"
+                                           << a << "," ;
+
+
+                            o << agelabel << ","
+                                           << (m ? malestr : femalestr);
+                            if(ppp.numericprevevents)
+                               o << ",_none,_none";
+                            o << endl;
+                            added++;
+
+                            numsincovs[eunvacc]++;
+                            numsurvivedstudy++;
+                        }
                 }
             }
         }
@@ -4226,7 +4238,7 @@ int main(int argc, char *argv[])
         {
 //            throw "test mode disabled";
             char *as[5] ={"foo",testfilename,"torinternal.csv",
-                          "2022-02-13","ho:boost2+_inf6-,inf6_boost2-,inf6-_full2-"};
+                          "2022-02-13","oo:12-15"};
         return _main(5,as,false);
 
     //        _main(5,as, true);
