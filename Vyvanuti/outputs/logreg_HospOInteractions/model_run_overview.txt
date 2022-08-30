@@ -9,10 +9,10 @@ $arguments
 [3] "logreg_temp/convertool_log.txt"
 
 $time.start
-[1] "2022-08-30 15:02:57"
+[1] "2022-08-30 21:54:27"
 
 $time.end
-[1] "2022-08-30 15:03:00"
+[1] "2022-08-30 21:54:30"
 
 $model.spent
 Time difference of 3 secs
@@ -24,5 +24,5 @@ $convertool.vignette
 [4] "Last minute excluding inf6+_boost2-"                                                       
 [5] "Last minute excluding inf6+_boost2+"                                                       
 [6] "Last minute excluding inf6+_full2-"                                                        
-[7] "Mode hcomparison"                                                                          
+[7] "Last minute excluding inf6+_full2-"                                                        
 

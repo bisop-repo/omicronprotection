@@ -8,32 +8,28 @@ Deviance Residuals:
 -0.8570  -0.6193  -0.5446  -0.4139   2.6366  
 
 Coefficients:
-                       Estimate Std. Error z value Pr(>|z|)    
-(Intercept)            -0.90191    0.07292 -12.369  < 2e-16 ***
-VariantOmikron         -0.47982    0.08297  -5.783 7.33e-09 ***
-Immunityboost2-_alone  -0.19179    0.13468  -1.424  0.15443    
-Immunityboost2+_alone   0.08939    0.18824   0.475  0.63488    
-Immunityfull2-_alone   -0.84901    0.27613  -3.075  0.00211 ** 
-Immunityfull2+_alone   -0.45182    0.08153  -5.542 2.99e-08 ***
-Immunityfull2+_inf6-  -12.69053  507.16059  -0.025  0.98004    
-Immunityinf6-_alone    -0.21657    1.07733  -0.201  0.84068    
-Immunityinf6+_boost2- -12.85022  389.00774  -0.033  0.97365    
-Immunityinf6+_boost2+ -12.95583  501.32061  -0.026  0.97938    
-Immunityinf6+_full2-  -12.85796  616.33243  -0.021  0.98336    
-Immunitypart_alone     -0.36921    0.28394  -1.300  0.19350    
-AgeGr0-24              -0.87344    0.18340  -4.762 1.91e-06 ***
-AgeGr25-39             -0.75046    0.16506  -4.547 5.45e-06 ***
-AgeGr65+               -0.20017    0.07719  -2.593  0.00951 ** 
-SexZ                   -0.46309    0.06758  -6.852 7.26e-12 ***
+                      Estimate Std. Error z value Pr(>|z|)    
+(Intercept)           -0.90191    0.07292 -12.369  < 2e-16 ***
+VariantOmikron        -0.47982    0.08297  -5.783 7.33e-09 ***
+Immunityboost2-_alone -0.19179    0.13468  -1.424  0.15443    
+Immunityboost2+_alone  0.08939    0.18824   0.475  0.63488    
+Immunityfull2-_alone  -0.84901    0.27613  -3.075  0.00211 ** 
+Immunityfull2+_alone  -0.45182    0.08153  -5.542 2.99e-08 ***
+Immunityinf6-_alone   -0.21657    1.07733  -0.201  0.84068    
+Immunitypart_alone    -0.36921    0.28394  -1.300  0.19350    
+AgeGr0-24             -0.87344    0.18340  -4.762 1.91e-06 ***
+AgeGr25-39            -0.75046    0.16506  -4.547 5.45e-06 ***
+AgeGr65+              -0.20017    0.07719  -2.593  0.00951 ** 
+SexZ                  -0.46309    0.06758  -6.852 7.26e-12 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 6049.5  on 6774  degrees of freedom
-Residual deviance: 5855.4  on 6759  degrees of freedom
-  (1605 observations deleted due to missingness)
-AIC: 5887.4
+    Null deviance: 6044.9  on 6761  degrees of freedom
+Residual deviance: 5855.4  on 6750  degrees of freedom
+  (1592 observations deleted due to missingness)
+AIC: 5879.4
 
-Number of Fisher Scoring iterations: 13
+Number of Fisher Scoring iterations: 5
 
