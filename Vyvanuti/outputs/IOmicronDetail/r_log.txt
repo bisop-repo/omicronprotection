@@ -44,7 +44,7 @@ Type 'q()' to quit R.
 >   ptime = gsub(":","-",ptime)
 >   
 >   print(paste("Hello ",user," of ",computer,", it is ",time.start,".",sep=""))
-[1] "Hello smid of daman.utia.cas.cz, it is 2022-08-25 19:02:42."
+[1] "Hello smid of daman.utia.cas.cz, it is 2022-08-30 23:22:12."
 > 
 > #1.4 Checking the provided arguments. The following if-else goes through the whole script and stops if requested args are not provided.
 >   if(length(args) > 1){
@@ -123,7 +123,10 @@ Type 'q()' to quit R.
 +   
 + #2.4 Cox model estimation
 +   f.input = as.formula(f.input)
-+   cox = eval(bquote(coxph(.(f.input),data=mtab,cluster=Subject)))
++ #  cox = eval(bquote(coxph(.(f.input),data=mtab,cluster=Subject)))
++ #  cox = eval(bquote(coxph(.(f.input),data=mtab,robust=FALSE,control=coxph.control(iter.max = 100))))
++   cox = eval(bquote(coxph(.(f.input),data=mtab)))
++ 
 +   cox.summary = summary(cox) 
 +   print(cox.summary) # returns output to the console
 + 
@@ -212,3 +215,106 @@ Type 'q()' to quit R.
 [1] "I can see a convertool log provided."
 [1] "The directory already exists, files will be rewritten."
 [1] "The input file has been loaded, its properties have been saved. Proceeding to Cox model."
+Call:
+coxph(formula = Surv(T1, T2, VariantInf) ~ VaccStatus + InfPrior + 
+    AgeGr + Sex, data = mtab)
+
+  n= 18087592, number of events= 306440 
+
+                       coef exp(coef)  se(coef)        z Pr(>|z|)    
+VaccStatusAfull2  -0.716038  0.488685  0.229445   -3.121 0.001804 ** 
+VaccStatusAfull3  -0.055325  0.946178  0.022118   -2.501 0.012373 *  
+VaccStatusJfull1  -0.637095  0.528826  0.023102  -27.577  < 2e-16 ***
+VaccStatusJfull2  -0.468181  0.626140  0.019770  -23.681  < 2e-16 ***
+VaccStatusJfull3  -0.436315  0.646414  0.018628  -23.423  < 2e-16 ***
+VaccStatusMboost1 -0.937027  0.391791  0.015054  -62.243  < 2e-16 ***
+VaccStatusMboost2 -0.405012  0.666969  0.033331  -12.151  < 2e-16 ***
+VaccStatusMfull1  -0.657668  0.518058  0.035192  -18.688  < 2e-16 ***
+VaccStatusMfull2  -0.534361  0.586043  0.043151  -12.384  < 2e-16 ***
+VaccStatusMfull3  -0.217956  0.804161  0.014143  -15.411  < 2e-16 ***
+VaccStatusMpart1  -0.669037  0.512201  0.066163  -10.112  < 2e-16 ***
+VaccStatusMpart2  -0.924293  0.396812  0.242559   -3.811 0.000139 ***
+VaccStatusPboost1 -0.875081  0.416828  0.006786 -128.947  < 2e-16 ***
+VaccStatusPboost2 -0.276445  0.758475  0.011771  -23.485  < 2e-16 ***
+VaccStatusPfull1  -0.667713  0.512880  0.010264  -65.051  < 2e-16 ***
+VaccStatusPfull2  -0.313859  0.730622  0.011527  -27.227  < 2e-16 ***
+VaccStatusPfull3  -0.119327  0.887518  0.004674  -25.532  < 2e-16 ***
+VaccStatusPpart1  -0.374308  0.687765  0.020252  -18.482  < 2e-16 ***
+VaccStatusPpart2  -0.753700  0.470622  0.073009  -10.323  < 2e-16 ***
+InfPriorinf1      -1.331804  0.264001  0.013550  -98.287  < 2e-16 ***
+InfPriorinf2      -0.691932  0.500608  0.018680  -37.042  < 2e-16 ***
+InfPriorinf3      -0.423991  0.654430  0.006976  -60.774  < 2e-16 ***
+InfPriorinf4+     -0.155880  0.855662  0.008552  -18.227  < 2e-16 ***
+AgeGr0-11         -0.665239  0.514151  0.008183  -81.298  < 2e-16 ***
+AgeGr12-15         0.437070  1.548164  0.008551   51.113  < 2e-16 ***
+AgeGr16-17         0.662184  1.939022  0.010407   63.626  < 2e-16 ***
+AgeGr18-24         0.273678  1.314791  0.007929   34.516  < 2e-16 ***
+AgeGr25-29        -0.064039  0.937969  0.008689   -7.370 1.71e-13 ***
+AgeGr30-34        -0.005528  0.994488  0.008261   -0.669 0.503437    
+AgeGr35-39         0.027093  1.027464  0.008149    3.325 0.000885 ***
+AgeGr45-49         0.063841  1.065923  0.007970    8.010 1.15e-15 ***
+AgeGr50-54        -0.159456  0.852607  0.009059  -17.603  < 2e-16 ***
+AgeGr55-59        -0.377249  0.685746  0.009859  -38.265  < 2e-16 ***
+AgeGr60-64        -0.832288  0.435053  0.011950  -69.649  < 2e-16 ***
+AgeGr65-69        -1.263022  0.282798  0.014112  -89.498  < 2e-16 ***
+AgeGr70-74        -1.583440  0.205268  0.016663  -95.025  < 2e-16 ***
+AgeGr75-79        -1.617603  0.198374  0.020047  -80.693  < 2e-16 ***
+AgeGr80+          -1.707950  0.181237  0.019662  -86.868  < 2e-16 ***
+SexZ               0.112395  1.118955  0.003624   31.013  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+                  exp(coef) exp(-coef) lower .95 upper .95
+VaccStatusAfull2     0.4887     2.0463    0.3117    0.7662
+VaccStatusAfull3     0.9462     1.0569    0.9060    0.9881
+VaccStatusJfull1     0.5288     1.8910    0.5054    0.5533
+VaccStatusJfull2     0.6261     1.5971    0.6023    0.6509
+VaccStatusJfull3     0.6464     1.5470    0.6232    0.6705
+VaccStatusMboost1    0.3918     2.5524    0.3804    0.4035
+VaccStatusMboost2    0.6670     1.4993    0.6248    0.7120
+VaccStatusMfull1     0.5181     1.9303    0.4835    0.5551
+VaccStatusMfull2     0.5860     1.7064    0.5385    0.6378
+VaccStatusMfull3     0.8042     1.2435    0.7822    0.8268
+VaccStatusMpart1     0.5122     1.9524    0.4499    0.5831
+VaccStatusMpart2     0.3968     2.5201    0.2467    0.6383
+VaccStatusPboost1    0.4168     2.3991    0.4113    0.4224
+VaccStatusPboost2    0.7585     1.3184    0.7412    0.7762
+VaccStatusPfull1     0.5129     1.9498    0.5027    0.5233
+VaccStatusPfull2     0.7306     1.3687    0.7143    0.7473
+VaccStatusPfull3     0.8875     1.1267    0.8794    0.8957
+VaccStatusPpart1     0.6878     1.4540    0.6610    0.7156
+VaccStatusPpart2     0.4706     2.1248    0.4079    0.5430
+InfPriorinf1         0.2640     3.7879    0.2571    0.2711
+InfPriorinf2         0.5006     1.9976    0.4826    0.5193
+InfPriorinf3         0.6544     1.5280    0.6455    0.6634
+InfPriorinf4+        0.8557     1.1687    0.8414    0.8701
+AgeGr0-11            0.5142     1.9450    0.5060    0.5225
+AgeGr12-15           1.5482     0.6459    1.5224    1.5743
+AgeGr16-17           1.9390     0.5157    1.8999    1.9790
+AgeGr18-24           1.3148     0.7606    1.2945    1.3354
+AgeGr25-29           0.9380     1.0661    0.9221    0.9541
+AgeGr30-34           0.9945     1.0055    0.9785    1.0107
+AgeGr35-39           1.0275     0.9733    1.0112    1.0440
+AgeGr45-49           1.0659     0.9382    1.0494    1.0827
+AgeGr50-54           0.8526     1.1729    0.8376    0.8679
+AgeGr55-59           0.6857     1.4583    0.6726    0.6991
+AgeGr60-64           0.4351     2.2986    0.4250    0.4454
+AgeGr65-69           0.2828     3.5361    0.2751    0.2907
+AgeGr70-74           0.2053     4.8717    0.1987    0.2121
+AgeGr75-79           0.1984     5.0410    0.1907    0.2063
+AgeGr80+             0.1812     5.5176    0.1744    0.1884
+SexZ                 1.1190     0.8937    1.1110    1.1269
+
+Concordance= 0.688  (se = 0 )
+Likelihood ratio test= 142450  on 39 df,   p=<2e-16
+Wald test            = 112931  on 39 df,   p=<2e-16
+Score (logrank) test = 133326  on 39 df,   p=<2e-16
+
+[1] "Model charts have been generated."
+[1] "Model output has been saved (TXT)."
+[1] "Model output has been saved (TeX)."
+[1] "The procedure is finished in following time:"
+Time difference of 11.7 mins
+[1] "Workspace image and log have been saved."
+[1] "https://www.youtube.com/watch?v=g3ENX3aHlqU"
+> 
