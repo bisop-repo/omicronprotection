@@ -1,0 +1,33 @@
+$user
+[1] "smid"
+
+$computer
+[1] "daman.utia.cas.cz"
+
+$arguments
+[1] "data/temp/HOmicronInteractions.csv"              
+[2] "VHI"                                             
+[3] "outputs/HOmicronInteractions//convertool_log.txt"
+
+$time.start
+[1] "2022-08-29 19:38:12"
+
+$time.end
+[1] "2022-08-29 19:46:59"
+
+$model.spent
+Time difference of 8.783333 mins
+
+$model.concordance
+concordance 
+  0.7991107 
+
+$convertool.vignette
+[1] "version 24 + w added + lastminute"                                                         
+[2] "Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every"
+[3] "Omikron hospitalizations"                                                                  
+[4] "Mode varianthosp"                                                                          
+[5] "Study period: 2021-12-07 to 2022-02-13"                                                    
+[6] "Age filter: 0-650"                                                                         
+[7] "Writing to data/temp/HOmicronInteractions.csv"                                             
+
