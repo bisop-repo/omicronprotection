@@ -1571,18 +1571,7 @@ void ockodata2R(string input, string output,
                     || (ppp.excludeotherimmunity && immunity == otherstr);
 
                  bool dooutput = false;
-//erratum
-                 bool lastminuteexclude = false;
-                 for(unsigned k=0; k<ppp.postexcludevaccovs.size(); k++)
-                 {
-                    if(ppp.postexcludevaccovs[k]==immunity)
-                    {
-                        lastminuteexclude = true;
-                        break;
-                    }
-                 }
 
-//erratum end
 
                  ostringstream os;
 
@@ -1776,6 +1765,30 @@ void ockodata2R(string input, string output,
                         else
                             os << lastvaccdate;
                     }
+
+                    //erratum
+                                     bool lastminuteexclude = false;
+                                     for(unsigned k=0; k<ppp.postexcludevaccovs.size(); k++)
+                                     {
+                                        if(ppp.postexcludevaccovs[k]==immunity)
+                                        {
+                                            lastminuteexclude = true;
+                                            break;
+                                        }
+                                        if(ppp.postexcludevaccovs[k]==agelabel)
+                                        {
+                                            lastminuteexclude = true;
+                                            break;
+                                        }
+                                        if(ppp.postexcludevaccovs[k]==vaccstatusstr)
+                                        {
+                                            lastminuteexclude = true;
+                                            break;
+                                        }
+
+                                     }
+
+                    //erratum end
 
                     if(!lastminuteexclude)
                         o << os.str() << endl;
@@ -4066,6 +4079,7 @@ int _main(int argc, char *argv[], bool compare = false)
                         if(c.size() > 0)
                         {
                             ppp.postexcludevaccovs.push_back(c);
+                            cout << "Last minute excluding " << c << endl;
                             c="";
                         }
                         if(end)

@@ -1642,18 +1642,6 @@ else         // saving old code
 
                  bool dooutput = false;
 
-//erratum
-                 bool lastminuteexclude = false;
-                 for(unsigned k=0; k<ppp.postexcludevaccovs.size(); k++)
-                 {
-                    if(ppp.postexcludevaccovs[k]==immunity)
-                    {
-                        lastminuteexclude = true;
-                        break;
-                    }
-                 }
-
-//erratum end
 
                  bool uevent = false;
                  bool oevent = false;
@@ -1853,6 +1841,30 @@ else         // saving old code
                         else
                             os << lastvaccdate;
                     }
+                    //erratum
+                                     bool lastminuteexclude = false;
+                                     for(unsigned k=0; k<ppp.postexcludevaccovs.size(); k++)
+                                     {
+                                        if(ppp.postexcludevaccovs[k]==immunity)
+                                        {
+                                            lastminuteexclude = true;
+                                            break;
+                                        }
+                                        if(ppp.postexcludevaccovs[k]==agelabel)
+                                        {
+                                            lastminuteexclude = true;
+                                            break;
+                                        }
+                                        if(ppp.postexcludevaccovs[k]==vaccstatusstr)
+                                        {
+                                            lastminuteexclude = true;
+                                            break;
+                                        }
+
+                                     }
+
+                    //erratum end
+
 
                     if(!lastminuteexclude)
                         o << os.str() << endl;
