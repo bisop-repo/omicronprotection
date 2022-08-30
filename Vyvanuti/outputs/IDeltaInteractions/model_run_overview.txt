@@ -10,17 +10,17 @@ $arguments
 [3] "outputs/IDeltaInteractions//convertool_log.txt"
 
 $time.start
-[1] "2022-08-29 18:18:07"
+[1] "2022-08-31 00:12:56"
 
 $time.end
-[1] "2022-08-29 18:28:04"
+[1] "2022-08-31 00:35:55"
 
 $model.spent
-Time difference of 9.95 mins
+Time difference of 22.98333 mins
 
 $model.concordance
 concordance 
-  0.7150762 
+  0.7151152 
 
 $convertool.vignette
 [1] "version 24 + w added + lastminute"                                                         
