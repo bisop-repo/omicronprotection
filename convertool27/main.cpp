@@ -1641,7 +1641,7 @@ else         // saving old code
                     || (ppp.excludeotherimmunity && immunity == otherstr);
 
                  bool dooutput = false;
-                 
+
 //erratum
                  bool lastminuteexclude = false;
                  for(unsigned k=0; k<ppp.postexcludevaccovs.size(); k++)
@@ -1654,7 +1654,7 @@ else         // saving old code
                  }
 
 //erratum end
-                 
+
                  bool uevent = false;
                  bool oevent = false;
 
@@ -1737,8 +1737,8 @@ else         // saving old code
                          string hospstr = "";
                          string oxygenstr = "";
                          string icustr = "";
-                         
- 
+
+
                          if(mode==ehospitals || mode==evarianthosp)
                          {
                              hospstr = "0";
@@ -1854,19 +1854,19 @@ else         // saving old code
                             os << lastvaccdate;
                     }
 
-                    if(!lastminuteexclude) 
-                    	o << os.str() << endl;
+                    if(!lastminuteexclude)
+                        o << os.str() << endl;
                     if(t1nonneg==0)
                         addto(lbls,startcnts,immunity);
                 }
 
-		 bool recordevent = false;
-		 if(ppp.eventiso)
-		    recordevent = oevent;
-		 else if(ppp.eventisu)
-		    recordevent = uevent;
-		 else
-		    recordevent = event;  	
+         bool recordevent = false;
+         if(ppp.eventiso)
+            recordevent = oevent;
+         else if(ppp.eventisu)
+            recordevent = uevent;
+         else
+            recordevent = event;
 
                 if(recordevent && dooutput)
                 {
@@ -3944,34 +3944,6 @@ int _main(int argc, char *argv[], bool compare = false)
                throw;
         }
 
-//erratum begin
-        for(unsigned i=0; argv[4][i]; i++)
-        {
-            if(argv[4][i]==':')
-            {
-                string c;
-                bool end=false;
-                for(unsigned j=i+1;;j++)
-                {
-                    char l = argv[4][j];
-                    bool end = l==0;
-                    bool next = l==',';
-                    if(end || next)
-                    {
-                        if(c.size() > 0)
-                        {
-                            ppp.postexcludevaccovs.push_back(c);
-                            c="";
-                        }
-                        if(end)
-                            break;
-                    }
-                    else
-                        c += l;
-                }
-            }
-        }
-//erratum end
 
         ppp.lastdatestr = argv[3];
         ockodata2R(argv[1], argv[2],
@@ -4166,6 +4138,37 @@ int _main(int argc, char *argv[], bool compare = false)
                 }
             }
         }
+
+        //erratum begin
+        for(unsigned i=0; argv[4][i]; i++)
+        {
+            if(argv[4][i]==':')
+            {
+                string c;
+                bool end=false;
+                for(unsigned j=i+1;;j++)
+                {
+                    char l = argv[4][j];
+                    end = l==0;
+                    bool next = l==',';
+                    if(end || next)
+                    {
+                        if(c.size() > 0)
+                        {
+                            ppp.postexcludevaccovs.push_back(c);
+                            cout << "Last minute excluding: " << c << endl;
+                            c="";
+                        }
+                        if(end)
+                            break;
+                    }
+                    else
+                        c += l;
+                }
+            }
+        }
+        //erratum end
+
         ppp.lastdatestr = argv[3];
         ockodata2R(argv[1], argv[2],
                    mode,
@@ -4209,9 +4212,9 @@ int main(int argc, char *argv[])
             return _main(argc,argv);
         else
         {
-            throw "test mode disabled";
-/*            char *as[5] ={"foo",testfilename,"torinternal.csv",
-                          "2022-02-13","hd"};
+//            throw "test mode disabled";
+            char *as[5] ={"foo",testfilename,"torinternal.csv",
+                          "2022-02-13","ho:boost2+_inf6-,inf6_boost2-,inf6-_full2-"};
         return _main(5,as,false);
 
     //        _main(5,as, true);
@@ -4219,7 +4222,7 @@ int main(int argc, char *argv[])
             as[4] = "ho+";
             _main(5,as, true);
 
-
+/*
 
             as[4] = "vo";
             _main(5,as, true);
