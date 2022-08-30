@@ -10,24 +10,24 @@ $arguments
 [3] "outputs/UDeltaInteractions//convertool_log.txt"
 
 $time.start
-[1] "2022-07-23 17:46:39"
+[1] "2022-08-30 12:57:35"
 
 $time.end
-[1] "2022-07-23 18:00:50"
+[1] "2022-08-30 13:03:29"
 
 $model.spent
-Time difference of 14.18333 mins
+Time difference of 5.9 mins
 
 $model.concordance
 concordance 
-  0.9113135 
+  0.9070938 
 
 $convertool.vignette
 [1] "version 27 erratum"                                                                        
 [2] "Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every"
 [3] "Delta hospitalizations"                                                                    
-[4] "Mode varianthosp"                                                                          
-[5] "Study period: 2021-12-07 to 2022-02-13"                                                    
-[6] "Age filter: 0-650"                                                                         
-[7] "Writing to data/temp/UDeltaInteractions.csv"                                               
+[4] "Last minute excluding: inf6-_alone"                                                        
+[5] "Last minute excluding: 12-15"                                                              
+[6] "Mode varianthosp"                                                                          
+[7] "Study period: 2021-12-07 to 2022-02-13"                                                    
 
