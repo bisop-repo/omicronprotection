@@ -109,7 +109,7 @@ print(args)
 
   ##3. Model outputs generation
   #3.1 Hazard ratio plot
-  ggforest(cox, data = data.frame(mtab), fontsize = 1.1)
+  ggforest(cox, data = data.frame(mtab), fontsize = 1)
   ggsave(paste(dir.name,"cox_risks_log.jpg",sep="/"),units="px",width=3840,height=3840)
   print("Model charts have been generated.")
   
