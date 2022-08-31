@@ -1,0 +1,33 @@
+$user
+[1] "smid"
+
+$computer
+[1] "daman.utia.cas.cz"
+
+$arguments
+[1] "data/temp/HDeltaDetail.csv"              
+[2] "VH"                                      
+[3] "outputs/HDeltaDetail//convertool_log.txt"
+
+$time.start
+[1] "2022-08-31 22:40:22"
+
+$time.end
+[1] "2022-08-31 22:54:12"
+
+$model.spent
+Time difference of 13.83333 mins
+
+$model.concordance
+concordance 
+  0.8887544 
+
+$convertool.vignette
+[1] "version 24 + w added + lastminute"                                                         
+[2] "Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every"
+[3] "Delta hospitalizations"                                                                    
+[4] "Last minute excluding Mfull1"                                                              
+[5] "Last minute excluding Mpart2"                                                              
+[6] "Last minute excluding inf1"                                                                
+[7] "Mode varianthosp"                                                                          
+
