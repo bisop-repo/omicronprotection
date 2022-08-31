@@ -44,7 +44,7 @@ Type 'q()' to quit R.
 >   ptime = gsub(":","-",ptime)
 >   
 >   print(paste("Hello ",user," of ",computer,", it is ",time.start,".",sep=""))
-[1] "Hello smid of daman.utia.cas.cz, it is 2022-08-31 01:35:33."
+[1] "Hello smid of daman.utia.cas.cz, it is 2022-08-31 20:42:05."
 > 
 > #1.4 Checking the provided arguments. The following if-else goes through the whole script and stops if requested args are not provided.
 >   if(length(args) > 1){
@@ -132,7 +132,7 @@ Type 'q()' to quit R.
 + 
 +   ##3. Model outputs generation
 +   #3.1 Hazard ratio plot
-+   ggforest(cox, data = data.frame(mtab))
++   ggforest(cox, data = data.frame(mtab), fontsize = 1)
 +   ggsave(paste(dir.name,"cox_risks_log.jpg",sep="/"),units="px",width=3840,height=3840)
 +   print("Model charts have been generated.")
 +   
@@ -314,7 +314,7 @@ Score (logrank) test = 49355  on 39 df,   p=<2e-16
 [1] "Model output has been saved (TXT)."
 [1] "Model output has been saved (TeX)."
 [1] "The procedure is finished in following time:"
-Time difference of 12.03333 mins
+Time difference of 12.46667 mins
 [1] "Workspace image and log have been saved."
 [1] "https://www.youtube.com/watch?v=g3ENX3aHlqU"
 > 
