@@ -1785,6 +1785,11 @@ void ockodata2R(string input, string output,
                                             lastminuteexclude = true;
                                             break;
                                         }
+                                        if(ppp.postexcludevaccovs[k]==infpriorstr)
+                                        {
+                                            lastminuteexclude = true;
+                                            break;
+                                        }
 
                                      }
 
