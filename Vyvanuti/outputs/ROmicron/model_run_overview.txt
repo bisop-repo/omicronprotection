@@ -10,13 +10,13 @@ $arguments
 [3] "outputs/ROmicron//convertool_log.txt"
 
 $time.start
-[1] "2022-08-30 23:13:31"
+[1] "2022-08-31 18:19:08"
 
 $time.end
-[1] "2022-08-30 23:19:07"
+[1] "2022-08-31 18:24:58"
 
 $model.spent
-Time difference of 5.6 mins
+Time difference of 5.833333 mins
 
 $model.concordance
 concordance 
