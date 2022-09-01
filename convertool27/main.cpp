@@ -567,9 +567,8 @@ void ockodata2R(string input, string output,
             "inf6+_full2+",
             "full2+_inf6-",
             "boost2+_inf6-",
-            "other",
             "interactions",
-            "rare"};
+            "other"};
 
     vector<unsigned> startcnts(lbls.size(),0);
     vector<unsigned> eventcnts(lbls.size(),0);

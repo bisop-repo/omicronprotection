@@ -9,8 +9,8 @@
 \newcommand{\coxresultgeneral}[3]{\section{#3} 
 %\input{../outputs/#1/cox_output.tex}
 \begin{tabular}{ll}
-\begin{minipage}{15.2cm}
-\includegraphics[width=15cm]{../outputs/#1/cox_risks_log.jpg}
+\begin{minipage}{16.2cm}
+\includegraphics[width=16cm]{../outputs/#1/cox_risks_log.jpg}
 \end{minipage}
 &
 %\subsubsection*{#1 - Ns} 
@@ -26,7 +26,7 @@
 
 \newcommand{\coxresultinf}[2]{\coxresultgeneral{#1}{\input{../data/temp/#1.csv.is.tex}}{#2}}
 
-\newcommand{\coxresultiv}[2]{\coxresultgeneral{#1}{\input{../data/temp/#1.csv.vs.tex}\\ \\ \input{../data/temp/#1.csv.is.tex}} {#2}}
+\newcommand{\coxresultiv}[2]{\coxresultgeneral{#1}{\input{../data/temp/#1.csv.vs.tex}\\  \input{../data/temp/#1.csv.is.tex}} {#2}}
 
 
 \newcommand{\logregresult}[2]{\section{#2} 
@@ -66,9 +66,6 @@ variants.
 
 \newpage
 
-\coxresult{IOmicronDetail}{Infections by Vaccines - Omicron}
-
-\end{document}
 
 
 \coxresult{IOmicronInteractions}{Infections -- Omicron}
@@ -92,13 +89,13 @@ variants.
 
 \coxresult{UDeltaInteractions}{ICU therapy -- Delta}
 
-\coxresult{IOmicronDetail}{Infections by Vaccines - Omicron}
+\coxresultiv{IOmicronDetail}{Infections by Vaccines - Omicron}
 
-\coxresult{IDeltaDetail}{Infections by Vaccines - Delta}
+\coxresultiv{IDeltaDetail}{Infections by Vaccines - Delta}
 
-\coxresult{HOmicronDetail}{Hospitalizations by Vaccines - Omicron}
+\coxresultiv{HOmicronDetail}{Hospitalizations by Vaccines - Omicron}
 
-\coxresult{HDeltaDetail}{Hospitalizations by Vaccines - Delta}
+\coxresultiv{HDeltaDetail}{Hospitalizations by Vaccines - Delta}
 
 \logregresult{logreg_HInteractions}{Hospitalizaton given Infection}
 
