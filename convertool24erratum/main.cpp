@@ -111,7 +111,7 @@ unsigned fouragegroup(unsigned a)
 
 enum evaccine { ePfizzer, eModerna, eAstra, eJanssen, enumvaccines, eunknownvaccine = enumvaccines };
 
-enum evariant { eunknownvariant, edelta, eomicron, enumvariants };
+enum evariant { eunknownvariant, edelta, eomicron, eothervariant, enumvariants };
 
 
 vector<string> variantlabels = {"","Delta", "Omikron"};
@@ -249,7 +249,7 @@ struct preprocessparams
     /// if true then Immunity = "others" everywhere "InfPrior=Inf1" (this is because for some rare events,
     /// no events occured for the fresh immunity)
     bool Inf1_Xtoothers = false;
-    
+
     bool groupinteraccions = false;
     bool groupall = false;
 
@@ -765,6 +765,8 @@ void ockodata2R(string input, string output,
                     variant1 = eomicron;
                 else if(data(i,kat) == variantlabels[edelta])
                     variant1 = edelta;
+                else if(data(i,kat) != "")
+                    variant1 = eothervariant;
             }
 
             if(do1abs == maxint)
@@ -1557,7 +1559,7 @@ void ockodata2R(string input, string output,
                                         immunity = otherstr;
                                      else
                                         immunity = ppp.groupall ? groupstr : vstring + "_" + istring;
-                                     
+
                                  }
                                  else
                                  {
@@ -1565,9 +1567,9 @@ void ockodata2R(string input, string output,
                                          immunity = otherstr;
                                      else
                                         immunity = ppp.groupall ? groupstr : istring + "_" + vstring;
-                                 }                                 
+                                 }
                              }
-                           }  
+                           }
                          }
                      }
                  }
@@ -1945,7 +1947,7 @@ void ockodata2R(string input, string output,
 
     cout << endl;
 
-      cout << "t,u,d,o" << endl;
+      cout << "t,u,d,o,h" << endl;
       for(unsigned i=0; i<variants.size(); i++)
       {
           cout << i;
