@@ -250,6 +250,11 @@ struct preprocessparams
     /// no events occured for the fresh immunity)
     bool Inf1_Xtoothers = false;
 
+    bool groupinteraccions = false;
+
+    bool eventiso = false;
+    bool eventisu = false;
+
     /// Inputs that should be provided
 
     /// start of the sutedy (time 0)
@@ -267,7 +272,9 @@ struct preprocessparams
     /// no event took place)
     vector<vaccovariate> excludevaccovs;
 
+   // fir kast nubzte exckzdśuib (of zero event categories)
     vector<string> postexcludevaccovs;
+
 };
 
 void addto(vector<string>& labels, vector<unsigned>& counts, const string lbl)
@@ -561,10 +568,46 @@ void ockodata2R(string input, string output,
             "full2+_inf6-",
             "boost2+_inf6-",
             "other",
+            "interactions",
             "rare"};
 
     vector<unsigned> startcnts(lbls.size(),0);
     vector<unsigned> eventcnts(lbls.size(),0);
+
+//tables
+    vector<string> inflbls = {"_noimmunity",
+            "_noinf",
+            "inf1",
+            "inf2",
+            "inf3",
+            "inf4+"};
+    vector<unsigned> infstartcnts(inflbls.size(),0);
+    vector<unsigned> infeventcnts(inflbls.size(),0);
+
+    vector<string> vacclbls = {"_novacc",
+    "Afull1",
+    "Afull2",
+    "Afull3",
+    "Jfull1",
+    "Jfull2",
+    "Jfull3",
+    "Mboost1",
+    "Mboost2",
+    "Mfull1",
+    "Mfull2",
+    "Mfull3",
+    "Mpart1",
+    "Mpart2",
+    "Pboost1",
+    "Pboost2",
+    "Pfull1",
+    "Pfull2",
+    "Pfull3",
+    "Ppart1",
+    "Ppart2"};
+    vector<unsigned> vaccstartcnts(vacclbls.size(),0);
+    vector<unsigned> vacceventcnts(vacclbls.size(),0);
+//tables-
 
     for(; i<data.r(); i+= everyn)
     {
@@ -815,11 +858,14 @@ void ockodata2R(string input, string output,
 
 
         for(unsigned j=0; j<hosps.size(); j++)
+if(1)
         {
             bool assigned = false;
 
-            int decisiondate = j == 0 && hosps.size() == 1
+            int decisiondate =
+                    j == 0 && hosps.size() == 1
                                && hosps[j].positivity != maxint
+                    && abs(hosps[j].positivity - hosps[j].date ) < ppp.infectionsgap
                     ? hosps[j].positivity : hosps[j].date;
 
             for(unsigned k=0; k<infections.size(); k++)
@@ -835,23 +881,26 @@ void ockodata2R(string input, string output,
                 }
             }
 
-            if(!assigned &&
-                   (infections.size()==0
-                     || infections[0].t > hosps[j].date + ppp.infectionsgap))
-            // tbd hospitals far later than infection....
+            if(!assigned)
             {
-                evariant variant = eunknownvariant;
-                if(hosps[j].date + firstdate >= discriminationtdate)
+                unsigned k=0;
+                auto iter = infections.begin();
+                for( ;k<infections.size(); k++, iter++)
+                    ;
+                if(k == 0
+                  || (k > 0 && abs(infections[k-1].t - decisiondate) > ppp.infectionsgap))
                 {
-                    if(data(i,kat) == variantlabels[eomicron] )
-                        variant = eomicron;
-                    else if(data(i,kat) == variantlabels[edelta])
-                        variant = edelta;
+                    if(!(k>0 && k< infections.size() && abs(infections[k-1].t - decisiondate) <= ppp.infectionsgap))
+                    { // we insert an infection
+                        infections.insert(iter,
+                           {decisiondate, eunknownvariant,ehospital,
+                            static_cast<int>(j) });
+
+                        numinfections++;
+                        assigned = true;
+                    }
+
                 }
-                infections.insert(infections.begin(),{hosps[j].date, variant,ehospital,
-                                                      static_cast<int>(j) });
-                numinfections++;
-                assigned = true;
             }
             if(!assigned)
             {
@@ -864,6 +913,57 @@ void ockodata2R(string input, string output,
                 hospitalunassigned++;
             }
         }
+else         // saving old code
+{
+    bool assigned = false;
+
+    int decisiondate =
+            j == 0 && hosps.size() == 1
+                       && hosps[j].positivity != maxint
+                        ? hosps[j].positivity : hosps[j].date;
+
+    for(unsigned k=0; k<infections.size(); k++)
+    {
+        if(abs(infections[k].t-decisiondate) < ppp.infectionsgap)
+        {
+            infections[k].hospindex = j;
+            infections[k].severity = ehospital;
+            hosps[j].variant = infections[k].variant;
+            hosps[j].infdateassigned = infections[k].t;
+            assigned = true;
+            break;
+        }
+    }
+
+    if(!assigned &&
+           (infections.size()==0
+             || infections[0].t > hosps[j].date + ppp.infectionsgap))
+    // tbd hospitals far later than infection....
+    {
+        evariant variant = eunknownvariant;
+        if(hosps[j].date + firstdate >= discriminationtdate)
+        {
+            if(data(i,kat) == variantlabels[eomicron] )
+                variant = eomicron;
+            else if(data(i,kat) == variantlabels[edelta])
+                variant = edelta;
+        }
+        infections.insert(infections.begin(),{hosps[j].date, variant,ehospital,
+                                              static_cast<int>(j) });
+        numinfections++;
+        assigned = true;
+    }
+    if(!assigned)
+    {
+        cout << i << ": date from hosp " << hosps[j].date
+             << " (" << hosps[j].positivity << ")"
+             << " unassigned to infections: ";
+        for(unsigned i=0; i<infections.size(); i++)
+             cout << infections[i].t << " ";
+        cout << endl;
+        hospitalunassigned++;
+    }
+}
 
 
         // vaccines
@@ -1457,12 +1557,12 @@ void ockodata2R(string input, string output,
                  string immunity;
                  const string otherstr = "other";
                  const string alonestr = "alone";
+                 const string interstr = "interactions";
 
                  if(currentinfstatus == 1)
                      immunity = otherstr;
                  else
                  {
-
                      bool iold = false;
                      string istring;
                      if(currentinfstatus == 0)
@@ -1525,25 +1625,30 @@ void ockodata2R(string input, string output,
                              immunity = vstring + "_" + alonestr;
                          else
                          {
-                             assert(nextvaccptr > 0);
-                             assert(lastinfection);
-                             if(partial)
-                                 immunity = otherstr;
+                             if(ppp.groupinteraccions)
+                                 immunity = interstr;
                              else
                              {
-                                 if(lastvaccstatuschangedate < lastinfection->t)
-                                 {
-                                     if(iold)
-                                        immunity = otherstr;
-                                     else
-                                        immunity = vstring + "_" + istring;
-                                 }
+                                 assert(nextvaccptr > 0);
+                                 assert(lastinfection);
+                                 if(partial)
+                                     immunity = otherstr;
                                  else
                                  {
-                                     if(ppp.Inf1_Xtoothers && currentinfstatus == 2)
-                                         immunity = otherstr;
+                                     if(lastvaccstatuschangedate < lastinfection->t)
+                                     {
+                                         if(iold)
+                                            immunity = otherstr;
+                                         else
+                                            immunity = vstring + "_" + istring;
+                                     }
                                      else
-                                        immunity = istring + "_" + vstring;
+                                     {
+                                         if(ppp.Inf1_Xtoothers && currentinfstatus == 2)
+                                             immunity = otherstr;
+                                         else
+                                            immunity = istring + "_" + vstring;
+                                     }
                                  }
                              }
                          }
@@ -1572,6 +1677,9 @@ void ockodata2R(string input, string output,
 
                  bool dooutput = false;
 
+
+                 bool uevent = false;
+                 bool oevent = false;
 
                  ostringstream os;
 
@@ -1653,6 +1761,7 @@ void ockodata2R(string input, string output,
                          string oxygenstr = "";
                          string icustr = "";
 
+
                          if(mode==ehospitals || mode==evarianthosp)
                          {
                              hospstr = "0";
@@ -1672,6 +1781,7 @@ void ockodata2R(string input, string output,
                                          break;
                                      case hosprecord::eyes:
                                          oxygenstr = "1";
+                                         oevent = true;
                                      break;
                                      case hosprecord::eno:
                                          oxygenstr = "0";
@@ -1685,6 +1795,7 @@ void ockodata2R(string input, string output,
                                          break;
                                      case hosprecord::eyes:
                                          icustr = "1";
+                                         uevent = true;
                                      break;
                                      case hosprecord::eno:
                                          icustr = "0";
@@ -1738,10 +1849,10 @@ void ockodata2R(string input, string output,
                      }
                 }
 
-
+                string vaccstatusstr;
                 if(dooutput)
                 {
-                    string vaccstatusstr =
+                    vaccstatusstr =
                           ppp.groupvaccs
                             ? groupedvcovtexts[currentvaccstatus]
                             : vcovtexts[currentvaccstatus];
@@ -1765,7 +1876,6 @@ void ockodata2R(string input, string output,
                         else
                             os << lastvaccdate;
                     }
-
                     //erratum
                                      bool lastminuteexclude = false;
                                      for(unsigned k=0; k<ppp.postexcludevaccovs.size(); k++)
@@ -1785,23 +1895,33 @@ void ockodata2R(string input, string output,
                                             lastminuteexclude = true;
                                             break;
                                         }
-                                        if(ppp.postexcludevaccovs[k]==infpriorstr)
-                                        {
-                                            lastminuteexclude = true;
-                                            break;
-                                        }
 
                                      }
 
                     //erratum end
 
+
                     if(!lastminuteexclude)
                         o << os.str() << endl;
                     if(t1nonneg==0)
+                    {
                         addto(lbls,startcnts,immunity);
+//tables
+                        addto(inflbls,infstartcnts,infpriorstr);
+                        addto(vacclbls,vaccstartcnts,vaccstatusstr);
+//tables-
+                    }
                 }
 
-                if(event && dooutput)
+         bool recordevent = false;
+         if(ppp.eventiso)
+            recordevent = oevent;
+         else if(ppp.eventisu)
+            recordevent = uevent;
+         else
+            recordevent = event;
+
+                if(recordevent && dooutput)
                 {
                     oe << os.str();
 
@@ -1809,6 +1929,11 @@ void ockodata2R(string input, string output,
                         oe <<  "," << data(i,j);
                     oe << endl;
                     addto(lbls,eventcnts,immunity);
+//tables
+                    addto(inflbls,infstartcnts,infpriorstr);
+                    addto(vacclbls,vaccstartcnts,vaccstatusstr);
+//tables-
+
                 }
 
                 daysincovs[currentvaccstatus]+=t2-t1nonneg;
@@ -1877,38 +2002,50 @@ void ockodata2R(string input, string output,
                     cout << "Generating " << n << " " << (m ? "men" : "women") << " of age " << a << endl;
                     arecs[age2groupnum(a)].added += n;
 
+                    string agelabel;
+                    if(ppp.fourages)
+                        agelabel = fourage2group(a);
+                    else
+                         agelabel = age2group(a);
 
-                    for(int j=0; j<n; j++,i++)
+                    bool lastminuteexclude = false;
+                    for(unsigned k=0; k<ppp.postexcludevaccovs.size(); k++)
                     {
-                        o << i << "," << 0 << "," << T << ","
-                                       << "0,"
-                                       << ((mode == ehospitals || mode == ehospitalsreinf) ? "0,0,0," : ",,,")
-                                       << "0,"
-                                       << "0,"
-                                       << "0,"
-                                       << (mode == evarianthosp ? "0,0,0," : ",,,")
-                                       << (mode == evariantdeath ? "0," : ",")
-                                       << "_noinf," << severitylabel(enotsevereorunknown) << ","
-                                       << vcovtexts[eunvacc] << ","
-                                       << "_noimmunity,"
-                                       << a << "," ;
-
-                        string agelabel;
-                        if(ppp.fourages)
-                            agelabel = fourage2group(a);
-                        else
-                             agelabel = age2group(a);
-
-                        o << agelabel << ","
-                                       << (m ? malestr : femalestr);
-                        if(ppp.numericprevevents)
-                           o << ",_none,_none";
-                        o << endl;
-                        added++;
-
-                        numsincovs[eunvacc]++;
-                        numsurvivedstudy++;
+                       if(ppp.postexcludevaccovs[k]==agelabel)
+                       {
+                           lastminuteexclude = true;
+                           break;
+                       }
                     }
+                    if(!lastminuteexclude)
+                        for(int j=0; j<n; j++,i++)
+                        {
+
+
+                            o << i << "," << 0 << "," << T << ","
+                                           << "0,"
+                                           << ((mode == ehospitals || mode == ehospitalsreinf) ? "0,0,0," : ",,,")
+                                           << "0,"
+                                           << "0,"
+                                           << "0,"
+                                           << (mode == evarianthosp ? "0,0,0," : ",,,")
+                                           << (mode == evariantdeath ? "0," : ",")
+                                           << "_noinf," << severitylabel(enotsevereorunknown) << ","
+                                           << vcovtexts[eunvacc] << ","
+                                           << "_noimmunity,"
+                                           << a << "," ;
+
+
+                            o << agelabel << ","
+                                           << (m ? malestr : femalestr);
+                            if(ppp.numericprevevents)
+                               o << ",_none,_none";
+                            o << endl;
+                            added++;
+
+                            numsincovs[eunvacc]++;
+                            numsurvivedstudy++;
+                        }
                 }
             }
         }
@@ -2079,6 +2216,44 @@ void ockodata2R(string input, string output,
         }
         on << "&" << startcnts[i] << "&" << eventcnts[i] << "\\\\" << endl;
     }
+//tables
+    {
+        ofstream on(output + ".is.tex");
+        if(!on)
+        {
+            cerr << "Cannot open " << output << ".is.tex"<< endl;
+            throw;
+        }
+        on << "InfPrior & entered & events \\\\" << endl;
+        for(unsigned i=0; i<inflbls.size(); i++)
+        {
+            for(unsigned j=0; j<inflbls[i].size(); j++)
+            {
+                auto c = inflbls[i][j];
+                on << (c == '_' ? "\\" : "") << c;
+            }
+            on << "&" << infstartcnts[i] << "&" << infeventcnts[i] << "\\\\" << endl;
+        }
+    }
+    {
+        ofstream on(output + ".vs.tex");
+        if(!on)
+        {
+            cerr << "Cannot open " << output << ".vs.tex"<< endl;
+            throw;
+        }
+        on << "InfPrior & entered & events \\\\" << endl;
+        for(unsigned i=0; i<vacclbls.size(); i++)
+        {
+            for(unsigned j=0; j<vacclbls[i].size(); j++)
+            {
+                auto c = vacclbls[i][j];
+                on << (c == '_' ? "\\" : "") << c;
+            }
+            on << "&" << vaccstartcnts[i] << "&" << vacceventcnts[i] << "\\\\" << endl;
+        }
+    }
+//tables-
 }
 
 string zerodatestr = "2020-01-01";
@@ -3817,7 +3992,7 @@ void oldockodata2R(string input, string output,
 
 int _main(int argc, char *argv[], bool compare = false)
 {
-    cout << "version 24 + w added + lastminute" << endl;
+    cout << "version 27 erratum" << endl;
     cout << "Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every" << endl;
     if(!testrun  && argc < 5)
         throw "at least three arguments must be given";
@@ -3876,6 +4051,7 @@ int _main(int argc, char *argv[], bool compare = false)
                cerr << "Unknonn option " << argv[4][0] << endl;
                throw;
         }
+
 
         ppp.lastdatestr = argv[3];
         ockodata2R(argv[1], argv[2],
@@ -3999,8 +4175,6 @@ int _main(int argc, char *argv[], bool compare = false)
                         cout << variantlabels[ppp.variant] << " reinfections" << endl;
                     }
                     break;
-                case 'w':
-                    ppp.excludeotherimmunity = false;
                 case 'v':
                     if(novariant)
                         throw "missing variant";
@@ -4015,7 +4189,12 @@ int _main(int argc, char *argv[], bool compare = false)
                     cout << "infections" << endl;
                     break;
                 case 'o':
-                    ppp.Inf1_Xtoothers = true;
+                case 'u':
+//                    ppp.Inf1_Xtoothers = true;
+                    ppp.groupinteraccions = true;
+                    ppp.eventiso = argv[4][0]=='o';
+                    ppp.eventisu = argv[4][0]=='u';
+//                    ppp.fourages = true;
                  // break missing intentinally
                 case 'h':
                     ppp.infdateashospdate = true;
@@ -4067,7 +4246,8 @@ int _main(int argc, char *argv[], bool compare = false)
                 }
             }
         }
-//erratum begin
+
+        //erratum begin
         for(unsigned i=0; argv[4][i]; i++)
         {
             if(argv[4][i]==':')
@@ -4077,14 +4257,14 @@ int _main(int argc, char *argv[], bool compare = false)
                 for(unsigned j=i+1;;j++)
                 {
                     char l = argv[4][j];
-                    bool end = l==0;
+                    end = l==0;
                     bool next = l==',';
                     if(end || next)
                     {
                         if(c.size() > 0)
                         {
                             ppp.postexcludevaccovs.push_back(c);
-                            cout << "Last minute excluding " << c << endl;
+                            cout << "Last minute excluding: " << c << endl;
                             c="";
                         }
                         if(end)
@@ -4095,7 +4275,8 @@ int _main(int argc, char *argv[], bool compare = false)
                 }
             }
         }
-//erratum end
+        //erratum end
+
         ppp.lastdatestr = argv[3];
         ockodata2R(argv[1], argv[2],
                    mode,
@@ -4141,16 +4322,15 @@ int main(int argc, char *argv[])
         {
 //            throw "test mode disabled";
             char *as[5] ={"foo",testfilename,"torinternal.csv",
-                          "2022-02-13","vo"};
+                          "2022-02-13","oo:12-15"};
         return _main(5,as,false);
-/*
 
     //        _main(5,as, true);
 
             as[4] = "ho+";
             _main(5,as, true);
 
-
+/*
 
             as[4] = "vo";
             _main(5,as, true);
