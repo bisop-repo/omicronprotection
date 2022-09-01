@@ -44,7 +44,7 @@ Type 'q()' to quit R.
 >   ptime = gsub(":","-",ptime)
 >   
 >   print(paste("Hello ",user," of ",computer,", it is ",time.start,".",sep=""))
-[1] "Hello smid of daman.utia.cas.cz, it is 2022-09-01 15:15:18."
+[1] "Hello smid of daman.utia.cas.cz, it is 2022-09-01 15:28:43."
 > 
 > #1.4 Checking the provided arguments. The following if-else goes through the whole script and stops if requested args are not provided.
 >   if(length(args) > 1){
@@ -213,5 +213,3 @@ Type 'q()' to quit R.
 [1] "I am using file: data/temp/HOmicronDetail.csv"
 [1] "...and Cox formula: Surv(T1,T2,VariantHosp) ~  VaccStatus + InfPrior + AgeGr + Sex"
 [1] "I can see a convertool log provided."
-[1] "The directory already exists, files will be rewritten."
-[1] "The input file has been loaded, its properties have been saved. Proceeding to Cox model."

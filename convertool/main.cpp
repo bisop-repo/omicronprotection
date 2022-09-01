@@ -1930,8 +1930,8 @@ else         // saving old code
                     oe << endl;
                     addto(lbls,eventcnts,immunity);
 //tables
-                    addto(inflbls,infstartcnts,infpriorstr);
-                    addto(vacclbls,vaccstartcnts,vaccstatusstr);
+                    addto(inflbls,infeventcnts,infpriorstr);
+                    addto(vacclbls,vacceventcnts,vaccstatusstr);
 //tables-
 
                 }
@@ -2242,7 +2242,7 @@ else         // saving old code
             cerr << "Cannot open " << output << ".vs.tex"<< endl;
             throw;
         }
-        on << "InfPrior & entered & events \\\\" << endl;
+        on << "VaccStatus & entered & events \\\\" << endl;
         for(unsigned i=0; i<vacclbls.size(); i++)
         {
             for(unsigned j=0; j<vacclbls[i].size(); j++)
