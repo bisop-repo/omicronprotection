@@ -10,20 +10,20 @@ $arguments
 [3] "outputs/ROmicron//convertool_log.txt"
 
 $time.start
-[1] "2022-08-31 18:19:08"
+[1] "2022-09-01 16:29:43"
 
 $time.end
-[1] "2022-08-31 18:24:58"
+[1] "2022-09-01 16:35:38"
 
 $model.spent
-Time difference of 5.833333 mins
+Time difference of 5.916667 mins
 
 $model.concordance
 concordance 
-  0.6691879 
+  0.6692741 
 
 $convertool.vignette
-[1] "version 24 + w added + lastminute"                                                         
+[1] "version 27 erratum"                                                                        
 [2] "Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every"
 [3] "Omikron reinfections"                                                                      
 [4] "Mode variantinf"                                                                           

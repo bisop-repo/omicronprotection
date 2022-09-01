@@ -4,23 +4,29 @@
 \usepackage{float}
 %\usepackage[utf8]{inputenc}
 \usepackage{graphicx}
-\usepackage[a4paper]{geometry}
+\usepackage[a4paper,margin=2cm]{geometry}
 
-\newcommand{\coxresult}[2]{\section{#2} 
+\newcommand{\coxresultgeneral}[3]{\section{#3} 
 %\input{../outputs/#1/cox_output.tex}
 \begin{tabular}{ll}
-\begin{minipage}{13.2cm}
-\includegraphics[width=13cm]{../outputs/#1/cox_risks_log.jpg}
+\begin{minipage}{15.2cm}
+\includegraphics[width=15cm]{../outputs/#1/cox_risks_log.jpg}
 \end{minipage}
 &
 %\subsubsection*{#1 - Ns} 
 \begin{minipage}{7cm}
 \begin{tabular}{lll}
-\input{../data/temp/#1.csv.ns.tex}
+#2 
 \end{tabular}
 \end{minipage}
 \end{tabular}
 }
+
+\newcommand{\coxresult}[2]{\coxresultgeneral{#1}{\input{../data/temp/#1.csv.ns.tex}}{#2}}
+
+\newcommand{\coxresultinf}[2]{\coxresultgeneral{#1}{\input{../data/temp/#1.csv.is.tex}}{#2}}
+
+
 
 \newcommand{\logregresult}[2]{\section{#2} 
 %\input{../outputs/#1/logreg_output.tex}
@@ -63,9 +69,11 @@ variants.
 
 \coxresult{IDeltaInteractions}{Infections -- Delta}
 
-\coxresult{ROmicron}{Protection by Infection -- Omicron}
+\coxresultinf{ROmicron}{Protection by Infection -- Omicron}
 
-\coxresult{RDelta}{Protection by Infection -- Delta}
+\coxresultinf{RDelta}{Protection by Infection -- Delta}
+
+\end{document}
 
 \coxresult{HOmicronInteractions}{Hospitalizations -- Omicron}
 
