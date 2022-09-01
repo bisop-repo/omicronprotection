@@ -1,12 +1,6 @@
 version 27 erratum
 Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every
 Delta hospitalizations
-Last minute excluding: inf6-_alone
-Last minute excluding: inf6-_boost2-
-Last minute excluding: inf6-_boost2+
-Last minute excluding: inf6-_full2-
-Last minute excluding: inf6-_full2+
-Last minute excluding: boost2+_inf6-
 Mode varianthosp
 Study period: 2021-12-07 to 2022-02-13
 Age filter: 0-650
