@@ -44,7 +44,7 @@ Type 'q()' to quit R.
 >   ptime = gsub(":","-",ptime)
 >   
 >   print(paste("Hello ",user," of ",computer,", it is ",time.start,".",sep=""))
-[1] "Hello smid of daman.utia.cas.cz, it is 2022-08-31 23:30:52."
+[1] "Hello smid of daman.utia.cas.cz, it is 2022-09-02 00:13:08."
 > 
 > #1.4 Checking the provided arguments. The following if-else goes through the whole script and stops if requested args are not provided.
 >   if(length(args) > 1){
@@ -213,96 +213,3 @@ Type 'q()' to quit R.
 [1] "I am using file: data/temp/IOmicronInteractionsSensitivity.csv"
 [1] "...and Cox formula: Surv(T1,T2,VariantInf) ~ Immunity + AgeGr + Sex"
 [1] "I can see a convertool log provided."
-[1] "The directory already exists, files will be rewritten."
-[1] "The input file has been loaded, its properties have been saved. Proceeding to Cox model."
-Call:
-coxph(formula = Surv(T1, T2, VariantInf) ~ Immunity + AgeGr + 
-    Sex, data = mtab)
-
-  n= 18193881, number of events= 306470 
-
-                           coef exp(coef)  se(coef)        z Pr(>|z|)    
-Immunityboost2-_alone -0.817045  0.441735  0.006854 -119.202  < 2e-16 ***
-Immunityboost2+_alone -0.232082  0.792881  0.011919  -19.472  < 2e-16 ***
-Immunityfull2-_alone  -0.555862  0.573578  0.009831  -56.542  < 2e-16 ***
-Immunityfull2+_alone  -0.093999  0.910284  0.004765  -19.726  < 2e-16 ***
-Immunityfull2+_inf6-  -2.233571  0.107145  0.062995  -35.457  < 2e-16 ***
-Immunityinf6-_alone   -1.155345  0.314949  0.014676  -78.725  < 2e-16 ***
-Immunityinf6-_boost2- -2.536077  0.079176  0.185732  -13.655  < 2e-16 ***
-Immunityinf6-_boost2+ -1.722901  0.178547  0.229455   -7.509 5.97e-14 ***
-Immunityinf6-_full2-  -1.710179  0.180833  0.166705  -10.259  < 2e-16 ***
-Immunityinf6-_full2+  -1.995136  0.135995  0.048921  -40.783  < 2e-16 ***
-Immunityinf6+_alone   -0.133807  0.874759  0.007839  -17.069  < 2e-16 ***
-Immunityinf6+_boost2- -1.358500  0.257046  0.016402  -82.826  < 2e-16 ***
-Immunityinf6+_boost2+ -0.662648  0.515485  0.033103  -20.018  < 2e-16 ***
-Immunityinf6+_full2-  -1.463809  0.231353  0.027296  -53.627  < 2e-16 ***
-Immunityinf6+_full2+  -0.598846  0.549445  0.008984  -66.654  < 2e-16 ***
-Immunityother         -1.563740  0.209352  0.055824  -28.012  < 2e-16 ***
-Immunitypart_alone    -0.375695  0.686812  0.019086  -19.685  < 2e-16 ***
-AgeGr0-11             -0.657883  0.517947  0.008181  -80.418  < 2e-16 ***
-AgeGr12-15             0.419025  1.520478  0.008491   49.348  < 2e-16 ***
-AgeGr16-17             0.651982  1.919341  0.010373   62.851  < 2e-16 ***
-AgeGr18-24             0.259488  1.296266  0.007925   32.742  < 2e-16 ***
-AgeGr25-29            -0.072829  0.929760  0.008687   -8.384  < 2e-16 ***
-AgeGr30-34            -0.014801  0.985308  0.008261   -1.792   0.0732 .  
-AgeGr35-39             0.021107  1.021331  0.008149    2.590   0.0096 ** 
-AgeGr45-49             0.058403  1.060143  0.007970    7.328 2.34e-13 ***
-AgeGr50-54            -0.165037  0.847862  0.009057  -18.222  < 2e-16 ***
-AgeGr55-59            -0.382949  0.681848  0.009856  -38.854  < 2e-16 ***
-AgeGr60-64            -0.838359  0.432420  0.011945  -70.185  < 2e-16 ***
-AgeGr65-69            -1.273200  0.279934  0.014107  -90.255  < 2e-16 ***
-AgeGr70-74            -1.595972  0.202711  0.016652  -95.842  < 2e-16 ***
-AgeGr75-79            -1.632138  0.195511  0.020030  -81.487  < 2e-16 ***
-AgeGr80+              -1.717090  0.179588  0.019666  -87.311  < 2e-16 ***
-SexZ                   0.115609  1.122557  0.003622   31.914  < 2e-16 ***
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-                      exp(coef) exp(-coef) lower .95 upper .95
-Immunityboost2-_alone   0.44173     2.2638   0.43584    0.4477
-Immunityboost2+_alone   0.79288     1.2612   0.77457    0.8116
-Immunityfull2-_alone    0.57358     1.7434   0.56263    0.5847
-Immunityfull2+_alone    0.91028     1.0986   0.90182    0.9188
-Immunityfull2+_inf6-    0.10715     9.3331   0.09470    0.1212
-Immunityinf6-_alone     0.31495     3.1751   0.30602    0.3241
-Immunityinf6-_boost2-   0.07918    12.6300   0.05502    0.1139
-Immunityinf6-_boost2+   0.17855     5.6008   0.11388    0.2799
-Immunityinf6-_full2-    0.18083     5.5299   0.13043    0.2507
-Immunityinf6-_full2+    0.13600     7.3532   0.12356    0.1497
-Immunityinf6+_alone     0.87476     1.1432   0.86142    0.8883
-Immunityinf6+_boost2-   0.25705     3.8904   0.24891    0.2654
-Immunityinf6+_boost2+   0.51548     1.9399   0.48310    0.5500
-Immunityinf6+_full2-    0.23135     4.3224   0.21930    0.2441
-Immunityinf6+_full2+    0.54945     1.8200   0.53985    0.5592
-Immunityother           0.20935     4.7767   0.18765    0.2336
-Immunitypart_alone      0.68681     1.4560   0.66159    0.7130
-AgeGr0-11               0.51795     1.9307   0.50971    0.5263
-AgeGr12-15              1.52048     0.6577   1.49538    1.5460
-AgeGr16-17              1.91934     0.5210   1.88071    1.9588
-AgeGr18-24              1.29627     0.7714   1.27629    1.3166
-AgeGr25-29              0.92976     1.0755   0.91406    0.9457
-AgeGr30-34              0.98531     1.0149   0.96948    1.0014
-AgeGr35-39              1.02133     0.9791   1.00515    1.0378
-AgeGr45-49              1.06014     0.9433   1.04371    1.0768
-AgeGr50-54              0.84786     1.1794   0.83294    0.8630
-AgeGr55-59              0.68185     1.4666   0.66880    0.6951
-AgeGr60-64              0.43242     2.3126   0.42241    0.4427
-AgeGr65-69              0.27993     3.5723   0.27230    0.2878
-AgeGr70-74              0.20271     4.9331   0.19620    0.2094
-AgeGr75-79              0.19551     5.1148   0.18798    0.2033
-AgeGr80+                0.17959     5.5683   0.17280    0.1866
-SexZ                    1.12256     0.8908   1.11461    1.1306
-
-Concordance= 0.689  (se = 0 )
-Likelihood ratio test= 142776  on 33 df,   p=<2e-16
-Wald test            = 111205  on 33 df,   p=<2e-16
-Score (logrank) test = 132886  on 33 df,   p=<2e-16
-
-[1] "Model charts have been generated."
-[1] "Model output has been saved (TXT)."
-[1] "Model output has been saved (TeX)."
-[1] "The procedure is finished in following time:"
-Time difference of 9.983333 mins
-[1] "Workspace image and log have been saved."
-[1] "https://www.youtube.com/watch?v=g3ENX3aHlqU"
-> 
