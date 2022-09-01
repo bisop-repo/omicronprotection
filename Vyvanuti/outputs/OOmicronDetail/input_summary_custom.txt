@@ -1,21 +1,21 @@
 $`Median stats for VaccStatus at T1 == 0`
     VaccStatus       N age_median LastVaccTime_median InfPriorTime_median
- 1:     Pfull3 2822819       52.0              -152.0                  NA
- 2:     Jfull3  103005       56.0              -162.0                  NA
- 3:     Mfull3  290321       55.0              -152.0                  NA
- 4:     Jfull1  133917       40.0               -18.0                  NA
- 5:     Afull3  327512       72.0              -160.0                  NA
- 6:     Pfull2 1107430       30.0              -103.0                  NA
- 7:    Pboost1  763268       73.0               -20.0                  NA
- 8:     Jfull2  102852       44.0               -98.0                  NA
- 9:     Pfull1  189110       32.0               -25.0                  NA
-10:    Mboost1  107766       73.0               -15.0                  NA
-11:    _novacc 3795958       28.0                  NA                  NA
+ 1:     Pfull3 2822730       52.0              -152.0                  NA
+ 2:     Jfull3  103002       56.0              -162.0                  NA
+ 3:     Mfull3  290309       55.0              -152.0                  NA
+ 4:     Jfull1  133906       40.0               -18.0                  NA
+ 5:     Afull3  327499       72.0              -160.0                  NA
+ 6:     Pfull2 1107395       30.0              -103.0                  NA
+ 7:    Pboost1  763231       73.0               -20.0                  NA
+ 8:     Jfull2  102846       44.0               -98.0                  NA
+ 9:     Pfull1  189101       32.0               -25.0                  NA
+10:    Mboost1  107759       73.0               -15.0                  NA
+11:    _novacc 3796165       28.0                  NA                  NA
 12:     Mpart1   15466       40.0               -13.0                  NA
 13:     Ppart1  153539       32.0               -11.0                  NA
-14:     Mfull2   46065       39.0               -99.0                  NA
-15:     Afull2   42072       65.0              -112.0                  NA
-16:     Mfull1   17787       38.0               -34.0                  NA
+14:     Mfull2   46061       39.0               -99.0                  NA
+15:     Afull2   42071       65.0              -112.0                  NA
+16:     Mfull1   17783       38.0               -34.0                  NA
 17:    Pboost2    5745       54.0               -64.0                  NA
 18:     Ppart2   12618       34.0              -143.0                  NA
 19:     Mpart2    1657       39.0              -147.0                  NA
@@ -23,39 +23,39 @@ $`Median stats for VaccStatus at T1 == 0`
 
 $`Median stats for Immunity at T1 == 0`
          Immunity       N age_median LastVaccTime_median InfPriorTime_median
- 1:  full2+_alone 4006309         50                -145                  NA
+ 1:  full2+_alone 4006308         50                -145                  NA
  2:  full2-_alone  252511         34                 -20                  NA
  3: boost2-_alone  783146         73                 -20                  NA
- 4:  inf6+_full2+  829281         47                -135              -337.0
- 5:   _noimmunity 3228022         27                  NA                  NA
+ 4:  inf6+_full2+  829122         47                -135              -337.0
+ 5:   _noimmunity 3228411         27                  NA                  NA
  6:    part_alone  169005         33                 -11                  NA
- 7:  inf6+_full2-   87376         41                 -23              -280.0
- 8: inf6+_boost2-   87701         63                 -18              -386.0
- 9:   inf6+_alone  542432         31                  NA              -309.0
-10:  inf6-_full2-     927         28                 -21              -145.0
+ 7:  inf6+_full2-   87358         41                 -23              -280.0
+ 8: inf6+_boost2-   87655         63                 -18              -386.0
+ 9:   inf6+_alone  542247         31                  NA              -309.0
+10:  inf6-_full2-     921         28                 -21              -145.0
 11: boost2+_alone    5316         54                 -64                  NA
 12: inf6+_boost2+     519         52                 -67              -406.0
-13:  inf6-_full2+    5571         43                -138               -89.0
+13:  inf6-_full2+    5568         43                -138               -89.0
 14:  part2+_alone   14275         35                -144                  NA
-15:   inf6-_alone   25504         25                  NA               -86.5
+15:   inf6-_alone   25507         25                  NA               -86.0
 16:  full2+_inf6-     915         53                -239               -73.0
-17: inf6-_boost2-     187         70                 -15              -113.0
+17: inf6-_boost2-     189         69                 -15              -113.0
 18: inf6-_boost2+       4         64                 -62               -61.5
 
 $`Median stats for VaccStatus at the respective T`
     VaccStatus   N age_median LastVaccTime_median InfPriorTime_median
- 1:     Pfull3 350       65.0              -148.0                  NA
- 2:    Mboost1  33       75.0                 4.0                  NA
- 3:     Afull3 104       78.0              -155.0                  NA
- 4:     Mfull3  50       75.0              -180.5                  NA
- 5:     Pfull2  44       55.5               -59.0                  NA
- 6:    Pboost1 226       73.0                 6.0                  NA
- 7:    Pboost2 164       82.0               -28.0                  NA
- 8:     Jfull2  12       64.0               -37.5                  NA
- 9:    Mboost2  14       80.5               -33.0                  NA
-10:     Jfull3  27       69.0              -138.0                  NA
-11:    _novacc 850       59.5                  NA                  NA
-12:     Pfull1  52       57.0                21.0                  NA
+ 1:     Pfull3 369       63.0              -147.0                  NA
+ 2:    Mboost1  34       76.5                 4.0                  NA
+ 3:     Afull3 108       78.0              -155.0                  NA
+ 4:     Mfull3  51       75.0              -179.0                  NA
+ 5:     Pfull2  45       58.0               -59.0                  NA
+ 6:    Pboost1 233       73.0                 7.0                  NA
+ 7:    Pboost2 166       82.0               -28.5                  NA
+ 8:     Jfull2  15       60.0               -39.0                  NA
+ 9:    Mboost2  16       80.5               -26.5                  NA
+10:     Jfull3  29       67.0              -126.0                  NA
+11:    _novacc 893       58.0                  NA                  NA
+12:     Pfull1  53       56.0                21.0                  NA
 13:     Ppart1  13       48.0                21.0                  NA
 14:     Mpart2   1       91.0               -15.0                  NA
 15:     Jfull1  15       61.0                -2.0                  NA
@@ -69,18 +69,18 @@ $`Median stats for Immunity at the respective T`
          Immunity   N age_median LastVaccTime_median InfPriorTime_median
  1:  full2+_alone 571       70.0              -146.0                  NA
  2: boost2-_alone 255       74.0                 6.0                  NA
- 3:  inf6+_full2+  18       60.5              -141.5              -343.0
+ 3:  inf6+_full2+  48       50.0              -121.0              -342.0
  4: boost2+_alone 175       82.0               -28.0                  NA
- 5:   _noimmunity 833       59.0                  NA                  NA
- 6:  full2-_alone  71       61.0                14.0                  NA
- 7:    part_alone  15       48.0                17.0                  NA
- 8: inf6+_boost2+   2       59.5               -29.5              -350.0
- 9:  part2+_alone   3       66.0               -20.0                  NA
-10:  full2+_inf6-   2       81.0              -208.0               -30.5
-11: inf6+_boost2-   4       74.0                11.5              -393.5
-12: inf6-_boost2+   1       73.0               -27.0               -11.0
-13:  inf6+_full2-   1       44.0                -4.0              -334.0
+ 5: inf6+_boost2-  12       70.5                19.5              -371.0
+ 6:   _noimmunity 833       59.0                  NA                  NA
+ 7:  full2-_alone  71       61.0                14.0                  NA
+ 8:    part_alone  15       48.0                17.0                  NA
+ 9: inf6+_boost2+   6       80.0               -30.0              -365.0
+10:  part2+_alone   3       66.0               -20.0                  NA
+11:  full2+_inf6-   2       81.0              -208.0               -30.5
+12:  inf6+_full2-   2       36.0                 7.0              -381.5
+13: inf6-_boost2+   1       73.0               -27.0               -11.0
 14:  inf6-_full2+   1       70.0              -104.0               -11.0
-15:   inf6-_alone   7       63.0                  NA               -26.0
-16:   inf6+_alone  10       72.5                  NA              -340.0
+15:   inf6+_alone  45       37.0                  NA              -345.0
+16:   inf6-_alone  15       44.0                  NA               -28.0
 
