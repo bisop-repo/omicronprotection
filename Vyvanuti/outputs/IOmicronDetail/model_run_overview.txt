@@ -1,0 +1,33 @@
+$user
+[1] "smid"
+
+$computer
+[1] "daman.utia.cas.cz"
+
+$arguments
+[1] "data/temp/IOmicronDetail.csv"              
+[2] "VI"                                        
+[3] "outputs/IOmicronDetail//convertool_log.txt"
+
+$time.start
+[1] "2022-09-01 19:18:26"
+
+$time.end
+[1] "2022-09-01 19:30:30"
+
+$model.spent
+Time difference of 12.06667 mins
+
+$model.concordance
+concordance 
+  0.6885178 
+
+$convertool.vignette
+[1] "version 27 erratum"                                                                        
+[2] "Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every"
+[3] "Omikron infections"                                                                        
+[4] "Mode variantinf"                                                                           
+[5] "Study period: 2021-12-07 to 2022-02-13"                                                    
+[6] "Age filter: 0-650"                                                                         
+[7] "Writing to data/temp/IOmicronDetail.csv"                                                   
+
