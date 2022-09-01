@@ -1,4 +1,4 @@
-version 24 + w added + lastminute
+version 27 erratum
 Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every
 Delta infections
 Mode variantinf
@@ -11,135 +11,38 @@ Processing records from input, excluding inconsistend records:
 Wrong ordering of shots 
 Sec dose of Janssen!
 Wrong ordering of infections
-Sec dose of Janssen!
-Sec dose of Janssen!
-Sec dose of Janssen!
-Wrong ordering of shots 
-Sec dose of Janssen!
-Wrong ordering of shots 
-Wrong ordering of shots 
-Sec dose of Janssen!
 Wrong ordering of infections
-Wrong ordering of shots 
 Wrong ordering of infections
-Wrong ordering of shots 
 Wrong ordering of infections
-301523: date from hosp -15 (-15) unassigned to infections: -404 
-Wrong ordering of infections
-Wrong ordering of shots 
+Sec dose of Janssen!
+Sec dose of Janssen!
+Sec dose of Janssen!
 Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of infections
 Sec dose of Janssen!
 Wrong ordering of infections
-Sec dose of Janssen!
 Wrong ordering of shots 
 Wrong ordering of shots 
 Sec dose of Janssen!
-418477: date from hosp -396 (-410) unassigned to infections: -686 
-Wrong ordering of shots 
-Wrong ordering of infections
-Wrong ordering of infections
-497485: date from hosp -330 (-335) unassigned to infections: -702 
-Wrong ordering of infections
-Wrong ordering of infections
-Sec dose of Janssen!
-Wrong ordering of shots 
-Sec dose of Janssen!
-Wrong ordering of shots 
-Wrong ordering of infections
-580499: date from hosp -334 (-334) unassigned to infections: -699 
-Wrong ordering of shots 
-Sec dose of Janssen!
-Wrong ordering of shots 
-Wrong ordering of shots 
-Wrong ordering of shots 
-Wrong ordering of shots 
-Sec dose of Janssen!
-Wrong ordering of shots 
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
-838057: date from hosp 56 (56) unassigned to infections: -404 
-Wrong ordering of shots 
-Wrong ordering of shots 
-Sec dose of Janssen!
-Sec dose of Janssen!
-Sec dose of Janssen!
-Sec dose of Janssen!
-902194: date from hosp 56 (56) unassigned to infections: -407 
 Wrong ordering of infections
-Wrong ordering of infections
-Wrong ordering of shots 
-Wrong ordering of shots 
 Wrong ordering of shots 
 Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of shots 
-Wrong ordering of shots 
+319305: date from hosp -337 (-397) unassigned to infections: -397 
 Wrong ordering of infections
-Wrong ordering of shots 
-Wrong ordering of shots 
-Wrong ordering of shots 
-Sec dose of Janssen!
-Sec dose of Janssen!
-Sec dose of Janssen!
-Wrong ordering of infections
-Sec dose of Janssen!
-Wrong ordering of shots 
-Wrong ordering of shots 
-Wrong ordering of infections
-Sec dose of Janssen!
-Wrong ordering of infections
-Wrong ordering of infections
-Sec dose of Janssen!
-Sec dose of Janssen!
-Wrong ordering of shots 
-Sec dose of Janssen!
-1307715: date from hosp -406 (-406) unassigned to infections: -487 
-1311909: date from hosp -334 (-337) unassigned to infections: -704 
-Wrong ordering of shots 
-Wrong ordering of shots 
-Wrong ordering of infections
-Sec dose of Janssen!
-1406132: date from hosp -323 (-334) unassigned to infections: -700 
-Sec dose of Janssen!
-Wrong ordering of shots 
-Sec dose of Janssen!
-Sec dose of Janssen!
-Wrong ordering of shots 
-Wrong ordering of shots 
-Sec dose of Janssen!
-Wrong ordering of shots 
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of shots 
-Sec dose of Janssen!
-Sec dose of Janssen!
-Sec dose of Janssen!
-Wrong ordering of shots 
-Wrong ordering of infections
 Wrong ordering of infections
 Sec dose of Janssen!
-Wrong ordering of infections
-Wrong ordering of shots 
-Sec dose of Janssen!
-Sec dose of Janssen!
-Wrong ordering of shots 
-Wrong ordering of shots 
-Wrong ordering of infections
-Wrong ordering of shots 
-Wrong ordering of shots 
-Wrong ordering of shots 
-Wrong ordering of infections
-1849464: date from hosp -327 (-327) unassigned to infections: -694 
-Wrong ordering of infections
-Wrong ordering of shots 
-Wrong ordering of shots 
-Wrong ordering of shots 
 Wrong ordering of infections
 Sec dose of Janssen!
 Wrong ordering of shots 
@@ -147,50 +50,222 @@ Wrong ordering of shots
 Wrong ordering of infections
 Wrong ordering of infections
 Sec dose of Janssen!
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Sec dose of Janssen!
+Wrong ordering of shots 
+Sec dose of Janssen!
+Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of shots 
+Wrong ordering of infections
+Sec dose of Janssen!
+Wrong ordering of shots 
+Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of shots 
+Wrong ordering of shots 
+Sec dose of Janssen!
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of shots 
+Wrong ordering of shots 
+Sec dose of Janssen!
+Sec dose of Janssen!
+Sec dose of Janssen!
+Sec dose of Janssen!
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of shots 
+Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of shots 
+Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of shots 
+Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of shots 
+Sec dose of Janssen!
+Sec dose of Janssen!
+Sec dose of Janssen!
+Wrong ordering of infections
+Sec dose of Janssen!
+Wrong ordering of infections
+Wrong ordering of shots 
+Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of infections
+Sec dose of Janssen!
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Sec dose of Janssen!
+Sec dose of Janssen!
+Wrong ordering of shots 
+Sec dose of Janssen!
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of shots 
+Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of infections
+Sec dose of Janssen!
+Sec dose of Janssen!
+Wrong ordering of shots 
+Sec dose of Janssen!
+Sec dose of Janssen!
+Wrong ordering of shots 
+Wrong ordering of shots 
+Sec dose of Janssen!
+Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of shots 
+Sec dose of Janssen!
+Sec dose of Janssen!
+Wrong ordering of infections
+Sec dose of Janssen!
+Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Sec dose of Janssen!
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of shots 
+Sec dose of Janssen!
+Sec dose of Janssen!
+Wrong ordering of infections
+Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of shots 
+Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of shots 
+Wrong ordering of shots 
+Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Sec dose of Janssen!
+Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of infections
+Sec dose of Janssen!
 Sec dose of Janssen!
 Wrong ordering of shots 
 Wrong ordering of shots 
 Sec dose of Janssen!
 Wrong ordering of infections
 Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
 Sec dose of Janssen!
 Wrong ordering of infections
-2109206: date from hosp -336 (-336) unassigned to infections: -702 
 Wrong ordering of shots 
-2139044: date from hosp -337 (-337) unassigned to infections: -704 
-2150596: date from hosp -222 (-222) unassigned to infections: -285 
-2191241: date from hosp 17 (-303) unassigned to infections: -369 16 
-2213371: date from hosp 12 (2147483647) unassigned to infections: -357 
-2216557: date from hosp 20 (19) unassigned to infections: -194 
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
 Sec dose of Janssen!
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of shots 
+Wrong ordering of infections
 2298184: date from hosp -346 (-347) unassigned to infections: -407 
+Wrong ordering of infections
 Wrong ordering of shots 
 Sec dose of Janssen!
 Wrong ordering of infections
-2335630: date from hosp -305 (-334) unassigned to infections: -701 
 Wrong ordering of shots 
+Wrong ordering of infections
 Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
 Sec dose of Janssen!
 Wrong ordering of infections
 Wrong ordering of shots 
 Sec dose of Janssen!
 Sec dose of Janssen!
 Wrong ordering of infections
+Wrong ordering of infections
 Sec dose of Janssen!
 Sec dose of Janssen!
+Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
+Wrong ordering of infections
 Sec dose of Janssen!
 Sec dose of Janssen!
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of shots 
 Sec dose of Janssen!
 Sec dose of Janssen!
-2526867: date from hosp -343 (-344) unassigned to infections: -700 
 Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of shots 
 Sec dose of Janssen!
 Sec dose of Janssen!
@@ -200,50 +275,66 @@ Wrong ordering of infections
 Sec dose of Janssen!
 Wrong ordering of infections
 Sec dose of Janssen!
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
 Sec dose of Janssen!
 Wrong ordering of shots 
 Wrong ordering of shots 
 Wrong ordering of shots 
 Sec dose of Janssen!
+Wrong ordering of infections
 Wrong ordering of shots 
 Sec dose of Janssen!
 Wrong ordering of shots 
 Sec dose of Janssen!
-2671700: date from hosp -343 (-346) unassigned to infections: -702 
+Wrong ordering of infections
 Sec dose of Janssen!
+Wrong ordering of infections
+Wrong ordering of infections
 Sec dose of Janssen!
 Sec dose of Janssen!
-2711196: date from hosp -229 (-350) unassigned to infections: -230 49 
 Sec dose of Janssen!
 Wrong ordering of shots 
 Wrong ordering of infections
 Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of shots 
-2839632: date from hosp -336 (-336) unassigned to infections: -701 
 Wrong ordering of shots 
+Wrong ordering of infections
 Sec dose of Janssen!
+Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of infections
 Sec dose of Janssen!
+Wrong ordering of infections
 Sec dose of Janssen!
 Wrong ordering of shots 
+Wrong ordering of infections
 Wrong ordering of infections
-2936155: date from hosp 64 (64) unassigned to infections: -48 
+Wrong ordering of infections
+Wrong ordering of infections
 Sec dose of Janssen!
 Wrong ordering of shots 
 Sec dose of Janssen!
 Wrong ordering of shots 
 Wrong ordering of shots 
+Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of shots 
 Wrong ordering of infections
+Wrong ordering of infections
 Sec dose of Janssen!
-3048975: date from hosp -311 (-335) unassigned to infections: -702 
+Wrong ordering of infections
 Wrong ordering of shots 
-3097812: date from hosp -343 (-343) unassigned to infections: -700 
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of shots 
 Sec dose of Janssen!
 Wrong ordering of shots 
@@ -251,12 +342,13 @@ Sec dose of Janssen!
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of shots 
-3161408: date from hosp 57 (2147483647) unassigned to infections: -357 
 Wrong ordering of infections
 Wrong ordering of infections
 Sec dose of Janssen!
 Sec dose of Janssen!
 Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
@@ -264,33 +356,42 @@ Wrong ordering of infections
 Sec dose of Janssen!
 Wrong ordering of infections
 Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
 Sec dose of Janssen!
 Sec dose of Janssen!
+Wrong ordering of infections
 Sec dose of Janssen!
+Wrong ordering of infections
 Sec dose of Janssen!
 Wrong ordering of infections
 Wrong ordering of shots 
 Sec dose of Janssen!
+Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of infections
+Wrong ordering of infections
 Sec dose of Janssen!
 Sec dose of Janssen!
-3462834: date from hosp 56 (56) unassigned to infections: -404 
 Sec dose of Janssen!
 Wrong ordering of infections
 Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of shots 
 Sec dose of Janssen!
-3636462: date from hosp 56 (56) unassigned to infections: -404 
 Wrong ordering of shots 
 Wrong ordering of infections
 Sec dose of Janssen!
 Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of shots 
 Wrong ordering of infections
@@ -301,50 +402,75 @@ Sec dose of Janssen!
 Wrong ordering of infections
 Sec dose of Janssen!
 Wrong ordering of shots 
+Wrong ordering of infections
 Wrong ordering of infections
-3745693: date from hosp -327 (-334) unassigned to infections: -701 
+Wrong ordering of infections
 Wrong ordering of shots 
-3770751: date from hosp 63 (63) unassigned to infections: -293 
 Wrong ordering of shots 
 Sec dose of Janssen!
-3782568: date from hosp -7 (-288) unassigned to infections: -225 -7 
-3814316: date from hosp -338 (-339) unassigned to infections: -705 
+Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of infections
 Wrong ordering of shots 
-3856752: date from hosp 41 (41) unassigned to infections: -309 
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of shots 
 Sec dose of Janssen!
 Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of infections
 Sec dose of Janssen!
+Wrong ordering of infections
+Wrong ordering of infections
 Sec dose of Janssen!
 Wrong ordering of infections
 Sec dose of Janssen!
+Wrong ordering of infections
+Wrong ordering of infections
 Sec dose of Janssen!
+Wrong ordering of infections
 Sec dose of Janssen!
+Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of shots 
+Wrong ordering of infections
 Wrong ordering of infections
-4273792: date from hosp -274 (-275) unassigned to infections: -348 
 Sec dose of Janssen!
+4292950: date from hosp -289 (-349) unassigned to infections: -349 
 Wrong ordering of shots 
 Wrong ordering of infections
+4313723: date from hosp -270 (-330) unassigned to infections: -330 
 Sec dose of Janssen!
 Wrong ordering of infections
 Wrong ordering of shots 
-4380041: date from hosp -433 (-433) unassigned to infections: -514 56 
 Wrong ordering of infections
-4390694: date from hosp -333 (-336) unassigned to infections: -702 
 Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of infections
+Wrong ordering of infections
 Sec dose of Janssen!
+Wrong ordering of infections
 Wrong ordering of infections
 Sec dose of Janssen!
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
 Sec dose of Janssen!
-4592695: date from hosp -272 (-272) unassigned to infections: -404 
+Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of shots 
 Wrong ordering of shots 
@@ -352,163 +478,236 @@ Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of infections
 Wrong ordering of infections
-4694143: date from hosp -342 (-342) unassigned to infections: -700 
 Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
 Sec dose of Janssen!
 Sec dose of Janssen!
-4743948: date from hosp -343 (-344) unassigned to infections: -700 
 Sec dose of Janssen!
-4765896: date from hosp -349 (-350) unassigned to infections: -411 
+Wrong ordering of infections
 Sec dose of Janssen!
+Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of shots 
 Sec dose of Janssen!
 Wrong ordering of infections
 Wrong ordering of shots 
+Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
-4916233: date from hosp 23 (23) unassigned to infections: -311 
 Sec dose of Janssen!
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of shots 
 Sec dose of Janssen!
+Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of shots 
+Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of shots 
-5053293: date from hosp -343 (-344) unassigned to infections: -700 
+Wrong ordering of infections
 Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of infections
 Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of infections
-5166890: date from hosp -336 (-336) unassigned to infections: -701 
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of shots 
 Sec dose of Janssen!
-5263787: date from hosp 56 (56) unassigned to infections: -404 
+Wrong ordering of infections
 Wrong ordering of shots 
+Wrong ordering of infections
 Sec dose of Janssen!
+Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of shots 
-5371887: date from hosp -11 (-22) unassigned to infections: -326 
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of shots 
-5402056: date from hosp -329 (-334) unassigned to infections: -701 
 Wrong ordering of shots 
 Wrong ordering of infections
 Wrong ordering of infections
+Wrong ordering of infections
 Sec dose of Janssen!
 Sec dose of Janssen!
+Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of shots 
+Wrong ordering of infections
 Wrong ordering of infections
 Sec dose of Janssen!
 Wrong ordering of infections
 Wrong ordering of shots 
+Wrong ordering of infections
 Sec dose of Janssen!
+Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of infections
 Sec dose of Janssen!
 Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
 Sec dose of Janssen!
 Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of shots 
-5730560: date from hosp 0 (-1) unassigned to infections: -198 
-5744371: date from hosp -2 (-4) unassigned to infections: -267 
 Wrong ordering of shots 
 Wrong ordering of shots 
+Wrong ordering of infections
 Wrong ordering of infections
 Sec dose of Janssen!
 Sec dose of Janssen!
 Sec dose of Janssen!
 Sec dose of Janssen!
-5816174: date from hosp -328 (-337) unassigned to infections: -703 
 Wrong ordering of shots 
+Wrong ordering of infections
 Sec dose of Janssen!
+Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of shots 
+Wrong ordering of infections
 Sec dose of Janssen!
+Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
 Sec dose of Janssen!
+Wrong ordering of infections
 Wrong ordering of shots 
+Wrong ordering of infections
 Wrong ordering of infections
-6025562: date from hosp -23 (-32) unassigned to infections: -267 
+Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of shots 
+Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of shots 
 Sec dose of Janssen!
 Wrong ordering of shots 
+Wrong ordering of infections
 Wrong ordering of shots 
 Sec dose of Janssen!
 Wrong ordering of shots 
 Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of shots 
+Wrong ordering of infections
 Wrong ordering of shots 
 Sec dose of Janssen!
 Wrong ordering of shots 
+Wrong ordering of infections
 Sec dose of Janssen!
 Wrong ordering of shots 
+Wrong ordering of infections
 Wrong ordering of shots 
-6313038: date from hosp 64 (64) unassigned to infections: -301 
 Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of shots 
+Wrong ordering of infections
 Wrong ordering of infections
+Wrong ordering of infections
 Sec dose of Janssen!
+Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of shots 
 Sec dose of Janssen!
 Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of infections
-6450015: date from hosp 65 (65) unassigned to infections: -383 
 Wrong ordering of infections
 Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of infections
+Wrong ordering of infections
 Sec dose of Janssen!
 Sec dose of Janssen!
 Wrong ordering of infections
 Wrong ordering of shots 
 Sec dose of Janssen!
 Wrong ordering of shots 
+Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
 Sec dose of Janssen!
 Wrong ordering of infections
 Sec dose of Janssen!
 Wrong ordering of shots 
+Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of infections
 Wrong ordering of shots 
 Sec dose of Janssen!
 Wrong ordering of shots 
 Wrong ordering of shots 
+Wrong ordering of infections
 Wrong ordering of shots 
 Wrong ordering of shots 
 Wrong ordering of infections
 Sec dose of Janssen!
 Wrong ordering of infections
+Wrong ordering of infections
 Sec dose of Janssen!
 Wrong ordering of shots 
 Wrong ordering of shots 
@@ -519,6 +718,7 @@ Wrong ordering of shots
 Wrong ordering of shots 
 Wrong ordering of shots 
 Wrong ordering of shots 
+Wrong ordering of infections
 Wrong ordering of shots 
 Sec dose of Janssen!
 Wrong ordering of shots 
@@ -526,6 +726,161 @@ Wrong ordering of shots
 Wrong ordering of shots 
 Wrong ordering of shots 
 Wrong ordering of shots 
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+7160823: date from hosp -277 (-337) unassigned to infections: -337 
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
+Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
@@ -535,9 +890,7 @@ Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
-7088430: date from hosp -18 (-25) unassigned to infections: -258 
 Wrong ordering of infections
-7119191: date from hosp -9 (-13) unassigned to infections: -258 
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
@@ -551,6 +904,7 @@ Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
+7949344: date from hosp 41 (-19) unassigned to infections: -19 
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
@@ -563,15 +917,11 @@ Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
-7465401: date from hosp -278 (-281) unassigned to infections: -350 
-7478193: date from hosp 22 (22) unassigned to infections: -231 
-7484367: date from hosp -98 (-98) unassigned to infections: -484 
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
-7534716: date from hosp -309 (-335) unassigned to infections: -702 
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
@@ -599,16 +949,12 @@ Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
-7985527: date from hosp -276 (-277) unassigned to infections: -439 
 Wrong ordering of infections
 Wrong ordering of infections
-8026050: date from hosp -18 (-25) unassigned to infections: -258 
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
-8085061: date from hosp -326 (-327) unassigned to infections: -694 
-8089425: date from hosp 21 (21) unassigned to infections: -310 
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
@@ -620,118 +966,113 @@ Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
-8302651: date from hosp -337 (-337) unassigned to infections: -704 
 Wrong ordering of infections
-8311876: date from hosp -329 (-336) unassigned to infections: -702 
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
 Wrong ordering of infections
-8356974: date from hosp -13 (-18) unassigned to infections: -258 
-8372065: date from hosp 50 (50) unassigned to infections: -273 
 Wrong ordering of infections
 Wrong ordering of infections
-8388412: date from hosp -343 (-344) unassigned to infections: -700 
 Generating 51313 women of age 0
-Generating 47390 women of age 1
+Generating 47391 women of age 1
 Generating 47766 women of age 2
-Generating 45755 women of age 3
+Generating 45756 women of age 3
 Generating 43102 women of age 4
 Generating 39322 women of age 5
 Generating 36275 women of age 6
 Generating 31066 women of age 7
 Generating 29619 women of age 8
-Generating 27040 women of age 9
+Generating 27041 women of age 9
 Generating 30002 women of age 10
 Generating 27830 women of age 11
-Generating 16361 women of age 12
+Generating 16362 women of age 12
 Generating 14788 women of age 13
 Generating 8982 women of age 14
-Generating 8418 women of age 15
+Generating 8420 women of age 15
 Generating 5913 women of age 16
-Generating 4967 women of age 17
-Generating 3657 women of age 18
-Generating 3343 women of age 19
+Generating 4968 women of age 17
+Generating 3659 women of age 18
+Generating 3344 women of age 19
 Generating 4917 women of age 20
 Generating 6278 women of age 21
-Generating 7999 women of age 22
+Generating 8001 women of age 22
 Generating 8026 women of age 23
 Generating 8440 women of age 24
-Generating 11067 women of age 25
-Generating 14963 women of age 26
+Generating 11068 women of age 25
+Generating 14964 women of age 26
 Generating 17484 women of age 27
 Generating 14596 women of age 28
-Generating 17160 women of age 29
-Generating 16330 women of age 30
+Generating 17161 women of age 29
+Generating 16336 women of age 30
 Generating 14986 women of age 31
 Generating 17848 women of age 32
-Generating 15167 women of age 33
-Generating 16162 women of age 34
-Generating 16539 women of age 35
-Generating 15075 women of age 36
-Generating 14630 women of age 37
-Generating 15682 women of age 38
-Generating 13392 women of age 39
-Generating 15933 women of age 40
-Generating 19959 women of age 41
-Generating 16616 women of age 42
+Generating 15170 women of age 33
+Generating 16164 women of age 34
+Generating 16541 women of age 35
+Generating 15077 women of age 36
+Generating 14632 women of age 37
+Generating 15685 women of age 38
+Generating 13396 women of age 39
+Generating 15935 women of age 40
+Generating 19963 women of age 41
+Generating 16617 women of age 42
 Generating 14837 women of age 43
-Generating 14703 women of age 44
-Generating 14098 women of age 45
-Generating 13798 women of age 46
+Generating 14706 women of age 44
+Generating 14102 women of age 45
+Generating 13805 women of age 46
 Generating 7025 women of age 47
-Generating 4736 women of age 48
-Generating 6611 women of age 49
-Generating 7371 women of age 50
-Generating 7243 women of age 51
-Generating 6662 women of age 52
-Generating 9143 women of age 53
-Generating 10553 women of age 54
-Generating 11478 women of age 55
-Generating 12472 women of age 56
+Generating 4742 women of age 48
+Generating 6614 women of age 49
+Generating 7374 women of age 50
+Generating 7244 women of age 51
+Generating 6664 women of age 52
+Generating 9145 women of age 53
+Generating 10558 women of age 54
+Generating 11480 women of age 55
+Generating 12479 women of age 56
 Generating 8635 women of age 57
 Generating 3932 women of age 58
-Generating 7094 women of age 59
-Generating 6831 women of age 60
+Generating 7096 women of age 59
+Generating 6833 women of age 60
 Generating 8190 women of age 61
-Generating 13036 women of age 62
-Generating 12859 women of age 63
+Generating 13039 women of age 62
+Generating 12860 women of age 63
 Generating 12311 women of age 64
-Generating 9876 women of age 65
+Generating 9882 women of age 65
 Generating 9571 women of age 66
-Generating 9103 women of age 67
-Generating 9932 women of age 68
-Generating 8912 women of age 69
-Generating 6095 women of age 70
-Generating 6402 women of age 71
-Generating 8822 women of age 72
-Generating 9856 women of age 73
-Generating 5566 women of age 74
-More of gender 0 ( 58145) treated then exist of age 75 (53993
-Generating -4152 women of age 75
-Generating 7536 women of age 76
-Generating 3719 women of age 77
-Generating 528 women of age 78
-Generating 3229 women of age 79
-Generating 3350 women of age 80
-Generating 745 women of age 81
-Generating 2686 women of age 82
-Generating 2201 women of age 83
-Generating 3064 women of age 84
-Generating 2788 women of age 85
-Generating 3106 women of age 86
-Generating 3012 women of age 87
-Generating 3146 women of age 88
-Generating 2343 women of age 89
-Generating 2345 women of age 90
+Generating 9107 women of age 67
+Generating 9935 women of age 68
+Generating 8914 women of age 69
+Generating 6096 women of age 70
+Generating 6405 women of age 71
+Generating 8828 women of age 72
+Generating 9860 women of age 73
+Generating 5573 women of age 74
+More of gender 0 ( 58138) treated then exist of age 75 (53993
+Generating -4145 women of age 75
+Generating 7542 women of age 76
+Generating 3725 women of age 77
+Generating 531 women of age 78
+Generating 3232 women of age 79
+Generating 3352 women of age 80
+Generating 747 women of age 81
+Generating 2692 women of age 82
+Generating 2205 women of age 83
+Generating 3069 women of age 84
+Generating 2793 women of age 85
+Generating 3111 women of age 86
+Generating 3018 women of age 87
+Generating 3149 women of age 88
+Generating 2344 women of age 89
+Generating 2348 women of age 90
 Generating 1354 women of age 91
-Generating 1658 women of age 92
+Generating 1661 women of age 92
 Generating 1134 women of age 93
 Generating 1015 women of age 94
-Generating 692 women of age 95
-Generating 579 women of age 96
-Generating 471 women of age 97
+Generating 693 women of age 95
+Generating 580 women of age 96
+Generating 472 women of age 97
 Generating 222 women of age 98
 Generating 137 women of age 99
 Generating 35 women of age 100
@@ -739,7 +1080,7 @@ Generating 53283 men of age 0
 Generating 49645 men of age 1
 Generating 49581 men of age 2
 Generating 48285 men of age 3
-Generating 45439 men of age 4
+Generating 45440 men of age 4
 Generating 41346 men of age 5
 Generating 37932 men of age 6
 Generating 32762 men of age 7
@@ -747,92 +1088,92 @@ Generating 30398 men of age 8
 Generating 27919 men of age 9
 Generating 31292 men of age 10
 Generating 27853 men of age 11
-Generating 16833 men of age 12
+Generating 16834 men of age 12
 Generating 14959 men of age 13
-Generating 10063 men of age 14
-Generating 8521 men of age 15
-Generating 6973 men of age 16
+Generating 10065 men of age 14
+Generating 8522 men of age 15
+Generating 6974 men of age 16
 Generating 6619 men of age 17
 Generating 4841 men of age 18
 Generating 5008 men of age 19
-Generating 6542 men of age 20
+Generating 6544 men of age 20
 Generating 6860 men of age 21
-Generating 8693 men of age 22
+Generating 8696 men of age 22
 Generating 8904 men of age 23
-Generating 9129 men of age 24
+Generating 9131 men of age 24
 Generating 11938 men of age 25
 Generating 15281 men of age 26
-Generating 18489 men of age 27
-Generating 15481 men of age 28
-Generating 18524 men of age 29
-Generating 16191 men of age 30
-Generating 15585 men of age 31
-Generating 18269 men of age 32
-Generating 18122 men of age 33
+Generating 18490 men of age 27
+Generating 15482 men of age 28
+Generating 18526 men of age 29
+Generating 16192 men of age 30
+Generating 15586 men of age 31
+Generating 18270 men of age 32
+Generating 18126 men of age 33
 Generating 18301 men of age 34
-Generating 18992 men of age 35
-Generating 18507 men of age 36
-Generating 17477 men of age 37
+Generating 18995 men of age 35
+Generating 18508 men of age 36
+Generating 17479 men of age 37
 Generating 18420 men of age 38
-Generating 17353 men of age 39
-Generating 20048 men of age 40
-Generating 23247 men of age 41
-Generating 19731 men of age 42
-Generating 17660 men of age 43
-Generating 18113 men of age 44
-Generating 17246 men of age 45
-Generating 16788 men of age 46
-Generating 10544 men of age 47
-Generating 6430 men of age 48
-Generating 8360 men of age 49
-Generating 8862 men of age 50
-Generating 9178 men of age 51
-Generating 8262 men of age 52
-Generating 10879 men of age 53
-Generating 10864 men of age 54
-Generating 13049 men of age 55
-Generating 13371 men of age 56
-Generating 8412 men of age 57
-Generating 4388 men of age 58
-Generating 8028 men of age 59
-Generating 7245 men of age 60
+Generating 17355 men of age 39
+Generating 20053 men of age 40
+Generating 23249 men of age 41
+Generating 19739 men of age 42
+Generating 17662 men of age 43
+Generating 18116 men of age 44
+Generating 17249 men of age 45
+Generating 16792 men of age 46
+Generating 10546 men of age 47
+Generating 6436 men of age 48
+Generating 8364 men of age 49
+Generating 8864 men of age 50
+Generating 9181 men of age 51
+Generating 8264 men of age 52
+Generating 10882 men of age 53
+Generating 10870 men of age 54
+Generating 13054 men of age 55
+Generating 13378 men of age 56
+Generating 8414 men of age 57
+Generating 4390 men of age 58
+Generating 8030 men of age 59
+Generating 7254 men of age 60
 Generating 7686 men of age 61
-Generating 11440 men of age 62
-Generating 11855 men of age 63
-Generating 10853 men of age 64
-Generating 8887 men of age 65
-Generating 8261 men of age 66
-Generating 7685 men of age 67
-Generating 7847 men of age 68
-Generating 6688 men of age 69
-Generating 5247 men of age 70
-Generating 4436 men of age 71
-Generating 7528 men of age 72
-Generating 6539 men of age 73
-Generating 2838 men of age 74
-More of gender 1 ( 42595) treated then exist of age 75 (38391
-Generating -4204 men of age 75
-Generating 5235 men of age 76
-Generating 2558 men of age 77
-More of gender 1 ( 30159) treated then exist of age 78 (30110
-Generating -49 men of age 78
-Generating 1535 men of age 79
-Generating 1883 men of age 80
-More of gender 1 ( 20425) treated then exist of age 81 (19992
-Generating -433 men of age 81
-Generating 1136 men of age 82
-Generating 821 men of age 83
-Generating 1280 men of age 84
-Generating 1332 men of age 85
-Generating 1132 men of age 86
-Generating 1082 men of age 87
-Generating 1170 men of age 88
-Generating 945 men of age 89
+Generating 11446 men of age 62
+Generating 11859 men of age 63
+Generating 10857 men of age 64
+Generating 8888 men of age 65
+Generating 8263 men of age 66
+Generating 7687 men of age 67
+Generating 7852 men of age 68
+Generating 6691 men of age 69
+Generating 5250 men of age 70
+Generating 4443 men of age 71
+Generating 7533 men of age 72
+Generating 6540 men of age 73
+Generating 2840 men of age 74
+More of gender 1 ( 42592) treated then exist of age 75 (38391
+Generating -4201 men of age 75
+Generating 5236 men of age 76
+Generating 2560 men of age 77
+More of gender 1 ( 30158) treated then exist of age 78 (30110
+Generating -48 men of age 78
+Generating 1540 men of age 79
+Generating 1886 men of age 80
+More of gender 1 ( 20424) treated then exist of age 81 (19992
+Generating -432 men of age 81
+Generating 1137 men of age 82
+Generating 823 men of age 83
+Generating 1282 men of age 84
+Generating 1333 men of age 85
+Generating 1135 men of age 86
+Generating 1083 men of age 87
+Generating 1173 men of age 88
+Generating 948 men of age 89
 Generating 634 men of age 90
-Generating 326 men of age 91
+Generating 328 men of age 91
 Generating 367 men of age 92
 Generating 358 men of age 93
-Generating 285 men of age 94
+Generating 286 men of age 94
 Generating 113 men of age 95
 Generating 86 men of age 96
 Generating 129 men of age 97
@@ -843,57 +1184,57 @@ Generating -103 men of age 100
 Summary:
 8390834 records in data/data_20220215.csv
 out of which:
-8282065 records were used for the analysis
-558 records is inconsistent
+8281663 records were used for the analysis
+960 records is inconsistent
 54 records is with bad or out of range dates
 481 lacks valid age information 
 9929 lacks valid genderinformation 
 34145 died of covid before time zero 
 63740 died of other reasons before time zero 
 
-67 records cannot assign infection to hospitalization, but left in study (hospitalization does not count if linked to infection)
+6 records cannot assign infection to hospitalization, but left in study (hospitalization does not count if linked to infection)
 For the analysis:
-8282065 taken from NZIS database
-2428653 persons added based on demographic structure
-10710718 total sample size
+8281663 taken from NZIS database
+2429043 persons added based on demographic structure
+10710706 total sample size
 out of which...
-num censored before study=13870
+num censored before study=13864
 num events before study=0
-num censored in study=1184829
-num events in estudy=89508
-num survived study=9422511
+num censored in study=1184855
+num events in estudy=89497
+num survived study=9422490
 
-Infections: 3526844 reinfections: 169602( raw = 171473)
+Infections: 3527673 reinfections: 169602( raw = 171473)
 Horizon 68
 Covariate stats
 cov,num,average
-_novacc,2428653,36.9605
-Ppart1,281989,33.2719
-Mpart1,25855,43.3255
+_novacc,2429043,36.9499
+Ppart1,281978,33.2708
+Mpart1,25854,43.3235
 Apart1,8,102.125
-Ppart2,20937,43.8219
-Mpart2,2029,49.0946
+Ppart2,20931,43.8262
+Mpart2,2028,49.0843
 Apart2,15,716.933
-Pfull1,398886,55.7677
-Mfull1,36417,51.785
+Pfull1,398866,55.7678
+Mfull1,36415,51.7848
 Afull1,37,408.892
-Jfull1,36387,201.292
-Pfull2,239854,127.631
-Mfull2,21088,83.2201
+Jfull1,36385,201.293
+Pfull2,239842,127.633
+Mfull2,21084,83.2223
 Afull2,606,916.3
-Jfull2,142712,39.8316
-Pfull3,1137384,138.212
-Mfull3,48281,283.636
-Afull3,42626,262.003
-Jfull3,95994,78.8516
+Jfull2,142705,39.8308
+Pfull3,1137357,138.211
+Mfull3,48277,283.649
+Afull3,42626,261.981
+Jfull3,95988,78.8519
 Pfull4,0,-nan
 Mfull4,0,-nan
 Afull4,0,-nan
 Jfull4,0,-nan
-Pboost1,2535404,49.5738
-Mboost1,407503,50.1676
-Pboost2,1088408,20.2141
-Mboost2,163274,16.1532
+Pboost1,2535355,49.5735
+Mboost1,407495,50.1673
+Pboost2,1088362,20.2139
+Mboost2,163266,16.153
 
 t,u,d,o
 0,0,0,0
