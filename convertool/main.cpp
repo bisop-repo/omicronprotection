@@ -567,20 +567,20 @@ void ockodata2R(string input, string output,
             "inf6+_full2+",
             "full2+_inf6-",
             "boost2+_inf6-",
-            "other",
             "interactions",
-            "rare"};
+            "other"};
 
     vector<unsigned> startcnts(lbls.size(),0);
     vector<unsigned> eventcnts(lbls.size(),0);
 
 //tables
-    vector<string> inflbls = {"_noimmunity",
+    vector<string> inflbls = {
             "_noinf",
             "inf1",
             "inf2",
             "inf3",
-            "inf4+"};
+            "inf4+",
+            "other"};
     vector<unsigned> infstartcnts(inflbls.size(),0);
     vector<unsigned> infeventcnts(inflbls.size(),0);
 
@@ -604,7 +604,8 @@ void ockodata2R(string input, string output,
     "Pfull2",
     "Pfull3",
     "Ppart1",
-    "Ppart2"};
+    "Ppart2",
+    "other"};
     vector<unsigned> vaccstartcnts(vacclbls.size(),0);
     vector<unsigned> vacceventcnts(vacclbls.size(),0);
 //tables-

@@ -26,6 +26,7 @@
 
 \newcommand{\coxresultinf}[2]{\coxresultgeneral{#1}{\input{../data/temp/#1.csv.is.tex}}{#2}}
 
+\newcommand{\coxresultiv}[2]{\coxresultgeneral{#1}{\input{../data/temp/#1.csv.vs.tex}\\ \\ \input{../data/temp/#1.csv.is.tex}} {#2}}
 
 
 \newcommand{\logregresult}[2]{\section{#2} 
@@ -65,6 +66,11 @@ variants.
 
 \newpage
 
+\coxresult{IOmicronDetail}{Infections by Vaccines - Omicron}
+
+\end{document}
+
+
 \coxresult{IOmicronInteractions}{Infections -- Omicron}
 
 \coxresult{IDeltaInteractions}{Infections -- Delta}
@@ -73,7 +79,6 @@ variants.
 
 \coxresultinf{RDelta}{Protection by Infection -- Delta}
 
-\end{document}
 
 \coxresult{HOmicronInteractions}{Hospitalizations -- Omicron}
 
