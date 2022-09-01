@@ -1,0 +1,14 @@
+#!/bin/bash
+#Initialization
+
+./batch_omicron
+./batch_delta
+./batch_logreg
+#./batch_logreghosp
+./batch_delta_nonz
+./batch_omicron_nonz
+./batch_logreg_nonz
+./batch_logreghosp_nonz
+./batch_omicron_sensitivity
+
+echo 'Group done'

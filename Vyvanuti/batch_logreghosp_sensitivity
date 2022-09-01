@@ -1,0 +1,27 @@
+INPUT_FILE=data/data_20220215.csv #File to be converted in Convertool
+MODEL_DATE_MAX='2022-02-15' #Upper boundary of the modeling horizon
+MODEL_NAME='logreg_test'
+CONVERTOOL_TYPE='ch'
+MODEL_AGE_LIM='0 650'
+OUTPUTS_LOCATION='outputs/logreg_test'
+TEMP_DIRECTORY='logreg_temp'
+#rm data/temp/$MODEL_NAME.csv
+mkdir $TEMP_DIRECTORY
+../convertool24erratum/bin/convertool $INPUT_FILE data/temp/$MODEL_NAME.csv $MODEL_DATE_MAX $CONVERTOOL_TYPE $MODEL_AGE_LIM > $TEMP_DIRECTORY/convertool_log.txt
+
+
+R < logreg/logreg_estimation.R --vanilla --args data/temp/$MODEL_NAME.csv OI $TEMP_DIRECTORY/convertool_log.txt
+rm -r outputs/logreg_HospOInteractionsSensitivity
+mv $OUTPUTS_LOCATION outputs/logreg_HospOInteractionsSensitivity
+
+R < logreg/logreg_estimation.R --vanilla --args data/temp/$MODEL_NAME.csv IPI $TEMP_DIRECTORY/convertool_log.txt
+rm -r outputs/logreg_HospIPInteractionsSensitivity
+mv $OUTPUTS_LOCATION outputs/logreg_HospIPInteractionsSensitivity
+
+rm -r  $TEMP_DIRECTORY
+
+git add outputs/*
+git commit -a --message="Run results: Logistic regressions"
+git pull --no-edit
+git push
+exit 0
