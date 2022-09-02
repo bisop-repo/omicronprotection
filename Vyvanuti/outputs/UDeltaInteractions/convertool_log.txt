@@ -1,6 +1,8 @@
 version 27 + erratum + tables
 Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every
 Delta hospitalizations
+Last minute excluding: inf6-_alone
+Last minute excluding: 12-15
 Mode varianthosp
 Study period: 2021-12-07 to 2022-02-13
 Age filter: 0-650
@@ -1124,20 +1126,20 @@ out of which:
 6 records cannot assign infection to hospitalization, but left in study (hospitalization does not count if linked to infection)
 For the analysis:
 8281663 taken from NZIS database
-2429043 persons added based on demographic structure
-10710706 total sample size
+2330111 persons added based on demographic structure
+10611774 total sample size
 out of which...
 num censored before study=35458
 num events before study=0
 num censored in study=8241645
 num events in estudy=4560
-num survived study=2429043
+num survived study=2330111
 
 Infections: 3527673 reinfections: 169602( raw = 171473)
 Horizon 68
 Covariate stats
 cov,num,average
-_novacc,2429043,31.9743
+_novacc,2330111,33.3318
 Ppart1,254683,33.2638
 Mpart1,23564,43.587
 Apart1,6,398.667
