@@ -58,11 +58,9 @@
 
 This material contains results of the analyses by Cox Regression (1--14,20) and by Logistic Regression (15--19).
 
-\paragraph*{Cox Regression}
- The output information of
-the former include a forest plot of hazard ratios (the VE's and the protections can be computed by subtraction from one) and tables with the numbers
-of individuals\footnote{Only the individuals from the IHIS database are recorded here.} entering the study with the individual immunity statuses and the outcome numbers among people with the corresponding immunity statuses. The results of logistic regressions include forest plots of individual covariates and, in particular, the odds ratios between
-variants.
+\paragraph*{Cox Regression} The report from a Cox regression contains a forest plot and a descriptive statistic of involved covariates. The forest plot displays the estimates of HR's corresponding to individual categories of the covariates and their CI's. Below each category name, the number N of input records containing the category is displayed. For each covariate other than AgeGr and Sex, there is a table of categories with the number of subjects from the IHIS database finding themselves in the category at time zero (column Entered) and the number of individuals, suffering the outcome while being in the category (column Events).\footnote{It can happen that the Entered value is less than the Events one. For instance, as boosters started to be administrated as late as in October 21, only a small number found themselves in the category {|\tt boost2+_alone} at the beginning of the study. At the end of the period, on the other hand, there were more than one milion people in the category (more than 60 days from the booster), so the number of event could be higher.}
+
+\paragraph*{Logisticee Regression} The results of logistic regressions include forest plots of individual covariates and, in particular, the odds ratios of the Omicron and the Delta variant (row Variant).
 
 \newpage
 
@@ -115,7 +113,3 @@ variants.
 
 
 
-
-
-
-\end{document}
