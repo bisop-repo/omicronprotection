@@ -10,20 +10,20 @@ $arguments
 [3] "outputs/HOmicronDetail//convertool_log.txt"
 
 $time.start
-[1] "2022-09-01 19:33:31"
+[1] "2022-09-02 17:45:43"
 
 $time.end
-[1] "2022-09-01 19:43:27"
+[1] "2022-09-02 17:57:16"
 
 $model.spent
-Time difference of 9.933333 mins
+Time difference of 11.55 mins
 
 $model.concordance
 concordance 
-  0.7785404 
+  0.7998948 
 
 $convertool.vignette
-[1] "version 27 erratum"                                                                        
+[1] "version 24 + w option + tables"                                                            
 [2] "Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every"
 [3] "Omikron hospitalizations"                                                                  
 [4] "Mode varianthosp"                                                                          
