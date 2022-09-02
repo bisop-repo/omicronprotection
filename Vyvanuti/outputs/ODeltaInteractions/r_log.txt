@@ -44,7 +44,7 @@ Type 'q()' to quit R.
 >   ptime = gsub(":","-",ptime)
 >   
 >   print(paste("Hello ",user," of ",computer,", it is ",time.start,".",sep=""))
-[1] "Hello smid of daman.utia.cas.cz, it is 2022-09-02 19:10:32."
+[1] "Hello smid of daman.utia.cas.cz, it is 2022-09-02 21:44:40."
 > 
 > #1.4 Checking the provided arguments. The following if-else goes through the whole script and stops if requested args are not provided.
 >   if(length(args) > 1){
@@ -219,65 +219,67 @@ Call:
 coxph(formula = Surv(T1, T2, VariantOxygen) ~ Immunity + AgeGr + 
     Sex, data = mtab)
 
-  n= 16790309, number of events= 2940 
+  n= 15517903, number of events= 2940 
    (23 observations deleted due to missingness)
 
-                            coef  exp(coef)   se(coef)       z Pr(>|z|)    
-Immunityboost2-_alone -3.896e+00  2.033e-02  9.280e-02 -41.981  < 2e-16 ***
-Immunityboost2+_alone -3.570e+00  2.816e-02  2.610e-01 -13.675  < 2e-16 ***
-Immunityfull2-_alone  -1.722e+00  1.787e-01  1.580e-01 -10.897  < 2e-16 ***
-Immunityfull2+_alone  -1.694e+00  1.838e-01  4.360e-02 -38.854  < 2e-16 ***
-Immunityinf6-_alone   -1.472e+01  4.031e-07  3.084e+02  -0.048 0.961924    
-Immunityinf6+_alone   -3.763e+00  2.321e-02  3.787e-01  -9.938  < 2e-16 ***
-Immunityinteractions  -5.110e+00  6.034e-03  3.341e-01 -15.294  < 2e-16 ***
-Immunitypart_alone    -9.120e-01  4.017e-01  1.448e-01  -6.300 2.97e-10 ***
-AgeGr0-11             -3.234e+00  3.941e-02  3.090e-01 -10.465  < 2e-16 ***
-AgeGr12-15            -1.696e+01  4.305e-08  6.361e+02  -0.027 0.978729    
-AgeGr16-17            -1.646e+01  7.135e-08  8.745e+02  -0.019 0.984986    
-AgeGr18-24            -1.360e+00  2.568e-01  2.806e-01  -4.845 1.26e-06 ***
-AgeGr25-29            -1.397e+00  2.475e-01  2.662e-01  -5.245 1.56e-07 ***
-AgeGr30-34            -7.837e-01  4.567e-01  2.016e-01  -3.888 0.000101 ***
-AgeGr35-39            -2.592e-01  7.717e-01  1.703e-01  -1.522 0.128002    
-AgeGr45-49             6.234e-01  1.865e+00  1.436e-01   4.342 1.41e-05 ***
-AgeGr50-54             1.073e+00  2.924e+00  1.379e-01   7.782 7.13e-15 ***
-AgeGr55-59             1.357e+00  3.885e+00  1.326e-01  10.233  < 2e-16 ***
-AgeGr60-64             1.610e+00  5.001e+00  1.287e-01  12.508  < 2e-16 ***
-AgeGr65-69             2.270e+00  9.679e+00  1.211e-01  18.743  < 2e-16 ***
-AgeGr70-74             2.758e+00  1.577e+01  1.193e-01  23.116  < 2e-16 ***
-AgeGr75-79             3.377e+00  2.929e+01  1.205e-01  28.017  < 2e-16 ***
-AgeGr80+               3.652e+00  3.854e+01  1.161e-01  31.459  < 2e-16 ***
-SexZ                  -3.651e-01  6.941e-01  3.756e-02  -9.721  < 2e-16 ***
+                           coef exp(coef)  se(coef)       z Pr(>|z|)    
+Immunityboost2-_alone -3.895899  0.020325  0.092801 -41.981  < 2e-16 ***
+Immunityboost2+_alone -3.569692  0.028165  0.261034 -13.675  < 2e-16 ***
+Immunityfull2-_alone  -1.722071  0.178696  0.158033 -10.897  < 2e-16 ***
+Immunityfull2+_alone  -1.693873  0.183806  0.043595 -38.854  < 2e-16 ***
+Immunityinf6+_alone   -3.763242  0.023208  0.378691  -9.938  < 2e-16 ***
+Immunityinteractions  -5.110424  0.006034  0.334150 -15.294  < 2e-16 ***
+Immunitypart_alone    -0.912028  0.401709  0.144761  -6.300 2.97e-10 ***
+AgeGr0-11             -3.233742  0.039410  0.309011 -10.465  < 2e-16 ***
+AgeGr18-24            -1.359641  0.256753  0.280611  -4.845 1.26e-06 ***
+AgeGr25-29            -1.396518  0.247457  0.266235  -5.245 1.56e-07 ***
+AgeGr30-34            -0.783663  0.456730  0.201557  -3.888 0.000101 ***
+AgeGr35-39            -0.259190  0.771677  0.170292  -1.522 0.128002    
+AgeGr45-49             0.623401  1.865261  0.143576   4.342 1.41e-05 ***
+AgeGr50-54             1.072969  2.924048  0.137875   7.782 7.13e-15 ***
+AgeGr55-59             1.357080  3.884833  0.132615  10.233  < 2e-16 ***
+AgeGr60-64             1.609707  5.001345  0.128693  12.508  < 2e-16 ***
+AgeGr65-69             2.269984  9.679245  0.121113  18.743  < 2e-16 ***
+AgeGr70-74             2.757901 15.766711  0.119308  23.116  < 2e-16 ***
+AgeGr75-79             3.377169 29.287739  0.120542  28.017  < 2e-16 ***
+AgeGr80+               3.651763 38.542574  0.116080  31.459  < 2e-16 ***
+SexZ                  -0.365089  0.694135  0.037557  -9.721  < 2e-16 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-                      exp(coef) exp(-coef)  lower .95  upper .95
-Immunityboost2-_alone 2.033e-02  4.920e+01  1.694e-02  2.438e-02
-Immunityboost2+_alone 2.816e-02  3.551e+01  1.689e-02  4.698e-02
-Immunityfull2-_alone  1.787e-01  5.596e+00  1.311e-01  2.436e-01
-Immunityfull2+_alone  1.838e-01  5.441e+00  1.688e-01  2.002e-01
-Immunityinf6-_alone   4.031e-07  2.481e+06 1.174e-269 1.384e+256
-Immunityinf6+_alone   2.321e-02  4.309e+01  1.105e-02  4.875e-02
-Immunityinteractions  6.034e-03  1.657e+02  3.134e-03  1.161e-02
-Immunitypart_alone    4.017e-01  2.489e+00  3.025e-01  5.335e-01
-AgeGr0-11             3.941e-02  2.537e+01  2.151e-02  7.222e-02
-AgeGr12-15            4.305e-08  2.323e+07  0.000e+00        Inf
-AgeGr16-17            7.135e-08  1.401e+07  0.000e+00        Inf
-AgeGr18-24            2.568e-01  3.895e+00  1.481e-01  4.450e-01
-AgeGr25-29            2.475e-01  4.041e+00  1.469e-01  4.170e-01
-AgeGr30-34            4.567e-01  2.189e+00  3.077e-01  6.780e-01
-AgeGr35-39            7.717e-01  1.296e+00  5.527e-01  1.077e+00
-AgeGr45-49            1.865e+00  5.361e-01  1.408e+00  2.471e+00
-AgeGr50-54            2.924e+00  3.420e-01  2.232e+00  3.831e+00
-AgeGr55-59            3.885e+00  2.574e-01  2.996e+00  5.038e+00
-AgeGr60-64            5.001e+00  1.999e-01  3.886e+00  6.436e+00
-AgeGr65-69            9.679e+00  1.033e-01  7.634e+00  1.227e+01
-AgeGr70-74            1.577e+01  6.342e-02  1.248e+01  1.992e+01
-AgeGr75-79            2.929e+01  3.414e-02  2.312e+01  3.709e+01
-AgeGr80+              3.854e+01  2.595e-02  3.070e+01  4.839e+01
-SexZ                  6.941e-01  1.441e+00  6.449e-01  7.472e-01
+                      exp(coef) exp(-coef) lower .95 upper .95
+Immunityboost2-_alone  0.020325   49.20028  0.016945   0.02438
+Immunityboost2+_alone  0.028165   35.50566  0.016885   0.04698
+Immunityfull2-_alone   0.178696    5.59611  0.131098   0.24357
+Immunityfull2+_alone   0.183806    5.44051  0.168753   0.20020
+Immunityinf6+_alone    0.023208   43.08791  0.011048   0.04875
+Immunityinteractions   0.006034  165.74069  0.003134   0.01161
+Immunitypart_alone     0.401709    2.48937  0.302476   0.53350
+AgeGr0-11              0.039410   25.37443  0.021507   0.07222
+AgeGr18-24             0.256753    3.89480  0.148135   0.44501
+AgeGr25-29             0.247457    4.04110  0.146852   0.41698
+AgeGr30-34             0.456730    2.18948  0.307676   0.67799
+AgeGr35-39             0.771677    1.29588  0.552691   1.07743
+AgeGr45-49             1.865261    0.53612  1.407757   2.47145
+AgeGr50-54             2.924048    0.34199  2.231646   3.83128
+AgeGr55-59             3.884833    0.25741  2.995646   5.03795
+AgeGr60-64             5.001345    0.19995  3.886363   6.43621
+AgeGr65-69             9.679245    0.10331  7.633960  12.27250
+AgeGr70-74            15.766711    0.06342 12.479186  19.92030
+AgeGr75-79            29.287739    0.03414 23.124936  37.09293
+AgeGr80+              38.542574    0.02595 30.699643  48.38916
+SexZ                   0.694135    1.44064  0.644875   0.74716
 
-Concordance= 0.919  (se = 0.002 )
-Likelihood ratio test= 9804  on 24 df,   p=<2e-16
-Wald test            = 7234  on 24 df,   p=<2e-16
-Score (logrank) test = 13555  on 24 df,   p=<2e-16
+Concordance= 0.914  (se = 0.002 )
+Likelihood ratio test= 9426  on 21 df,   p=<2e-16
+Wald test            = 7234  on 21 df,   p=<2e-16
+Score (logrank) test = 12888  on 21 df,   p=<2e-16
 
+[1] "Model charts have been generated."
+[1] "Model output has been saved (TXT)."
+[1] "Model output has been saved (TeX)."
+[1] "The procedure is finished in following time:"
+Time difference of 6.45 mins
+[1] "Workspace image and log have been saved."
+[1] "https://www.youtube.com/watch?v=g3ENX3aHlqU"
+> 
