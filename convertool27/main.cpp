@@ -573,6 +573,43 @@ void ockodata2R(string input, string output,
     vector<unsigned> startcnts(lbls.size(),0);
     vector<unsigned> eventcnts(lbls.size(),0);
 
+//tables
+    vector<string> inflbls = {
+            "_noinf",
+            "inf1",
+            "inf2",
+            "inf3",
+            "inf4+",
+            "other"};
+    vector<unsigned> infstartcnts(inflbls.size(),0);
+    vector<unsigned> infeventcnts(inflbls.size(),0);
+
+    vector<string> vacclbls = {"_novacc",
+    "Afull1",
+    "Afull2",
+    "Afull3",
+    "Jfull1",
+    "Jfull2",
+    "Jfull3",
+    "Mboost1",
+    "Mboost2",
+    "Mfull1",
+    "Mfull2",
+    "Mfull3",
+    "Mpart1",
+    "Mpart2",
+    "Pboost1",
+    "Pboost2",
+    "Pfull1",
+    "Pfull2",
+    "Pfull3",
+    "Ppart1",
+    "Ppart2",
+    "other"};
+    vector<unsigned> vaccstartcnts(vacclbls.size(),0);
+    vector<unsigned> vacceventcnts(vacclbls.size(),0);
+//tables-
+
     for(; i<data.r(); i+= everyn)
     {
         if(data(i,DatumOdberu1) != "" && data(i,DatumOdberu2) != "")
@@ -1813,10 +1850,10 @@ else         // saving old code
                      }
                 }
 
-
+                string vaccstatusstr;
                 if(dooutput)
                 {
-                    string vaccstatusstr =
+                    vaccstatusstr =
                           ppp.groupvaccs
                             ? groupedvcovtexts[currentvaccstatus]
                             : vcovtexts[currentvaccstatus];
@@ -1868,7 +1905,13 @@ else         // saving old code
                     if(!lastminuteexclude)
                         o << os.str() << endl;
                     if(t1nonneg==0)
+                    {
                         addto(lbls,startcnts,immunity);
+//tables
+                        addto(inflbls,infstartcnts,infpriorstr);
+                        addto(vacclbls,vaccstartcnts,vaccstatusstr);
+//tables-
+                    }
                 }
 
          bool recordevent = false;
@@ -1887,6 +1930,11 @@ else         // saving old code
                         oe <<  "," << data(i,j);
                     oe << endl;
                     addto(lbls,eventcnts,immunity);
+//tables
+                    addto(inflbls,infeventcnts,infpriorstr);
+                    addto(vacclbls,vacceventcnts,vaccstatusstr);
+//tables-
+
                 }
 
                 daysincovs[currentvaccstatus]+=t2-t1nonneg;
@@ -2169,6 +2217,44 @@ else         // saving old code
         }
         on << "&" << startcnts[i] << "&" << eventcnts[i] << "\\\\" << endl;
     }
+//tables
+    {
+        ofstream on(output + ".is.tex");
+        if(!on)
+        {
+            cerr << "Cannot open " << output << ".is.tex"<< endl;
+            throw;
+        }
+        on << "InfPrior & entered & events \\\\" << endl;
+        for(unsigned i=0; i<inflbls.size(); i++)
+        {
+            for(unsigned j=0; j<inflbls[i].size(); j++)
+            {
+                auto c = inflbls[i][j];
+                on << (c == '_' ? "\\" : "") << c;
+            }
+            on << "&" << infstartcnts[i] << "&" << infeventcnts[i] << "\\\\" << endl;
+        }
+    }
+    {
+        ofstream on(output + ".vs.tex");
+        if(!on)
+        {
+            cerr << "Cannot open " << output << ".vs.tex"<< endl;
+            throw;
+        }
+        on << "VaccStatus & entered & events \\\\" << endl;
+        for(unsigned i=0; i<vacclbls.size(); i++)
+        {
+            for(unsigned j=0; j<vacclbls[i].size(); j++)
+            {
+                auto c = vacclbls[i][j];
+                on << (c == '_' ? "\\" : "") << c;
+            }
+            on << "&" << vaccstartcnts[i] << "&" << vacceventcnts[i] << "\\\\" << endl;
+        }
+    }
+//tables-
 }
 
 string zerodatestr = "2020-01-01";
@@ -3907,7 +3993,7 @@ void oldockodata2R(string input, string output,
 
 int _main(int argc, char *argv[], bool compare = false)
 {
-    cout << "version 27 erratum" << endl;
+    cout << "version 27 + erratum + tables" << endl;
     cout << "Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every" << endl;
     if(!testrun  && argc < 5)
         throw "at least three arguments must be given";
