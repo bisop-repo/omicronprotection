@@ -9,20 +9,20 @@ $arguments
 [3] "outputs/RDelta//convertool_log.txt"
 
 $time.start
-[1] "2022-09-01 21:18:37"
+[1] "2022-09-02 19:37:15"
 
 $time.end
-[1] "2022-09-01 21:24:38"
+[1] "2022-09-02 19:43:31"
 
 $model.spent
-Time difference of 6.016667 mins
+Time difference of 6.266667 mins
 
 $model.concordance
 concordance 
-  0.6498181 
+  0.6497572 
 
 $convertool.vignette
-[1] "version 27 erratum"                                                                        
+[1] "version 24 + w option + tables"                                                            
 [2] "Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every"
 [3] "Delta reinfections"                                                                        
 [4] "Mode variantinf"                                                                           
