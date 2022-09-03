@@ -10,20 +10,20 @@ $arguments
 [3] "outputs/HOmicronInteractions//convertool_log.txt"
 
 $time.start
-[1] "2022-09-02 22:40:02"
+[1] "2022-09-03 14:26:42"
 
 $time.end
-[1] "2022-09-02 22:47:58"
+[1] "2022-09-03 14:35:28"
 
 $model.spent
-Time difference of 7.933333 mins
+Time difference of 8.766667 mins
 
 $model.concordance
 concordance 
   0.7775146 
 
 $convertool.vignette
-[1] "version 27 + erratum + tables"                                                             
+[1] "version 27 + lastminuteexclude + tables"                                                   
 [2] "Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every"
 [3] "Omikron hospitalizations"                                                                  
 [4] "Last minute excluding: boost2+_inf6-"                                                      
