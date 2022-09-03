@@ -5,37 +5,30 @@ glm(formula = Oxygen15 ~ Variant + Immunity + AgeGr + Sex, family = binomial(lin
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
--1.0201  -0.0995  -0.0506  -0.0238   4.3755  
+-1.0199  -0.1125  -0.0576  -0.0282   4.2938  
 
 Coefficients:
-                       Estimate Std. Error z value Pr(>|z|)    
-(Intercept)            -3.29684    0.04186 -78.763  < 2e-16 ***
-VariantOmikron         -1.43322    0.04314 -33.224  < 2e-16 ***
-Immunityboost2-_alone  -1.54063    0.07301 -21.101  < 2e-16 ***
-Immunityboost2+_alone  -1.00356    0.10955  -9.161  < 2e-16 ***
-Immunityfull2-_alone   -0.60727    0.13507  -4.496 6.92e-06 ***
-Immunityfull2+_alone   -1.05422    0.04141 -25.456  < 2e-16 ***
-Immunityfull2+_inf6-  -16.29503  865.42008  -0.019    0.985    
-Immunityinf6-_alone   -14.41282  273.57904  -0.053    0.958    
-Immunityinf6+_alone    -4.67751    1.00111  -4.672 2.98e-06 ***
-Immunityinf6+_boost2- -16.28665  314.29723  -0.052    0.959    
-Immunityinf6+_boost2+ -16.57471  680.90985  -0.024    0.981    
-Immunityinf6+_full2-  -15.41425  482.73153  -0.032    0.975    
-Immunityinf6+_full2+  -15.55250  151.07607  -0.103    0.918    
-Immunitypart_alone     -0.24493    0.15823  -1.548    0.122    
-AgeGr0-24              -3.10379    0.14068 -22.063  < 2e-16 ***
-AgeGr25-39             -1.59804    0.09141 -17.482  < 2e-16 ***
-AgeGr65+                2.91478    0.04166  69.958  < 2e-16 ***
-SexZ                   -0.33178    0.03617  -9.172  < 2e-16 ***
+                      Estimate Std. Error z value Pr(>|z|)    
+(Intercept)           -3.29688    0.04186 -78.761  < 2e-16 ***
+VariantOmikron        -1.43187    0.04314 -33.193  < 2e-16 ***
+Immunityboost2-_alone -1.54126    0.07301 -21.110  < 2e-16 ***
+Immunityboost2+_alone -1.00466    0.10955  -9.171  < 2e-16 ***
+Immunityfull2-_alone  -0.60736    0.13507  -4.497  6.9e-06 ***
+Immunityfull2+_alone  -1.05434    0.04141 -25.459  < 2e-16 ***
+Immunitypart_alone    -0.24487    0.15824  -1.547    0.122    
+AgeGr0-24             -3.10398    0.14068 -22.064  < 2e-16 ***
+AgeGr25-39            -1.60529    0.09169 -17.508  < 2e-16 ***
+AgeGr65+               2.91453    0.04166  69.954  < 2e-16 ***
+SexZ                  -0.33117    0.03618  -9.153  < 2e-16 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 40819  on 312078  degrees of freedom
-Residual deviance: 25175  on 312061  degrees of freedom
-  (86778 observations deleted due to missingness)
-AIC: 25211
+    Null deviance: 39906  on 277036  degrees of freedom
+Residual deviance: 25154  on 277026  degrees of freedom
+  (73449 observations deleted due to missingness)
+AIC: 25176
 
-Number of Fisher Scoring iterations: 19
+Number of Fisher Scoring iterations: 10
 
