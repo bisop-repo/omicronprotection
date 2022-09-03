@@ -1,4 +1,4 @@
-version 27 + erratum + tables
+version 27 + lastminuteexclude + tables
 Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every
 Delta hospitalizations
 Last minute excluding: inf6-_alone
