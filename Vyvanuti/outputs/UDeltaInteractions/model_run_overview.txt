@@ -10,20 +10,20 @@ $arguments
 [3] "outputs/UDeltaInteractions//convertool_log.txt"
 
 $time.start
-[1] "2022-09-02 21:53:34"
+[1] "2022-09-03 13:46:32"
 
 $time.end
-[1] "2022-09-02 21:59:43"
+[1] "2022-09-03 13:53:05"
 
 $model.spent
-Time difference of 6.15 mins
+Time difference of 6.55 mins
 
 $model.concordance
 concordance 
   0.9070938 
 
 $convertool.vignette
-[1] "version 27 + erratum + tables"                                                             
+[1] "version 27 + lastminuteexclude + tables"                                                   
 [2] "Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every"
 [3] "Delta hospitalizations"                                                                    
 [4] "Last minute excluding: inf6-_alone"                                                        
