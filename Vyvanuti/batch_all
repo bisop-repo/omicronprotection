@@ -10,5 +10,8 @@
 ./batch_logreg_nonz
 ./batch_logreghosp_nonz
 ./batch_omicron_sensitivity
+cd report
+pdflatex sm2
+cd ..
 
 echo 'Group done'
