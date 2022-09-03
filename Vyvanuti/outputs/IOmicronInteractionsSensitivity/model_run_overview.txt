@@ -10,24 +10,24 @@ $arguments
 [3] "outputs/IOmicronInteractionsSensitivity//convertool_log.txt"
 
 $time.start
-[1] "2022-09-02 23:05:18"
+[1] "2022-09-03 15:20:31"
 
 $time.end
-[1] "2022-09-02 23:16:11"
+[1] "2022-09-03 15:30:35"
 
 $model.spent
-Time difference of 10.88333 mins
+Time difference of 10.06667 mins
 
 $model.concordance
 concordance 
-  0.6886501 
+    0.68865 
 
 $convertool.vignette
-[1] "version 24 + w option + tables"                                                            
+[1] "version 24 + w option + lastminuteexclude +  tables"                                       
 [2] "Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every"
 [3] "Omikron infections"                                                                        
-[4] "Mode variantinf"                                                                           
-[5] "Study period: 2021-12-07 to 2022-02-13"                                                    
-[6] "Age filter: 0-650"                                                                         
-[7] "Writing to data/temp/IOmicronInteractionsSensitivity.csv"                                  
+[4] "Last minute excluding boost2+_inf6-"                                                       
+[5] "Mode variantinf"                                                                           
+[6] "Study period: 2021-12-07 to 2022-02-13"                                                    
+[7] "Age filter: 0-650"                                                                         
 
