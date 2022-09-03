@@ -1,6 +1,9 @@
-version 24 + w option + tables
+version 24 + w option + lastminuteexclude +  tables
 Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every
 Delta hospitalizations
+Last minute excluding Mfull1
+Last minute excluding Mpart2
+Last minute excluding inf1
 Mode varianthosp
 Study period: 2021-12-07 to 2022-02-13
 Age filter: 0-650
