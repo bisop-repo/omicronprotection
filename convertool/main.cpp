@@ -267,6 +267,8 @@ struct preprocessparams
     /// no event took place)
     vector<vaccovariate> excludevaccovs;
 
+    vector<string> postexcludevaccovs;
+
 };
 
 void addto(vector<string>& labels, vector<unsigned>& counts, const string lbl)
@@ -1772,7 +1774,7 @@ void ockodata2R(string input, string output,
                      }
                 }
 
-                string vaccstatusstr;    
+                string vaccstatusstr;
                 if(dooutput)
                 {
                     vaccstatusstr =
@@ -1799,8 +1801,36 @@ void ockodata2R(string input, string output,
                         else
                             os << lastvaccdate;
                     }
+                    //erratum
+                                        bool lastminuteexclude = false;
+                                        for(unsigned k=0; k<ppp.postexcludevaccovs.size(); k++)
+                                        {
+                                           if(ppp.postexcludevaccovs[k]==immunity)
+                                           {
+                                               lastminuteexclude = true;
+                                               break;
+                                           }
+                                           if(ppp.postexcludevaccovs[k]==agelabel)
+                                           {
+                                               lastminuteexclude = true;
+                                               break;
+                                           }
+                                           if(ppp.postexcludevaccovs[k]==vaccstatusstr)
+                                           {
+                                               lastminuteexclude = true;
+                                               break;
+                                           }
+                                           if(ppp.postexcludevaccovs[k]==infpriorstr)
+                                           {
+                                               lastminuteexclude = true;
+                                               break;
+                                           }
 
-                    o << os.str() << endl;
+                                        }
+
+                       //erratum end
+                    if(!lastminuteexclude)
+                       o << os.str() << endl;
                     if(t1nonneg==0)
                     {
                         addto(lbls,startcnts,immunity);
@@ -1823,7 +1853,7 @@ void ockodata2R(string input, string output,
                     addto(inflbls,infeventcnts,infpriorstr);
                     addto(vacclbls,vacceventcnts,vaccstatusstr);
 //tables-
-                    
+
                 }
 
                 daysincovs[currentvaccstatus]+=t2-t1nonneg;
@@ -3870,7 +3900,7 @@ void oldockodata2R(string input, string output,
 
 int _main(int argc, char *argv[], bool compare = false)
 {
-    cout << "version 24 + w option + tables" << endl;
+    cout << "version 24 + w option + lastminuteexclude +  tables" << endl;
     cout << "Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every" << endl;
     if(!testrun  && argc < 5)
         throw "at least three arguments must be given";
@@ -4053,7 +4083,7 @@ int _main(int argc, char *argv[], bool compare = false)
                     }
                     break;
                 case 'w':
-                    ppp.excludeotherimmunity = false;    
+                    ppp.excludeotherimmunity = false;
                 case 'v':
                     if(novariant)
                         throw "missing variant";
@@ -4120,6 +4150,34 @@ int _main(int argc, char *argv[], bool compare = false)
                 }
             }
         }
+
+        for(unsigned i=0; argv[4][i]; i++)
+         {
+             if(argv[4][i]==':')
+             {
+                 string c;
+                 for(unsigned j=i+1;;j++)
+                 {
+                     char l = argv[4][j];
+                     bool end = l==0;
+                     bool next = l==',';
+                     if(end || next)
+                     {
+                         if(c.size() > 0)
+                         {
+                             ppp.postexcludevaccovs.push_back(c);
+                             cout << "Last minute excluding " << c << endl;
+                             c="";
+                         }
+                         if(end)
+                             break;
+                     }
+                     else
+                         c += l;
+                 }
+             }
+         }
+ //erratum end
         ppp.lastdatestr = argv[3];
         ockodata2R(argv[1], argv[2],
                    mode,

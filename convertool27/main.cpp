@@ -2008,7 +2008,7 @@ else         // saving old code
                         agelabel = fourage2group(a);
                     else
                          agelabel = age2group(a);
-
+                    //erratum
                     bool lastminuteexclude = false;
                     for(unsigned k=0; k<ppp.postexcludevaccovs.size(); k++)
                     {
@@ -2018,7 +2018,7 @@ else         // saving old code
                            break;
                        }
                     }
-                    if(!lastminuteexclude)
+                    if(!lastminuteexclude) //erratum end
                         for(int j=0; j<n; j++,i++)
                         {
 
@@ -3993,7 +3993,7 @@ void oldockodata2R(string input, string output,
 
 int _main(int argc, char *argv[], bool compare = false)
 {
-    cout << "version 27 + erratum + tables" << endl;
+    cout << "version 27 + lastminuteexclude + tables" << endl;
     cout << "Usage convertool input output lastdate(rrrr-mm-dd) whattodo(IPR) minage maxage count_every" << endl;
     if(!testrun  && argc < 5)
         throw "at least three arguments must be given";
