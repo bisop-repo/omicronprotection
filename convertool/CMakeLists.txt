@@ -15,7 +15,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # change accordingly
 include_directories("/usr/local/include")
-include_directories("orpp")
+include_directories("../convertool/orpp")
 
 
 add_executable(convertool main.cpp)

@@ -9,7 +9,6 @@
 using namespace std;
 using namespace orpp;
 
-constexpr int maxint = numeric_limits<int>::max();
 
 enum cohorts { c0, c20, c65, c80, numcohorts};
 
@@ -37,14 +36,9 @@ cohorts v2cohort(unsigned v)
     }
 };
 
+using reldate = int;
 
-struct counter
-{
-    unsigned none = 0;
-    unsigned wrong = 0;
-    unsigned under = 0;
-    unsigned over = 0;
-};
+constexpr reldate maxreldate = numeric_limits<reldate>::max();
 
 
 int date2int(const string s)
@@ -63,7 +57,7 @@ int date2int(const string s)
 }
 
 
-string int2date(int date)
+string int2date(reldate date)
 {
     time_t t = date * 86400;
     tm* ti = localtime(&t);
@@ -82,31 +76,40 @@ string int2date(int date)
     return o.str();
 }
 
-int date2int(const string s, int zerodate, int lastdate, counter& c)
+
+
+reldate date2int(const string s, reldate zerodate, reldate lastdate, bool& error, string& errormessage)
 {
+    error = true;
+    string errorstr;
+    reldate di;
     if(s=="")
+        errorstr = "empty date";
+    else if(s.size() != 10)
+        errorstr = "date too long";
+    else
     {
-        c.none++;
-        return maxint;
+        di = date2int(s);
+        if(di < zerodate)
+            errorstr = "date too early";
+        else if(di > lastdate)
+            errorstr = "date too late";
+        else
+            error = false;
     }
-    if(s.size() != 10)
+    if(error)
     {
-        c.wrong++;
-        return maxint;
-    }
-    int di = date2int(s);
-    if(di < zerodate)
-    {
-        c.under++;
-        return maxint;
-    }
-    else if(di > lastdate)
-    {
-        c.over++;
-        return maxint;
+        ostringstream o;
+        o << "Error in conversion of '" << s << "' to date: " << errorstr;
+        o << "(min=" << int2date(zerodate) << ", max=" << int2date(lastdate) << ")";
+        errormessage = o.str();
+        return maxreldate;
     }
     else
+    {
+        errormessage = "";
         return di;
+    }
 }
 
 

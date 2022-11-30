@@ -1,5 +1,5 @@
 #include "tooltools.hpp"
-
+#include <fstream>
 //char* testfilename = "/home/martin/tmp/part/xaa.big.csv";
 
 char testfilename[] = "/home/martin/tmp/part/xaa big.csv";
