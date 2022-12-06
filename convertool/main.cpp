@@ -108,7 +108,7 @@ unsigned age2groupnum(unsigned age)
        return v[age];
 }
 
-/*
+
 unsigned fouragegroup(unsigned a)
 {
     if(a < 25)
@@ -120,7 +120,6 @@ unsigned fouragegroup(unsigned a)
     else
         return 3;
 }
-*/
 
 
 // pasted from vakciny_ciselnik
@@ -416,7 +415,7 @@ void ockodata2R(string input, string output,
     vector<unsigned> women(lastage+1,0);
     
 
-    struct covstatrecord
+/*    struct covstatrecord
     {
         string covlabel;
         int events = 0;
@@ -424,7 +423,16 @@ void ockodata2R(string input, string output,
     };
     
     
-    vector<covstatrecord> cpvstat;
+    vector<covstatrecord> cpvstat;*/
+
+
+    struct variantstatrecord
+    {
+        string varlabel;
+        int occurances;
+    };
+
+    vector<variantstatrecord> throwedvariants;
 
     cout << "Processing records from input, excluding inconsistent records:" << endl;
 
@@ -678,12 +686,27 @@ i <=1000 &&
 
             if(infdate < maxreldate)
             {
-                unsigned k = 0;
+                string variantstr = data(j,Mutace);
+                unsigned k = 1; // zero is novariant
                 for(; k<variants.size(); k++)
-                    if(data(j,Mutace)==variants[k].codeindata)
+                    if(variantstr==variants[k].codeindata)
                         break;
                 if(k==variants.size())
+                {
                     k = navariant;
+                    bool found = false;
+                    for(unsigned l=0;l<throwedvariants.size(); l++)
+                    {
+                        if(variantstr == throwedvariants[l].varlabel)
+                        {
+                            throwedvariants[l].occurances++;
+                            found = true;
+                            break;
+                        }
+                    }
+                    if(!found)
+                        throwedvariants.push_back({variantstr,1});
+                }
                 reldate oxygendate;
                 string oxygendatestr = data(j,min_Kyslik);
                 if(oxygendatestr != "")
@@ -892,8 +915,6 @@ cout << "id " << id << " infs " << infections.size() << " vaccs " << vaccination
                           min(nextinfdate,
                           min(nextvaccstatusdate,
                           min(nextinfstatusupdate,enddate))));
-     if(id == 22)
-                 id = 22;
 
              if(t2==nextvaccstatusdate)
              {
@@ -1120,6 +1141,17 @@ cout << "id " << id << " infs " << infections.size() << " vaccs " << vaccination
     auto czsohalfyear = (firstdate - dateoffirstczsohalfyear) / 366;
 
     if(!testrun)
+    {
+        unsigned ng;
+        if(ppp.fourages)
+            ng = 4;
+        else
+            ng = enumagegroups;
+        vector<unsigned> addedmen(ng,0);
+        vector<unsigned> addedwomen(ng,0);
+
+        unsigned i = maxid+1;
+
         for(unsigned m=0; m<=1; m++)
         {
             vector<unsigned>& vs = m ? men : women;
@@ -1140,12 +1172,24 @@ cout << "id " << id << " infs " << infections.size() << " vaccs " << vaccination
                     cout << "Generating " << n << " " << (m ? "men" : "women") << " of age " << a << endl;
 
                     string agelabel;
+                    unsigned g;
                     if(ppp.fourages)
+                    {
                         agelabel = fourage2group(a);
+                        g = fouragegroup(a);
+                    }
                     else
-                         agelabel = age2group(a);
+                    {
+                        agelabel = age2group(a);
+                        g = age2groupnum (a);
+                    }
                     //of course we do note guarantee ids to follow the "true ones". (maybe we should check whether we do not duplicate ids)
-                    unsigned i = maxid+1;
+
+                    if(m)
+                        addedmen[g] += n;
+                    else
+                        addedwomen[g] += n;
+
                     for(int j=0; j<n; j++,i++)
                     {
 
@@ -1163,13 +1207,30 @@ cout << "id " << id << " infs " << infections.size() << " vaccs " << vaccination
 
                         o << uninflabel << "," << unvacclabel << "," <<  "0,0,0,0,"
                           << a << ","
-                          << agelabel << "," << gender2str(n) << endl;
+                          << agelabel << "," << gender2str(m) << endl;
                      }
                  }
             }
         }
+        cout << "Added,Men,Women" << endl;
+        for(unsigned g=0; g<ng; g++)
+        {
+            if(ppp.fourages)
+                cout << g;
+            else
+                cout << grouplabel(g);
+            cout << "," << addedmen[g] << "," << addedwomen[g] << endl;
+        }
 
+     }
 
+    cout << endl << "Untracked variants" << endl;
+    for(unsigned i=0; i<throwedvariants.size(); i++)
+    {
+        auto s = throwedvariants[i].varlabel;
+        cout << (s == "" ? "(empty)" : s ) << ","
+             << throwedvariants[i].occurances << endl;
+    }
 }
 
 
