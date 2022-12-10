@@ -42,10 +42,10 @@ unsigned numpeopleofage(unsigned age, bool male, unsigned halfyear)
 #include "ages.inc"
 
     assert(age <= lastage);
-    assert(men.size()==lastage+1);
-    assert(women.size()==lastage+1);
-    return male ? men[age][min(halfyear,static_cast<unsigned>(men[age].size()-1))]
-            : women[age][min(halfyear,static_cast<unsigned>(women[age].size()-1))];
+    assert(menincz.size()==lastage+1);
+    assert(womenincz.size()==lastage+1);
+    return male ? menincz[age][min(halfyear,static_cast<unsigned>(menincz[age].size()-1))]
+            : womenincz[age][min(halfyear,static_cast<unsigned>(womenincz[age].size()-1))];
 }
 
 string grouplabel(unsigned vk)
@@ -175,6 +175,8 @@ vector<variantrecord> variants
 {
     { "", "NA_Other","NA","n"},
     { "Delta", "Delta","Delta", "d"},
+    { "Omikron BA.4/5", "BA45", "BA45", "4"},
+    { "Omikron BA.1/2", "BA12", "BA12", "1"},
     { "Omikron", "Omicron", "Omicron", "o"},
 };
 
@@ -249,6 +251,9 @@ struct preprocessparams
 
     /// variant (if examined)
     unsigned variant = allvariants;
+
+    ///
+    unsigned everyn = 1;
 };
 
 /*
@@ -274,9 +279,61 @@ enum o2rmodes { einfections, ecovidproxy };
 
 vector<string> mdelabels = { "infections", "covidproxy" };
 
-void ockodata2R(string input, string output,
+struct covstatrecord
+{
+    string label;
+    int n = 0;
+    int events = 0;
+};
+
+struct covstat
+{
+    vector<covstatrecord> infprior;
+    vector<covstatrecord> vaccstatus;
+    vector<covstatrecord> agegroup;
+};
+
+void output(string heading, ostream& o, const vector<covstatrecord>& s)
+{
+    o << heading << ",N,events" << endl;
+    for(unsigned i=0; i<s.size(); i++)
+    {
+        o << s[i].label << "," << s[i].n << ","
+          << s[i].events << endl;
+    }
+    o << endl;
+}
+
+void recordcov(string cov, int event, vector<covstatrecord>& s)
+{
+    for(unsigned i=0; i<s.size(); i++)
+    {
+        if(cov == s[i].label)
+        {
+            s[i].n++;
+            s[i].events += event;
+            return;
+        }
+    }
+    s.push_back({cov,1,event});
+}
+
+covstatrecord findcov(const string cov, const vector<covstatrecord>& s)
+{
+    for(unsigned i=0; i<s.size(); i++)
+    {
+        if(cov == s[i].label)
+            return s[i];
+    }
+    cerr << "Cannot find covariate label " << cov << " in list" << endl;
+    throw;
+}
+
+void ockodata2R(csv<';'>& data, string outputlabel,
+                bool dostat,
+                covstat& stat,
                 o2rmodes mode,
-                unsigned minage, unsigned maxage, 
+                unsigned minage, unsigned maxage,
                 preprocessparams ppp = preprocessparams() ) // rozdelane
 {
     reldate firstdate;
@@ -308,6 +365,8 @@ void ockodata2R(string input, string output,
 
     cout << "Age filter: " << minage << "-" << maxage << endl;
 
+    string output = dostat ? (outputlabel + "_full") : outputlabel;
+
     cout << "Writing to " << output << endl;
 
     ofstream o(output);
@@ -332,8 +391,8 @@ void ockodata2R(string input, string output,
     }
 
     ou << "error";
-    
-    
+
+
 /*    ofstream tex(output + ".tex");
     if(!tex)
     {
@@ -359,17 +418,15 @@ void ockodata2R(string input, string output,
 
 
 
-    cout << "Input " << input << endl;
-    csv<';'> data(input);
 
-    cout << "Importing from input, total" << data.r()-1 <<
+    cout << "Importing from input, total " << data.r()-1 <<
          " records." << endl;
 
     static vector<string> labels = {
         "ID",	"infekce",	"pohlavi",	"vek",	"Kraj_bydliste",	"ORP_Bydliste",	"Datum_pozitivity",	"DatumVysledku",	"Vylecen",	"Umrti",	"symptom",	"typ_testu",	"PrvniDavka",	"DruhaDavka",	"Ukoncene_ockovani",	"Extra_davka",	"Druha_extra_davka",	"OckovaciLatkaKod1",	"OckovaciLatkaKod2",	"OckovaciLatkaKod3",	"OckovaciLatkaKod4",	"bin_Hospitalizace",	"min_Hospitalizace",	"dni_Hospitalizace",	"max_Hospitalizace",	"bin_JIP",	"min_JIP",	"dni_JIP",	"max_JIP",	"bin_STAN",	"min_STAN",	"dni_STAN",	"max_STAN",	"bin_Kyslik",	"min_Kyslik",	"dni_Kyslik",	"max_Kyslik",	"bin_HFNO",	"min_HFNO",	"dni_HFNO",	"max_HFNO",	"bin_UPV_ECMO",	"min_UPV_ECMO",	"dni_UPV_ECMO",	"max_UPV_ECMO",	"Mutace",	"DatumUmrtiLPZ"
     };
-            
-            
+
+
     enum elabels {ID,	infekce,	pohlavi,	vek,	Kraj_bydliste,	ORP_Bydliste,	Datum_pozitivity,	DatumVysledku,	Vylecen,	Umrti,	symptom,	typ_testu,	PrvniDavka,	DruhaDavka,	Ukoncene_ockovani,	Extra_davka,	Druha_extra_davka,	OckovaciLatkaKod1,	OckovaciLatkaKod2,	OckovaciLatkaKod3,	OckovaciLatkaKod4,	bin_Hospitalizace,	min_Hospitalizace,	dni_Hospitalizace,	max_Hospitalizace,	bin_JIP,	min_JIP,	dni_JIP,	max_JIP,	bin_STAN,	min_STAN,	dni_STAN,	max_STAN,	bin_Kyslik,	min_Kyslik,	dni_Kyslik,	max_Kyslik,	bin_HFNO,	min_HFNO,	dni_HFNO,	max_HFNO,	bin_UPV_ECMO,	min_UPV_ECMO,	dni_UPV_ECMO,	max_UPV_ECMO,	Mutace,	DatumUmrtiLPZ, enumlabels};
 
     for(unsigned i=0; i<enumlabels; i++)
@@ -413,17 +470,8 @@ void ockodata2R(string input, string output,
 
     vector<unsigned> men(lastage+1,0);
     vector<unsigned> women(lastage+1,0);
-    
 
-/*    struct covstatrecord
-    {
-        string covlabel;
-        int events = 0;
-        int days = 0;
-    };
-    
-    
-    vector<covstatrecord> cpvstat;*/
+
 
 
     struct variantstatrecord
@@ -452,19 +500,15 @@ void ockodata2R(string input, string output,
         bool covidproxy = false;
     };
 
-
-
-
     unsigned firstnext;
     unsigned maxid = 0;
     int T = lastdate - firstdate;
+    unsigned outputcounter = 0;
     for(unsigned i=1;
-i <=1000 &&
         i<data.r(); i=firstnext )
     {
         reldate deathcoviddate = maxreldate;
         reldate deathotherdate = maxreldate;
-
 
         vector<infectionrecord> infections;
 
@@ -494,7 +538,7 @@ i <=1000 &&
             cerr << "Cannot convert ID '" << idstr << "' to unsigned" << endl;
             throw;
         }
-        
+
         constexpr int norecord = -1;
         vector<int> is;
         for(unsigned j=i; j<data.r(); j++)
@@ -551,6 +595,10 @@ i <=1000 &&
 
 
         firstnext = i + is.size();
+        if(++outputcounter % ppp.everyn )
+            continue;
+
+
         bool firstrecord = true;
         bool isdead = false;
         reldate disttofirst = maxreldate;
@@ -726,7 +774,10 @@ i <=1000 &&
                 bool proxy =
                         (data(i,bin_Kyslik) == "1" && oxygendate - infdate <= ppp.hosplimit)
                                    || (data(j,bin_UPV_ECMO) == "1" && upvecmodate - infdate <= ppp.hosplimit) ;
-
+                if(infections.size() && infdate <= infections[infections.size()-1].t)
+                {
+                    THROW("Wrong ordering of infections", break);
+                }
                 infections.push_back({ infdate, k, proxy });
             }
 
@@ -785,6 +836,20 @@ i <=1000 &&
                 {
                     THROWS("Age "<< agestr << " out of range",continue);
                 }
+                if(deathcoviddate >= firstdate && deathotherdate>= firstdate)
+                {
+                    auto correctedage = min(age,lastage);
+                    if(male)
+                    {
+                        assert(!(correctedage < 0 || correctedage > men.size()));
+                        men[correctedage]++;
+                    }
+                    else
+                    {
+                        assert(!(correctedage < 0 || correctedage > women.size()));
+                        women[correctedage]++;
+                    }
+                }
             }
             catch (...)
             {
@@ -829,7 +894,7 @@ i <=1000 &&
 
         throwthisid = false;
 
-cout << "id " << id << " infs " << infections.size() << " vaccs " << vaccinations.size() << endl ;
+//cout << "id " << id << " infs " << infections.size() << " vaccs " << vaccinations.size() << endl ;
 
          for(;;)
          {
@@ -995,6 +1060,11 @@ cout << "id " << id << " infs " << infections.size() << " vaccs " << vaccination
                  covidproxy = 0;
                  isevent = false;
              }
+ /* if(isevent)
+ {
+     cout  << "isevent";
+ }*/
+
              int deadbycovid = t2==deathcoviddate;
              int deadbyother = t2==deathotherdate;
 
@@ -1086,26 +1156,51 @@ cout << "id " << id << " infs " << infections.size() << " vaccs " << vaccination
                  }
 
 
-                 ostringstream os;
-                 os << idstr << "," << t1nonneg << "," << t2 << ","
-                    << infected << "," << covidproxy << ","
-                    << deadbycovid  << "," << deadbyother << "," ;
-//                 for(unsigned k=0; k<variants.size(); k++)
-//                     os << (k==infvariant ? infected : 0) << ",";
-                 os << infpriorstr << "," << vaccstring << ","
-                    << age << "," << grouplabel(agegroup) << ","
-                    << gender2str(male);
-
-                 o << os.str() << endl;
-
-                 if(isevent)
+                 bool dooutput = true;
+                 if(!dostat)
                  {
-                     oe << os.str();
-
-                     for(unsigned j=0; j<enumlabels; j++)
-                         oe <<  "," << data(i,j);
-                     oe << endl;
+                     covstatrecord ipr = findcov(infpriorstr,stat.infprior);
+                     covstatrecord vsr = findcov(vaccstring,stat.vaccstatus);
+                     covstatrecord ar = findcov(grouplabel(agegroup) ,stat.agegroup);
+                     if(ipr.events == 0 || vsr.events == 0 || ar.events == 0)
+                         dooutput = false;
                  }
+                 if(dooutput)
+                 {
+                     ostringstream os;
+                     os << idstr << "," << t1nonneg << "," << t2 << ","
+                        << infected << "," << covidproxy << ","
+                        << deadbycovid  << "," << deadbyother << "," ;
+    //                 for(unsigned k=0; k<variants.size(); k++)
+    //                     os << (k==infvariant ? infected : 0) << ",";
+                     os << infpriorstr << "," << vaccstring << ","
+                        << age << "," << grouplabel(agegroup) << ","
+                        << gender2str(male);
+                     if(os.str().size()>1000)
+                     {
+                         cerr << "Invalid output line" << endl;
+                         REPORT("Invalid output line");
+                         throw;
+                     }
+                     o << os.str() << endl;
+
+                     if(isevent)
+                     {
+                         oe << os.str();
+
+                         for(unsigned j=0; j<enumlabels; j++)
+                             oe <<  "," << data(i,j);
+                         oe << endl;
+                     }
+                 }
+                 if(dostat)
+                 {
+
+                     recordcov(infpriorstr,isevent, stat.infprior);
+                     recordcov(vaccstring,isevent,stat.vaccstatus);
+                     recordcov(grouplabel(agegroup),isevent,stat.agegroup);
+                 }
+
 
                  if(t2 >= enddate)
                      break;
@@ -1138,10 +1233,15 @@ cout << "id " << id << " infs " << infections.size() << " vaccs " << vaccination
     // add missing people
 
     assert(firstdate >= dateoffirstczsohalfyear);
-    auto czsohalfyear = (firstdate - dateoffirstczsohalfyear) / 366;
 
     if(!testrun)
     {
+
+        auto czsohalfyear = (firstdate - dateoffirstczsohalfyear) / (366 / 2);
+
+        cout << "Adding records from CZSO from " << (czsohalfyear+1)
+             << "th half-year" << endl;
+
         unsigned ng;
         if(ppp.fourages)
             ng = 4;
@@ -1159,18 +1259,6 @@ cout << "id " << id << " infs " << infections.size() << " vaccs " << vaccination
             {
                 if(a >= minage && a <= maxage)
                 {
-                    int n = numpeopleofage(a,m,czsohalfyear)-vs[a];
-                    if(n < 0)
-                    {
-                        cout << "More of gender " << m << " ( " << vs[a]
-                                << ") treated then exist of age " << a << " (" << numpeopleofage(a,m,czsohalfyear)  << endl;
-    //                    cout << "age,men,woman" << endl;
-    //                    for(unsigned i=0; i<=lastage; i++)
-    //                        cerr << i << "," << men[i] << "," << women[i] << endl;
-
-                    }
-                    cout << "Generating " << n << " " << (m ? "men" : "women") << " of age " << a << endl;
-
                     string agelabel;
                     unsigned g;
                     if(ppp.fourages)
@@ -1183,31 +1271,64 @@ cout << "id " << id << " infs " << infections.size() << " vaccs " << vaccination
                         agelabel = age2group(a);
                         g = age2groupnum (a);
                     }
-                    //of course we do note guarantee ids to follow the "true ones". (maybe we should check whether we do not duplicate ids)
 
-                    if(m)
-                        addedmen[g] += n;
-                    else
-                        addedwomen[g] += n;
-
-                    for(int j=0; j<n; j++,i++)
+                    bool dooutput = true;
+                    if(!dostat)
                     {
+                        covstatrecord ar = findcov(agelabel ,stat.agegroup);
+                        if(ar.events == 0)
+                            dooutput = false;
+                    }
+
+                    if(dooutput)
+                    {
+                        int n = numpeopleofage(a,m,czsohalfyear)-vs[a];
+                        if(n < 0)
+                        {
+                            cout << "More of " << (m ? "men" : "women") << " ( " << vs[a]
+                                    << ") treated then exist of age " << a
+                                    << " (" << numpeopleofage(a,m,czsohalfyear) << ")" << endl;
+
+                        }
+                        else
+                        {
+                           cout << "Having " << vs[a] << " " << (m ? "men" : "women") << " of age " << a << ", we add " << n << endl;
+                           if(m)
+                               addedmen[g] += n;
+                            else
+                               addedwomen[g] += n;
+                        }
 
 
-//                        "ID,T1,T2,Infected,Covidproxy,DeadByCovid, DeadByOther,";
-                        o << i << "," << 0 << "," << T << ",";
+                        //of course we do note guarantee ids to follow the "true ones". (maybe we should check whether we do not duplicate ids)
 
-//                             for(unsigned i=0; i<variants.size(); i++)
-//                                 header << variants[i].codeinoutput << "Inf,";
 
-//                        for(unsigned k=0; k<variants.size(); k++)
-//                             o << "0,";
+                        for(int j=0; j<n; j++,i++)
+                        {
+                            if(++outputcounter % ppp.everyn)
+                                continue;
 
-//                         header << "InfPrior,VaccStatus,Age,AgeGr,Sex";
+    //                        "ID,T1,T2,Infected,Covidproxy,DeadByCovid, DeadByOther,";
+                            o << i << "," << 0 << "," << T << ",";
 
-                        o << uninflabel << "," << unvacclabel << "," <<  "0,0,0,0,"
-                          << a << ","
-                          << agelabel << "," << gender2str(m) << endl;
+    //                             for(unsigned i=0; i<variants.size(); i++)
+    //                                 header << variants[i].codeinoutput << "Inf,";
+
+    //                        for(unsigned k=0; k<variants.size(); k++)
+    //                             o << "0,";
+
+    //                         header << "InfPrior,VaccStatus,Age,AgeGr,Sex";
+
+                            o << uninflabel << "," << unvacclabel << "," <<  "0,0,0,0,"
+                              << a << ","
+                              << agelabel << "," << gender2str(m) << endl;
+                            if(dostat)
+                            {
+                                recordcov(uninflabel,0, stat.infprior);
+                                recordcov(unvacclabel,0,stat.vaccstatus);
+                                recordcov(agelabel,0,stat.agegroup);
+                            }
+                         }
                      }
                  }
             }
@@ -1235,7 +1356,7 @@ cout << "id " << id << " infs " << infections.size() << " vaccs " << vaccination
 
 
 
-int _main(int argc, char *argv[], bool compare = false)
+int _main(int argc, char *argv[] /* , bool  compare = false */)
 {
     cout << "version 2.0" << endl;
     cout << "Usage convertool input output firstdate(rrrr-mm-dd) lastdate whattodo(IPR) minage maxage count_every" << endl;
@@ -1283,11 +1404,22 @@ int _main(int argc, char *argv[], bool compare = false)
 
         ppp.firstdatestr = argv[3];
         ppp.lastdatestr = argv[4];
-        ockodata2R(argv[1], argv[2],
+
+        cout << "Input " << argv[1]<< endl;
+        csv<';'> data(argv[1]);
+        covstat stat;
+
+
+        ockodata2R(data, argv[2], true, stat,
                    mode,
                    argc > 6 ? atoi(argv[6]) : 0,
                    argc > 7 ? atoi(argv[7]) : 333,
                    ppp);
+
+        output("infprior",cout,stat.infprior);
+        output("vaccstatus",cout,stat.vaccstatus);
+        output("agegr",cout,stat.agegroup);
+
      }
     return 0;
 
@@ -1305,8 +1437,8 @@ int main(int argc, char *argv[])
         else
         {
             char *as[6] ={"foo",testfilename,"torinternal.csv",
-                          "2020-06-01","2022-06-30","io"};
-            return _main(6,as,false);
+                          "2020-06-01","2022-11-15","io"};
+            return _main(6,as);
         }
     }
     catch (std::exception& e) {

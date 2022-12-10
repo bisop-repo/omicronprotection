@@ -1,7 +1,7 @@
 #ifndef AGES_INC
 #define AGES_INC
 
-static const vector<vector<unsigned>> men = {
+static const vector<vector<unsigned>> menincz = {
 {57478,	56829,	54893,	55992,	57094},
 {58491,	58108,	56740,	55956,	55165},
 {59080,	58855,	57713,	57296,	56883},
@@ -105,7 +105,7 @@ static const vector<vector<unsigned>> men = {
 {198,	226,	90,	96,	104},
 };
 
-static vector<vector<unsigned>> women = {
+static vector<vector<unsigned>> womenincz = {
 {54573,	54222,	52585,	53574,	54565},
 {56014,	55427,	53853,	53353,	52855},
 {56184,	56154,	55344,	54677,	54017},
